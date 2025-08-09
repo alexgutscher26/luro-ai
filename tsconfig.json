@@ -59,5 +59,6 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "src/__tests__/utils/mock-handlers.ts"],
+  "types": ["jest", "@testing-library/jest-dom"]
 }
