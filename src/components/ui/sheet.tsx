@@ -47,10 +47,50 @@ const sheetVariants = cva(
     }
 );
 
+/**
+ * Sheet component props interface
+ * 
+ * Extends Radix UI Sheet Content props with additional variant support
+ * for different slide-in directions and custom styling options.
+ */
 interface SheetContentProps
     extends React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>,
         VariantProps<typeof sheetVariants> {}
 
+/**
+ * Sheet Content Component
+ * 
+ * A slide-out panel component built on Radix UI primitives with
+ * customizable slide directions and styling. Commonly used for
+ * navigation menus, forms, and detailed content views.
+ * 
+ * @param {"left"|"right"|"top"|"bottom"} [side="right"] - Direction from which sheet slides in
+ * @param {string} [className] - Additional CSS classes to apply
+ * @param {React.ReactNode} children - Content to render inside the sheet
+ * @param {React.ComponentPropsWithoutRef<typeof SheetPrimitive.Content>} props - Additional Radix UI props
+ * @param {React.Ref} ref - Forwarded ref to the sheet content element
+ * 
+ * @returns {JSX.Element} Rendered sheet component with overlay and close button
+ * 
+ * @example
+ * // Basic right-side sheet
+ * <Sheet>
+ *   <SheetTrigger>Open Sheet</SheetTrigger>
+ *   <SheetContent>
+ *     <SheetHeader>
+ *       <SheetTitle>Sheet Title</SheetTitle>
+ *     </SheetHeader>
+ *     <p>Sheet content goes here</p>
+ *   </SheetContent>
+ * </Sheet>
+ * 
+ * // Left-side navigation sheet
+ * <SheetContent side="left" className="w-80">
+ *   <nav>Navigation items</nav>
+ * </SheetContent>
+ * 
+ * @since 1.0.0
+ */
 const SheetContent = React.forwardRef<
     React.ElementRef<typeof SheetPrimitive.Content>,
     SheetContentProps
