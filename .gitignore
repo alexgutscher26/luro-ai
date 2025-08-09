@@ -38,3 +38,6 @@ next-env.d.ts
 
 # other
 index.txt
+
+# Husky
+.husky/_

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -29,7 +29,6 @@ import LoadingIcon from "../ui/loading-icon";
 import { OAuthStrategy } from "@clerk/types";
 
 const SignInForm = () => {
-
     const router = useRouter();
 
     const params = useSearchParams();
@@ -61,7 +60,9 @@ const SignInForm = () => {
                 redirectUrlComplete: "/auth/callback",
             });
 
-            toast.loading(`Redirecting to ${strategy === "oauth_google" ? "Google" : "Apple"}...`);
+            toast.loading(
+                `Redirecting to ${strategy === "oauth_google" ? "Google" : "Apple"}...`
+            );
         } catch (error) {
             console.error(error);
             toast.error("An error occurred. Please try again.");
@@ -88,7 +89,7 @@ const SignInForm = () => {
             await signIn.prepareFirstFactor({
                 strategy: "email_code",
                 emailAddressId: signIn.supportedFirstFactors!.find(
-                    (factor) => factor.strategy === "email_code"
+                    factor => factor.strategy === "email_code"
                 )!.emailAddressId,
             });
 
@@ -101,12 +102,13 @@ const SignInForm = () => {
             //     console.error(JSON.stringify(signInAttempt, null, 2));
             //     toast.error("Invalid email. Please try again.");
             // }
-
         } catch (error: any) {
             console.error(JSON.stringify(error, null, 2));
             switch (error.errors[0]?.code) {
                 case "form_identifier_not_found":
-                    toast.error("This email is not registered. Please sign up first.");
+                    toast.error(
+                        "This email is not registered. Please sign up first."
+                    );
                     router.push("/auth/signup?from=signin");
                     break;
                 case "too_many_attempts":
@@ -138,7 +140,6 @@ const SignInForm = () => {
         setIsCodeLoading(true);
 
         try {
-
             const signInAttempt = await signIn.attemptFirstFactor({
                 strategy: "email_code",
                 code,
@@ -151,7 +152,6 @@ const SignInForm = () => {
                 console.error(JSON.stringify(signInAttempt, null, 2));
                 toast.error("Invalid code. Please try again.");
             }
-
         } catch (error: any) {
             console.error(JSON.stringify(error, null, 2));
             switch (error.errors[0]?.code) {
@@ -159,7 +159,9 @@ const SignInForm = () => {
                     toast.error("Incorrect code. Please enter valid code.");
                     break;
                 case "verification_failed":
-                    toast.error("Verification failed. Please try after some time.");
+                    toast.error(
+                        "Verification failed. Please try after some time."
+                    );
                     break;
                 case "too_many_attempts":
                     toast.error("Too many attempts. Please try again later.");
@@ -199,15 +201,15 @@ const SignInForm = () => {
                     {isEmailOpen
                         ? "Login to Luro"
                         : isCodeSent
-                            ? "Verify your email"
-                            : "Welcome to Luro"}
+                          ? "Verify your email"
+                          : "Welcome to Luro"}
                 </h1>
                 <p className="text-sm text-muted-foreground mt-2">
                     {isEmailOpen
                         ? "Choose a method to login"
                         : isCodeSent
-                            ? "Please check your inbox for verification code"
-                            : "Enter your email address to get started"}
+                          ? "Please check your inbox for verification code"
+                          : "Enter your email address to get started"}
                 </p>
             </motion.div>
             {isEmailOpen ? (
@@ -222,13 +224,20 @@ const SignInForm = () => {
                             <Button
                                 size="lg"
                                 type="button"
-                                disabled={isGoogleLoading || isAppleLoading || isEmailLoading}
+                                disabled={
+                                    isGoogleLoading ||
+                                    isAppleLoading ||
+                                    isEmailLoading
+                                }
                                 onClick={() => handleOAuth("oauth_google")}
                                 variant="tertiary"
                                 className="w-full"
                             >
                                 {isGoogleLoading ? (
-                                    <LoadingIcon size="sm" className="w-4 h-4 absolute left-4" />
+                                    <LoadingIcon
+                                        size="sm"
+                                        className="w-4 h-4 absolute left-4"
+                                    />
                                 ) : (
                                     <Icons.google className="w-4 h-4 absolute left-4" />
                                 )}
@@ -239,12 +248,23 @@ const SignInForm = () => {
                             <Button
                                 size="lg"
                                 type="button"
-                                disabled={isGoogleLoading || isAppleLoading || isEmailLoading}
+                                disabled={
+                                    isGoogleLoading ||
+                                    isAppleLoading ||
+                                    isEmailLoading
+                                }
                                 onClick={() => handleOAuth("oauth_apple")}
                                 variant="tertiary"
                                 className="w-full"
                             >
-                                {isAppleLoading ? <LoadingIcon size="sm" className="w-4 h-4 absolute left-4" /> : <Icons.apple className="w-4 h-4 absolute left-4" />}
+                                {isAppleLoading ? (
+                                    <LoadingIcon
+                                        size="sm"
+                                        className="w-4 h-4 absolute left-4"
+                                    />
+                                ) : (
+                                    <Icons.apple className="w-4 h-4 absolute left-4" />
+                                )}
                                 Continue with Apple
                             </Button>
                         </div>
@@ -253,7 +273,11 @@ const SignInForm = () => {
                                 size="lg"
                                 type="button"
                                 variant="tertiary"
-                                disabled={isGoogleLoading || isAppleLoading || isEmailLoading}
+                                disabled={
+                                    isGoogleLoading ||
+                                    isAppleLoading ||
+                                    isEmailLoading
+                                }
                                 onClick={() => setIsEmailOpen(false)}
                                 className="w-full"
                             >
@@ -282,7 +306,7 @@ const SignInForm = () => {
                                         value={code}
                                         maxLength={6}
                                         disabled={isCodeLoading}
-                                        onChange={(e) => setCode(e.target.value)}
+                                        onChange={e => setCode(e.target.value)}
                                         placeholder="Enter the verification code"
                                         className="w-full"
                                     />
@@ -293,7 +317,14 @@ const SignInForm = () => {
                                         disabled={isCodeLoading}
                                         className="w-full"
                                     >
-                                        {isCodeLoading ? <LoadingIcon size="sm" className="mr-2" /> : "Verify code"}
+                                        {isCodeLoading ? (
+                                            <LoadingIcon
+                                                size="sm"
+                                                className="mr-2"
+                                            />
+                                        ) : (
+                                            "Verify code"
+                                        )}
                                     </Button>
                                 </div>
                                 <div className="w-full flex items-center gap-2">
@@ -304,7 +335,10 @@ const SignInForm = () => {
                                         variant="tertiary"
                                         className="w-full"
                                     >
-                                        <Link href="https://mail.google.com" target="_blank">
+                                        <Link
+                                            href="https://mail.google.com"
+                                            target="_blank"
+                                        >
                                             <Icons.gmail className="w-4 h-4 mr-2" />
                                             Gmail
                                         </Link>
@@ -316,7 +350,10 @@ const SignInForm = () => {
                                         variant="tertiary"
                                         className="w-full"
                                     >
-                                        <Link href="https://outlook.live.com" target="_blank">
+                                        <Link
+                                            href="https://outlook.live.com"
+                                            target="_blank"
+                                        >
                                             <Icons.outlook className="w-4 h-4 mr-2" />
                                             Outlook
                                         </Link>
@@ -340,7 +377,7 @@ const SignInForm = () => {
                                         type="email"
                                         value={email}
                                         disabled={isEmailLoading}
-                                        onChange={(e) => setEmail(e.target.value)}
+                                        onChange={e => setEmail(e.target.value)}
                                         placeholder="Enter your email address"
                                         className="w-full"
                                     />
@@ -351,7 +388,14 @@ const SignInForm = () => {
                                         disabled={isEmailLoading}
                                         className="w-full"
                                     >
-                                        {isEmailLoading ? <LoadingIcon size="sm" className="mr-2" /> : "Continue"}
+                                        {isEmailLoading ? (
+                                            <LoadingIcon
+                                                size="sm"
+                                                className="mr-2"
+                                            />
+                                        ) : (
+                                            "Continue"
+                                        )}
                                     </Button>
                                 </div>
                                 <div className="w-full">
@@ -372,7 +416,7 @@ const SignInForm = () => {
                 </div>
             )}
         </div>
-    )
+    );
 };
 
-export default SignInForm
+export default SignInForm;

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
@@ -28,9 +28,7 @@ import { toast } from "sonner";
 import LoadingIcon from "../ui/loading-icon";
 import { OAuthStrategy } from "@clerk/types";
 
-
 const SignUpForm = () => {
-
     const router = useRouter();
 
     const params = useSearchParams();
@@ -64,7 +62,9 @@ const SignUpForm = () => {
                 redirectUrlComplete: "/auth/callback",
             });
 
-            toast.loading(`Redirecting to ${strategy === "oauth_google" ? "Google" : "Apple"}...`);
+            toast.loading(
+                `Redirecting to ${strategy === "oauth_google" ? "Google" : "Apple"}...`
+            );
         } catch (error) {
             console.error(error);
             toast.error("An error occurred. Please try again.");
@@ -84,7 +84,6 @@ const SignUpForm = () => {
         setIsEmailLoading(true);
 
         try {
-
             await signUp.create({
                 emailAddress: email,
             });
@@ -99,17 +98,25 @@ const SignUpForm = () => {
         } catch (error: any) {
             switch (error.errors[0]?.code) {
                 case "form_identifier_exists":
-                    toast.error("This email is already registered. Please sign in.");
+                    toast.error(
+                        "This email is already registered. Please sign in."
+                    );
                     router.push("/auth/signin?from=signup");
                     break;
                 case "form_password_pwned":
-                    toast.error("The password is too common. Please choose a stronger password.");
+                    toast.error(
+                        "The password is too common. Please choose a stronger password."
+                    );
                     break;
                 case "form_param_format_invalid":
-                    toast.error("Invalid email address. Please enter a valid email address.");
+                    toast.error(
+                        "Invalid email address. Please enter a valid email address."
+                    );
                     break;
                 case "form_password_length_too_short":
-                    toast.error("Password is too short. Please choose a longer password.");
+                    toast.error(
+                        "Password is too short. Please choose a longer password."
+                    );
                     break;
                 default:
                     toast.error("An error occurred. Please try again");
@@ -137,9 +144,11 @@ const SignUpForm = () => {
         setIsCodeLoading(true);
 
         try {
-            const completeSignup = await signUp.attemptEmailAddressVerification({
-                code,
-            });
+            const completeSignup = await signUp.attemptEmailAddressVerification(
+                {
+                    code,
+                }
+            );
 
             if (completeSignup.status === "complete") {
                 await setActive({ session: completeSignup.createdSessionId });
@@ -166,7 +175,6 @@ const SignUpForm = () => {
         }
     }, []);
 
-
     return (
         <div className="flex flex-col text-center w-full">
             <motion.div
@@ -182,15 +190,16 @@ const SignUpForm = () => {
                 <h1 className="text-2xl text-center mt-4">
                     {isEmailOpen
                         ? "Create your account"
-                        : isCodeSent ? "Check your email"
-                            : "Enter your email"}
+                        : isCodeSent
+                          ? "Check your email"
+                          : "Enter your email"}
                 </h1>
                 <p className="text-sm text-muted-foreground mt-2">
                     {isEmailOpen
                         ? "Create an account to start using luro"
                         : isCodeSent
-                            ? "Please check your inbox for verification code"
-                            : "Enter your email address to get started"}
+                          ? "Please check your inbox for verification code"
+                          : "Enter your email address to get started"}
                 </p>
             </motion.div>
             {isEmailOpen ? (
@@ -210,7 +219,14 @@ const SignUpForm = () => {
                                 onClick={() => handleOAuth("oauth_google")}
                                 className="w-full"
                             >
-                                {isGoogleLoading ? <LoadingIcon size="sm" className="w-4 h-4 absolute left-4" /> : <Icons.google className="w-4 h-4 absolute left-4" />}
+                                {isGoogleLoading ? (
+                                    <LoadingIcon
+                                        size="sm"
+                                        className="w-4 h-4 absolute left-4"
+                                    />
+                                ) : (
+                                    <Icons.google className="w-4 h-4 absolute left-4" />
+                                )}
                                 Continue with Google
                             </Button>
                         </div>
@@ -223,7 +239,14 @@ const SignUpForm = () => {
                                 onClick={() => handleOAuth("oauth_apple")}
                                 className="w-full"
                             >
-                                {isAppleLoading ? <LoadingIcon size="sm" className="w-4 h-4 absolute left-4" /> : <Icons.apple className="w-4 h-4 absolute left-4" />}
+                                {isAppleLoading ? (
+                                    <LoadingIcon
+                                        size="sm"
+                                        className="w-4 h-4 absolute left-4"
+                                    />
+                                ) : (
+                                    <Icons.apple className="w-4 h-4 absolute left-4" />
+                                )}
                                 Continue with Apple
                             </Button>
                         </div>
@@ -241,7 +264,13 @@ const SignUpForm = () => {
                             </Button>
                         </div>
                         <div className="pt-12 text-muted-foreground text-sm">
-                            <span>Already have an account?</span> <Link href="/auth/signin" className="text-foreground">Login</Link>
+                            <span>Already have an account?</span>{" "}
+                            <Link
+                                href="/auth/signin"
+                                className="text-foreground"
+                            >
+                                Login
+                            </Link>
                         </div>
                     </motion.div>
                 </div>
@@ -263,7 +292,7 @@ const SignUpForm = () => {
                                         type="code"
                                         value={code}
                                         disabled={isCodeLoading}
-                                        onChange={(e) => setCode(e.target.value)}
+                                        onChange={e => setCode(e.target.value)}
                                         placeholder="Enter the verification code"
                                         className="w-full"
                                     />
@@ -274,7 +303,14 @@ const SignUpForm = () => {
                                         disabled={isCodeLoading}
                                         className="w-full"
                                     >
-                                        {isCodeLoading ? <LoadingIcon size="sm" className="mr-2" /> : "Verify code"}
+                                        {isCodeLoading ? (
+                                            <LoadingIcon
+                                                size="sm"
+                                                className="mr-2"
+                                            />
+                                        ) : (
+                                            "Verify code"
+                                        )}
                                     </Button>
                                 </div>
                                 <div className="w-full flex items-center gap-2">
@@ -285,7 +321,10 @@ const SignUpForm = () => {
                                         variant="tertiary"
                                         className="w-full"
                                     >
-                                        <Link href="https://mail.google.com" target="_blank">
+                                        <Link
+                                            href="https://mail.google.com"
+                                            target="_blank"
+                                        >
                                             Open gmail
                                         </Link>
                                     </Button>
@@ -296,7 +335,10 @@ const SignUpForm = () => {
                                         variant="tertiary"
                                         className="w-full"
                                     >
-                                        <Link href="https://outlook.live.com" target="_blank">
+                                        <Link
+                                            href="https://outlook.live.com"
+                                            target="_blank"
+                                        >
                                             Open outlook
                                         </Link>
                                     </Button>
@@ -319,7 +361,7 @@ const SignUpForm = () => {
                                         type="email"
                                         value={email}
                                         disabled={isEmailLoading}
-                                        onChange={(e) => setEmail(e.target.value)}
+                                        onChange={e => setEmail(e.target.value)}
                                         placeholder="Enter your email address"
                                         className="w-full"
                                     />
@@ -330,7 +372,14 @@ const SignUpForm = () => {
                                         disabled={isEmailLoading}
                                         className="w-full"
                                     >
-                                        {isEmailLoading ? <LoadingIcon size="sm" className="mr-2" /> : "Continue"}
+                                        {isEmailLoading ? (
+                                            <LoadingIcon
+                                                size="sm"
+                                                className="mr-2"
+                                            />
+                                        ) : (
+                                            "Continue"
+                                        )}
                                     </Button>
                                 </div>
                                 <div className="w-full">
@@ -351,7 +400,7 @@ const SignUpForm = () => {
                 </div>
             )}
         </div>
-    )
+    );
 };
 
-export default SignUpForm
+export default SignUpForm;

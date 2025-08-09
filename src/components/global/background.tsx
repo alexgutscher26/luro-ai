@@ -1,13 +1,12 @@
-import React from 'react';
+import React from "react";
 
 interface Props {
-    children: React.ReactNode
+    children: React.ReactNode;
 }
 
 const Background = ({ children }: Props) => {
     return (
-        <main id='background' className="flex-none min-h-scree -z-10">
-
+        <main id="background" className="flex-none min-h-scree -z-10">
             {/* <div className="absolute h-full inset-0 bg-dot-foreground/[0.2] hidden lg:flex"></div> */}
 
             {/* <div className="absolute h-full pointer-events-none inset-0 hidden lg:flex items-center justify-center bg-black [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]"></div> */}
@@ -21,7 +20,7 @@ const Background = ({ children }: Props) => {
             {/* <div className="absolute z-[20] inset-0 items-center justify-center bg-background [mask-image:radial-gradient(ellipse_at_center,transparent_5%,black)] hidden lg:flex"></div> */}
             {/* <div className="h-[50rem] w-full bg-background bg-dot-white/[0.2] relative flex items-center justify-center"></div> */}
         </main>
-    )
+    );
 };
 
-export default Background
+export default Background;

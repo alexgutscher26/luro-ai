@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 
 interface Props {
     title: string;
@@ -17,5 +17,5 @@ export const SectionBadge = ({ title }: Props) => {
                 {title}
             </div>
         </div>
-    )
+    );
 };

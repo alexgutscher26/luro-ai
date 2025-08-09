@@ -13,7 +13,8 @@ const Connect = () => {
                         Seamless Integration with your favorite tools
                     </h2>
                     <p className="text-base md:text-lg text-center text-accent-foreground/80 mt-6">
-                        We support a wide range of integrations to help you connect your favorite tools with our platform
+                        We support a wide range of integrations to help you
+                        connect your favorite tools with our platform
                     </p>
                 </div>
             </Container>
@@ -30,7 +31,7 @@ const Connect = () => {
                 </div>
             </Container>
         </div>
-    )
+    );
 };
 
-export default Connect
+export default Connect;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { cn } from "@/functions";
 
 interface Props {
@@ -10,7 +10,10 @@ const MenuIcon = ({ isOpen, onClick }: Props) => {
     return (
         <button
             onClick={onClick}
-            className={cn("relative z-40 w-8 h-8 p-2 flex flex-col justify-center gap-1.5 hover:bg-muted rounded-md items-center lg:hidden", "focus:outline-none")}
+            className={cn(
+                "relative z-40 w-8 h-8 p-2 flex flex-col justify-center gap-1.5 hover:bg-muted rounded-md items-center lg:hidden",
+                "focus:outline-none"
+            )}
         >
             <span
                 className={cn(

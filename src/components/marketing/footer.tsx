@@ -21,17 +21,13 @@ const Footer = () => {
                     <div className="flex flex-col items-start max-w-48">
                         <div className="flex items-center gap-2">
                             <Icons.icon className="w-5 h-5" />
-                            <span className="text-xl font-medium">
-                                Luro
-                            </span>
+                            <span className="text-xl font-medium">Luro</span>
                         </div>
                         <p className="text-base max-w mt-4">
                             Empower your business with our AI tools.
                         </p>
                         <Button className="mt-8">
-                            <Link href="/app">
-                                Start for free
-                            </Link>
+                            <Link href="/app">Start for free</Link>
                         </Button>
                     </div>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-lg mt-10 md:mt-0">
@@ -42,8 +38,14 @@ const Footer = () => {
                                 </h4>
                                 <ul className="space-y-4 w-full">
                                     {section.links.map((link, index) => (
-                                        <li key={index} className="text-sm text-muted-foreground hover:text-foreground transition-all w-full">
-                                            <Link href={link.href} className="w-full">
+                                        <li
+                                            key={index}
+                                            className="text-sm text-muted-foreground hover:text-foreground transition-all w-full"
+                                        >
+                                            <Link
+                                                href={link.href}
+                                                className="w-full"
+                                            >
                                                 {link.name}
                                             </Link>
                                         </li>
@@ -57,7 +59,8 @@ const Footer = () => {
             <Container>
                 <Wrapper className="pt-10 flex items-center justify-between relative">
                     <p className="text-sm text-secondary-foreground">
-                        &copy; {new Date().getFullYear()} Luro. All rights reserved.
+                        &copy; {new Date().getFullYear()} Luro. All rights
+                        reserved.
                     </p>
                     <div className="flex items-center gap-4">
                         <Link href="#" className="p-1">
@@ -73,7 +76,7 @@ const Footer = () => {
                 </Wrapper>
             </Container>
         </footer>
-    )
+    );
 };
 
-export default Footer
+export default Footer;

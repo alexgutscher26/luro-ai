@@ -10,7 +10,7 @@ const SignInPage = () => {
                 </Suspense>
             </div>
         </div>
-    )
+    );
 };
 
-export default SignInPage
+export default SignInPage;

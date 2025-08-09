@@ -1,9 +1,9 @@
 import { Particles } from "@/components/ui/particles";
 import Image from "next/image";
-import React from 'react';
+import React from "react";
 
 interface Props {
-    children: React.ReactNode
+    children: React.ReactNode;
 }
 
 const AuthLayout = ({ children }: Props) => {
@@ -31,4 +31,4 @@ const AuthLayout = ({ children }: Props) => {
     );
 };
 
-export default AuthLayout
+export default AuthLayout;

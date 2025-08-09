@@ -25,13 +25,13 @@ export const generateMetadata = ({
             rel: "icon",
             type: "image/png",
             sizes: "32x32",
-            url: "/icons/favicon-32x32.png"
+            url: "/icons/favicon-32x32.png",
         },
         {
             rel: "icon",
             type: "image/png",
             sizes: "16x16",
-            url: "/icons/favicon-16x16.png"
+            url: "/icons/favicon-16x16.png",
         },
     ],
     noIndex = false,
@@ -41,7 +41,7 @@ export const generateMetadata = ({
         "AI writing assistant",
         "content generation",
         "artificial intelligence",
-        "content marketing"
+        "content marketing",
     ],
     author = process.env.NEXT_PUBLIC_AUTHOR_NAME,
     twitterHandle = "@yourtwitterhandle",
@@ -49,16 +49,18 @@ export const generateMetadata = ({
     locale = "en_US",
     alternates = {},
     publishedTime,
-    modifiedTime
+    modifiedTime,
 }: MetadataProps = {}): Metadata => {
-    const metadataBase = new URL(process.env.NEXT_PUBLIC_APP_URL || "https://luro-ai.vercel.app");
+    const metadataBase = new URL(
+        process.env.NEXT_PUBLIC_APP_URL || "https://luro-ai.vercel.app"
+    );
     const imageUrl = image ? new URL(image, metadataBase).toString() : null;
 
     return {
         metadataBase,
         title: {
             template: `%s | ${process.env.NEXT_PUBLIC_APP_NAME}`,
-            default: title
+            default: title,
         },
         description,
         keywords,
@@ -79,17 +81,19 @@ export const generateMetadata = ({
             title,
             description,
             ...(imageUrl && {
-                images: [{
-                    url: imageUrl,
-                    width: 1200,
-                    height: 630,
-                    alt: title
-                }]
+                images: [
+                    {
+                        url: imageUrl,
+                        width: 1200,
+                        height: 630,
+                        alt: title,
+                    },
+                ],
             }),
             locale,
             alternateLocale: Object.keys(alternates),
             ...(publishedTime && { publishedTime }),
-            ...(modifiedTime && { modifiedTime })
+            ...(modifiedTime && { modifiedTime }),
         },
 
         // Twitter
@@ -99,7 +103,7 @@ export const generateMetadata = ({
             creator: twitterHandle,
             title,
             description,
-            ...(imageUrl && { images: [imageUrl] })
+            ...(imageUrl && { images: [imageUrl] }),
         },
 
         // Robots
@@ -109,9 +113,9 @@ export const generateMetadata = ({
             googleBot: {
                 index: !noIndex,
                 follow: !noIndex,
-                'max-video-preview': -1,
-                'max-image-preview': 'large',
-                'max-snippet': -1,
+                "max-video-preview": -1,
+                "max-image-preview": "large",
+                "max-snippet": -1,
             },
         },
 

@@ -1,5 +1,5 @@
 import { cn } from "@/functions";
-import React from 'react';
+import React from "react";
 
 interface Props {
     size?: "sm" | "md" | "lg";
@@ -17,7 +17,7 @@ const LoadingIcon = ({ size = "sm", className }: Props) => {
                 className
             )}
         />
-    )
+    );
 };
 
-export default LoadingIcon
+export default LoadingIcon;

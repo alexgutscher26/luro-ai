@@ -17,7 +17,8 @@ const Reviews = () => {
                         What our customers say
                     </h2>
                     <p className="text-base md:text-lg text-center text-accent-foreground/80 mt-6">
-                        We are proud to have helped thousands of customers across the globe. Here are some of their stories
+                        We are proud to have helped thousands of customers
+                        across the globe. Here are some of their stories
                     </p>
                 </div>
             </Container>
@@ -25,12 +26,16 @@ const Reviews = () => {
                 <div className="mt-16 w-full relative overflow-hidden">
                     <div className="relative flex flex-col items-center justify-center overflow-hidden">
                         <Marquee pauseOnHover className="[--duration:30s]">
-                            {firstRow.map((review) => (
+                            {firstRow.map(review => (
                                 <ReviewCard key={review.username} {...review} />
                             ))}
                         </Marquee>
-                        <Marquee pauseOnHover reverse className="[--duration:30s]">
-                            {secondRow.map((review) => (
+                        <Marquee
+                            pauseOnHover
+                            reverse
+                            className="[--duration:30s]"
+                        >
+                            {secondRow.map(review => (
                                 <ReviewCard key={review.username} {...review} />
                             ))}
                         </Marquee>
@@ -42,7 +47,7 @@ const Reviews = () => {
                 </div>
             </Container>
         </div>
-    )
+    );
 };
 
 const ReviewCard = ({
@@ -59,12 +64,20 @@ const ReviewCard = ({
     return (
         <figure className="relative w-64 cursor-pointer overflow-hidden rounded-xl border border-foreground/5 bg-neutral-50/[.05] hover:bg-foreground/10 p-4 transition-all duration-300 ease-in-out">
             <div className="flex flex-row items-center gap-2">
-                <Image className="rounded-full" width="32" height="32" alt="" src={img} />
+                <Image
+                    className="rounded-full"
+                    width="32"
+                    height="32"
+                    alt=""
+                    src={img}
+                />
                 <div className="flex flex-col">
                     <figcaption className="text-sm font-medium text-foreground">
                         {name}
                     </figcaption>
-                    <p className="text-xs font-medium text-foreground/40">{username}</p>
+                    <p className="text-xs font-medium text-foreground/40">
+                        {username}
+                    </p>
                 </div>
             </div>
             <blockquote className="mt-2 text-sm">{review}</blockquote>
@@ -72,4 +85,4 @@ const ReviewCard = ({
     );
 };
 
-export default Reviews
+export default Reviews;

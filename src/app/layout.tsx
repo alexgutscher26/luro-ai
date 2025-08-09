@@ -17,18 +17,12 @@ export default function RootLayout({
                 className={cn(
                     "min-h-screen bg-background text-foreground antialiased font-default overflow-x-hidden !scrollbar-hide",
                     inter.variable,
-                    satoshi.variable,
+                    satoshi.variable
                 )}
             >
-                <Toaster
-                    richColors
-                    theme="dark"
-                    position="top-right"
-                />
-                <Providers>
-                    {children}
-                </Providers>
+                <Toaster richColors theme="dark" position="top-right" />
+                <Providers>{children}</Providers>
             </body>
         </html>
     );
-};
+}

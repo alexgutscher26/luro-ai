@@ -13,7 +13,12 @@ interface BlurIntProps {
     duration?: number;
 }
 
-export const BlurText = ({ word, className, variant, duration = 1 }: BlurIntProps) => {
+export const BlurText = ({
+    word,
+    className,
+    variant,
+    duration = 1,
+}: BlurIntProps) => {
     const defaultVariants = {
         hidden: { filter: "blur(10px)", opacity: 0, y: -20 },
         visible: { filter: "blur(0px)", opacity: 1, y: 0 },
@@ -21,11 +26,13 @@ export const BlurText = ({ word, className, variant, duration = 1 }: BlurIntProp
     const combinedVariants = variant || defaultVariants;
 
     const renderWord = () => {
-        if (typeof word === 'string') {
-            return word.split('\n').map((line, index) => (
+        if (typeof word === "string") {
+            return word.split("\n").map((line, index) => (
                 <span key={index}>
                     {line}
-                    {index < word.split('\n').length - 1 && <br className="hidden md:block" />}
+                    {index < word.split("\n").length - 1 && (
+                        <br className="hidden md:block" />
+                    )}
                 </span>
             ));
         }
@@ -40,7 +47,7 @@ export const BlurText = ({ word, className, variant, duration = 1 }: BlurIntProp
             variants={combinedVariants}
             className={cn(
                 className,
-                "text-center tracking-[-0.02em] drop-shadow-sm",
+                "text-center tracking-[-0.02em] drop-shadow-sm"
             )}
         >
             {renderWord()}

@@ -15,8 +15,7 @@ const Hero = () => {
                         <div className="w-2.5 h-2.5 rounded-full bg-primary/60 flex items-center justify-center animate-ping">
                             <div className="w-2.5 h-2.5 rounded-full bg-primary/60 flex items-center justify-center animate-ping"></div>
                         </div>
-                        <div className="w-1.5 h-1.5 rounded-full bg-primary flex items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                        </div>
+                        <div className="w-1.5 h-1.5 rounded-full bg-primary flex items-center justify-center absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
                     </div>
                     <span className="inline-flex items-center justify-center gap-2 animate-text-gradient animate-background-shine bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-sm text-transparent">
                         Build for the future
@@ -33,20 +32,26 @@ const Hero = () => {
             />
             <Container delay={0.1}>
                 <p className="text-sm sm:text-base lg:text-lg mt-4 text-accent-foreground/60 max-w-2xl mx-auto">
-                    Elevate your social media presense with AI-powered content creation and scheduling. <span className="hidden sm:inline">Luro is the all-in-one solution for your social media marketing needs.</span>
+                    Elevate your social media presense with AI-powered content
+                    creation and scheduling.{" "}
+                    <span className="hidden sm:inline">
+                        Luro is the all-in-one solution for your social media
+                        marketing needs.
+                    </span>
                 </p>
             </Container>
             <Container delay={0.2}>
                 <div className="flex items-center justify-center md:gap-x-6 mt-8">
                     <Button asChild size="lg">
-                        <Link href="/app">
-                            Start for free
-                        </Link>
+                        <Link href="/app">Start for free</Link>
                     </Button>
-                    <Button asChild size="lg" variant="outline" className="hidden md:flex">
-                        <Link href="#">
-                            How it works
-                        </Link>
+                    <Button
+                        asChild
+                        size="lg"
+                        variant="outline"
+                        className="hidden md:flex"
+                    >
+                        <Link href="#">How it works</Link>
                     </Button>
                 </div>
             </Container>
@@ -66,7 +71,7 @@ const Hero = () => {
                 </div>
             </Container>
         </div>
-    )
+    );
 };
 
-export default Hero
+export default Hero;

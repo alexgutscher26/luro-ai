@@ -45,7 +45,7 @@ function hexToRgb(hex: string): number[] {
     if (hex.length === 3) {
         hex = hex
             .split("")
-            .map((char) => char + char)
+            .map(char => char + char)
             .join("");
     }
 
@@ -130,7 +130,11 @@ export const Particles: React.FC<ParticlesProps> = ({
     };
 
     const resizeCanvas = () => {
-        if (canvasContainerRef.current && canvasRef.current && context.current) {
+        if (
+            canvasContainerRef.current &&
+            canvasRef.current &&
+            context.current
+        ) {
             circles.current.length = 0;
             canvasSize.current.w = canvasContainerRef.current.offsetWidth;
             canvasSize.current.h = canvasContainerRef.current.offsetHeight;
@@ -191,7 +195,7 @@ export const Particles: React.FC<ParticlesProps> = ({
                 0,
                 0,
                 canvasSize.current.w,
-                canvasSize.current.h,
+                canvasSize.current.h
             );
         }
     };
@@ -210,7 +214,7 @@ export const Particles: React.FC<ParticlesProps> = ({
         start1: number,
         end1: number,
         start2: number,
-        end2: number,
+        end2: number
     ): number => {
         const remapped =
             ((value - start1) * (end2 - start2)) / (end1 - start1) + start2;
@@ -223,13 +227,19 @@ export const Particles: React.FC<ParticlesProps> = ({
             // Handle the alpha value
             const edge = [
                 circle.x + circle.translateX - circle.size, // distance from left edge
-                canvasSize.current.w - circle.x - circle.translateX - circle.size, // distance from right edge
+                canvasSize.current.w -
+                    circle.x -
+                    circle.translateX -
+                    circle.size, // distance from right edge
                 circle.y + circle.translateY - circle.size, // distance from top edge
-                canvasSize.current.h - circle.y - circle.translateY - circle.size, // distance from bottom edge
+                canvasSize.current.h -
+                    circle.y -
+                    circle.translateY -
+                    circle.size, // distance from bottom edge
             ];
             const closestEdge = edge.reduce((a, b) => Math.min(a, b));
             const remapClosestEdge = parseFloat(
-                remapValue(closestEdge, 0, 20, 0, 1).toFixed(2),
+                remapValue(closestEdge, 0, 20, 0, 1).toFixed(2)
             );
             if (remapClosestEdge > 1) {
                 circle.alpha += 0.02;
@@ -242,10 +252,12 @@ export const Particles: React.FC<ParticlesProps> = ({
             circle.x += circle.dx + vx;
             circle.y += circle.dy + vy;
             circle.translateX +=
-                (mouse.current.x / (staticity / circle.magnetism) - circle.translateX) /
+                (mouse.current.x / (staticity / circle.magnetism) -
+                    circle.translateX) /
                 ease;
             circle.translateY +=
-                (mouse.current.y / (staticity / circle.magnetism) - circle.translateY) /
+                (mouse.current.y / (staticity / circle.magnetism) -
+                    circle.translateY) /
                 ease;
 
             drawCircle(circle, true);
@@ -274,4 +286,3 @@ export const Particles: React.FC<ParticlesProps> = ({
         </div>
     );
 };
-

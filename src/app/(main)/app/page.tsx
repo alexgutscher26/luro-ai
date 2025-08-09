@@ -1,13 +1,13 @@
-"use client"
+"use client";
 
-import React from 'react'
+import React from "react";
 import { ArrowDownIcon, MessageSquareIcon } from "lucide-react";
 import { ArrowUpIcon, BarChart3Icon, Share2Icon } from "lucide-react";
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { UsersIcon } from "lucide-react";
 // import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
-import { Area, AreaChart, CartesianGrid, XAxis } from "recharts"
+import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 import { ANALYTICS_DATA, RECENT_SALES } from "@/constants/dashboard";
 
 import {
@@ -15,7 +15,7 @@ import {
     ChartContainer,
     ChartTooltip,
     ChartTooltipContent,
-} from "@/components/ui/chart"
+} from "@/components/ui/chart";
 import { Container } from "@/components";
 
 const chartConfig = {
@@ -27,19 +27,20 @@ const chartConfig = {
         label: "Engagement",
         color: "hsl(var(--chart-2))",
     },
-} satisfies ChartConfig
+} satisfies ChartConfig;
 
 const Page = () => {
     return (
         <div className="p-4 w-full">
             <div className="flex flex-col w-full">
-
                 {/* Dashboard Cards */}
                 <div className="mt-4 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
                     <Container>
                         <Card>
                             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium">Total Reach</CardTitle>
+                                <CardTitle className="text-sm font-medium">
+                                    Total Reach
+                                </CardTitle>
                                 <UsersIcon className="h-4 w-4 text-muted-foreground" />
                             </CardHeader>
                             <CardContent>
@@ -54,7 +55,9 @@ const Page = () => {
                     <Container delay={0.1}>
                         <Card>
                             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium">Engagement Rate</CardTitle>
+                                <CardTitle className="text-sm font-medium">
+                                    Engagement Rate
+                                </CardTitle>
                                 <Share2Icon className="h-4 w-4 text-muted-foreground" />
                             </CardHeader>
                             <CardContent>
@@ -69,7 +72,9 @@ const Page = () => {
                     <Container delay={0.2}>
                         <Card>
                             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium">Active Campaigns</CardTitle>
+                                <CardTitle className="text-sm font-medium">
+                                    Active Campaigns
+                                </CardTitle>
                                 <BarChart3Icon className="h-4 w-4 text-muted-foreground" />
                             </CardHeader>
                             <CardContent>
@@ -84,7 +89,9 @@ const Page = () => {
                     <Container delay={0.3}>
                         <Card>
                             <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
-                                <CardTitle className="text-sm font-medium">Total Posts</CardTitle>
+                                <CardTitle className="text-sm font-medium">
+                                    Total Posts
+                                </CardTitle>
                                 <MessageSquareIcon className="h-4 w-4 text-muted-foreground" />
                             </CardHeader>
                             <CardContent>
@@ -121,11 +128,22 @@ const Page = () => {
                                             tickLine={false}
                                             axisLine={false}
                                             tickMargin={8}
-                                            tickFormatter={(value) => value.slice(0, 3)}
+                                            tickFormatter={value =>
+                                                value.slice(0, 3)
+                                            }
                                         />
-                                        <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+                                        <ChartTooltip
+                                            cursor={false}
+                                            content={<ChartTooltipContent />}
+                                        />
                                         <defs>
-                                            <linearGradient id="fillReach" x1="0" y1="0" x2="0" y2="1">
+                                            <linearGradient
+                                                id="fillReach"
+                                                x1="0"
+                                                y1="0"
+                                                x2="0"
+                                                y2="1"
+                                            >
                                                 <stop
                                                     offset="5%"
                                                     stopColor="hsl(var(--chart-1))"
@@ -137,7 +155,13 @@ const Page = () => {
                                                     stopOpacity={0.1}
                                                 />
                                             </linearGradient>
-                                            <linearGradient id="fillEngagement" x1="0" y1="0" x2="0" y2="1">
+                                            <linearGradient
+                                                id="fillEngagement"
+                                                x1="0"
+                                                y1="0"
+                                                x2="0"
+                                                y2="1"
+                                            >
                                                 <stop
                                                     offset="5%"
                                                     stopColor="hsl(var(--chart-2))"
@@ -183,13 +207,22 @@ const Page = () => {
                             </CardHeader>
                             <CardContent>
                                 <div className="space-y-8">
-                                    {RECENT_SALES.map((sale) => (
-                                        <div key={sale.email} className="flex items-center">
+                                    {RECENT_SALES.map(sale => (
+                                        <div
+                                            key={sale.email}
+                                            className="flex items-center"
+                                        >
                                             <div className="space-y-1">
-                                                <p className="text-sm font-medium leading-none">{sale.name}</p>
-                                                <p className="text-sm text-muted-foreground">{sale.email}</p>
+                                                <p className="text-sm font-medium leading-none">
+                                                    {sale.name}
+                                                </p>
+                                                <p className="text-sm text-muted-foreground">
+                                                    {sale.email}
+                                                </p>
                                             </div>
-                                            <div className="ml-auto font-medium">{sale.amount}</div>
+                                            <div className="ml-auto font-medium">
+                                                {sale.amount}
+                                            </div>
                                         </div>
                                     ))}
                                 </div>
@@ -199,7 +232,7 @@ const Page = () => {
                 </div>
             </div>
         </div>
-    )
+    );
 };
 
-export default Page
+export default Page;

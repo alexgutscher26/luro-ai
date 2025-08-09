@@ -34,23 +34,23 @@ export default function NumberTicker({
 
     useEffect(
         () =>
-            springValue.on("change", (latest) => {
+            springValue.on("change", latest => {
                 if (ref.current) {
                     ref.current.textContent = Intl.NumberFormat("en-US").format(
-                        Number(latest.toFixed(0)),
+                        Number(latest.toFixed(0))
                     );
                 }
             }),
-        [springValue],
+        [springValue]
     );
 
     return (
         <span
             className={cn(
                 "inline-block font-default text-inherit tracking-wider",
-                className,
+                className
             )}
             ref={ref}
         />
     );
-};
+}

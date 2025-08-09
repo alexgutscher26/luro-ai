@@ -10,7 +10,7 @@ const SignUpPage = () => {
                 </Suspense>
             </div>
         </div>
-    )
+    );
 };
 
-export default SignUpPage
+export default SignUpPage;

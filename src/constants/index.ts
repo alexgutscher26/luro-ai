@@ -4,7 +4,12 @@ import { PERKS } from "./perks";
 import { PLANS } from "./plans";
 import { REVIEWS } from "./reviews";
 import { FOOTER_LINKS } from "./links";
-import { LIST_ITEM_VARIANTS, CHILD_VARIANTS, FADE_IN_VARIANTS, MODAL_VARIANTS } from "./animation";
+import {
+    LIST_ITEM_VARIANTS,
+    CHILD_VARIANTS,
+    FADE_IN_VARIANTS,
+    MODAL_VARIANTS,
+} from "./animation";
 
 export {
     APP_NAME,

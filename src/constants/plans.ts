@@ -24,9 +24,9 @@ export const PLANS: PLAN[] = [
             "Community support",
             "1 project limit",
             "Standard analytics",
-            "Basic image generation"
+            "Basic image generation",
         ],
-        link: "https://stripe.com/free-plan-link"
+        link: "https://stripe.com/free-plan-link",
     },
     {
         id: "pro",
@@ -44,9 +44,9 @@ export const PLANS: PLAN[] = [
             "Enhanced analytics & insights",
             "Pro model image generation",
             "Team collaboration tools",
-            "Custom branding options"
+            "Custom branding options",
         ],
-        link: "https://stripe.com/pro-plan-link"
+        link: "https://stripe.com/pro-plan-link",
     },
     {
         id: "enterprise",
@@ -66,6 +66,6 @@ export const PLANS: PLAN[] = [
             "Free updates",
             // "24/7 priority support"
         ],
-        link: "https://stripe.com/enterprise-plan-link"
-    }
+        link: "https://stripe.com/enterprise-plan-link",
+    },
 ];

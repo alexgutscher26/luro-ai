@@ -1,0 +1,10 @@
+node_modules
+.next
+build
+dist
+*.lock
+public/fonts
+*.woff2
+*.woff
+*.otf
+*.ttf

@@ -16,7 +16,7 @@ const Wrapper = ({ children, className }: Props) => {
         >
             {children}
         </div>
-    )
+    );
 };
 
-export default Wrapper
+export default Wrapper;

@@ -3,7 +3,6 @@ import { currentUser } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 
 const AuthCallbackPage = async () => {
-
     const user = await currentUser();
 
     if (!user?.id || !user.emailAddresses[0].emailAddress) {
@@ -32,4 +31,4 @@ const AuthCallbackPage = async () => {
     redirect("/app");
 };
 
-export default AuthCallbackPage
+export default AuthCallbackPage;

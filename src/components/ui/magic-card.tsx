@@ -26,12 +26,15 @@ export default function MagicCard({
         const x = e.clientX - rect.left;
         const y = e.clientY - rect.top;
 
-        currentTarget.style.setProperty('--pos-x', `${x}px`);
-        currentTarget.style.setProperty('--pos-y', `${y}px`);
+        currentTarget.style.setProperty("--pos-x", `${x}px`);
+        currentTarget.style.setProperty("--pos-y", `${y}px`);
     };
 
     return (
-        <div className="card rounded-xl lg:rounded-2xl overflow-hidden" onMouseMove={onMouseMove}>
+        <div
+            className="card rounded-xl lg:rounded-2xl overflow-hidden"
+            onMouseMove={onMouseMove}
+        >
             <div className="content">
                 {particles && (
                     <Particles
@@ -46,4 +49,4 @@ export default function MagicCard({
             </div>
         </div>
     );
-};
+}
