@@ -6,8 +6,8 @@
 - [x] **Add Husky pre-commit hooks** for code quality enforcement
 - [x] **Setup Prettier** with consistent formatting rules
 - [x] **Add lint-staged** for running linters on staged files
-- [ ] **Configure absolute imports** more comprehensively (already partially done)
-- [ ] **Add development scripts** for database operations (reset, seed, etc.)
+- [x] **Configure absolute imports** more comprehensively (already partially done)
+- [x] **Add development scripts** for database operations (reset, seed, etc.)
 
 ### Code Quality & Standards
 - [ ] **Implement comprehensive ESLint rules**
