@@ -4,6 +4,8 @@ import Wrapper from "./global/wrapper";
 import Container from "./global/container";
 import Background from "./global/background";
 import Providers from "./global/providers";
+import ErrorBoundary from "./global/error-boundary";
+import GlobalErrorBoundary from "./global/global-error-boundary";
 
 import SignInForm from "./auth/signin-form";
 import SignUpForm from "./auth/signup-form";
@@ -38,4 +40,6 @@ export {
     SignInForm,
     SignUpForm,
     Providers,
+    ErrorBoundary,
+    GlobalErrorBoundary,
 };

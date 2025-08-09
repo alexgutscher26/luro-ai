@@ -26,8 +26,8 @@
 
 ### State Management
 - [x] **Implement React Query/TanStack Query** for server state
-- [ ] **Create custom hooks** for common operations
-- [ ] **Add error boundary components**
+- [x] **Create custom hooks** for common operations
+- [x] **Add error boundary components**
 
 ### Database & Backend
 - [ ] **Add database seeding scripts**
