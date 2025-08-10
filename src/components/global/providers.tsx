@@ -26,7 +26,7 @@ const Providers = ({ children }: Props) => {
         <GlobalErrorBoundary>
             <QueryClientProvider client={queryClient}>
                 <ClerkProvider>{children}</ClerkProvider>
-                {process.env.NODE_ENV === 'development' && (
+                {process.env.NODE_ENV === "development" && (
                     <ReactQueryDevtools initialIsOpen={false} />
                 )}
             </QueryClientProvider>

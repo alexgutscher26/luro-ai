@@ -18,7 +18,6 @@ import { OAuthStrategy } from "@clerk/types";
 const SignUpForm = () => {
     const router = useRouter();
 
-
     const searchParams = new URLSearchParams(window.location.search);
     const from = searchParams.get("from");
 
@@ -171,8 +170,9 @@ const SignUpForm = () => {
             >
                 <div className="flex justify-center">
                     <Link href="/">
-                        {typeof Icons.icon === 'function' && <Icons.icon className="w-8 h-8" />}
-
+                        {typeof Icons.icon === "function" && (
+                            <Icons.icon className="w-8 h-8" />
+                        )}
                     </Link>
                 </div>
                 <h1 className="text-2xl text-center mt-4">

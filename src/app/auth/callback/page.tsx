@@ -6,7 +6,13 @@ import { redirect } from "next/navigation";
 const AuthCallbackPage = async () => {
     const user = await currentUser();
 
-    if (!user || !user.id || !user.emailAddresses || !user.emailAddresses[0] || !user.emailAddresses[0].emailAddress) {
+    if (
+        !user ||
+        !user.id ||
+        !user.emailAddresses ||
+        !user.emailAddresses[0] ||
+        !user.emailAddresses[0].emailAddress
+    ) {
         return redirect("/auth/signin");
     }
 
@@ -37,8 +43,8 @@ const AuthCallbackPage = async () => {
                 source: string;
             } = {
                 email: user.emailAddresses[0].emailAddress,
-                userGroup: 'user',
-                source: 'signup',
+                userGroup: "user",
+                source: "signup",
             };
 
             if (user.firstName) {
@@ -49,12 +55,15 @@ const AuthCallbackPage = async () => {
             }
 
             const result = await createLoopsContact(contactData);
-            
+
             if (result) {
-                console.log('Successfully created Loops contact for:', user.emailAddresses[0].emailAddress);
+                console.log(
+                    "Successfully created Loops contact for:",
+                    user.emailAddresses[0].emailAddress
+                );
             }
         } catch (error) {
-            console.error('Failed to create Loops contact:', error);
+            console.error("Failed to create Loops contact:", error);
             // Don't block user registration if Loops fails
         }
 

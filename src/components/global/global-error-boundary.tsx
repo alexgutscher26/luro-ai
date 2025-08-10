@@ -11,17 +11,17 @@ interface Props {
 
 /**
  * Global Error Boundary Component
- * 
+ *
  * Application-level error boundary that provides a consistent error handling
  * experience across the entire application. Should be placed at the root level.
  */
 const GlobalErrorBoundary = ({ children }: Props) => {
     const handleError = (error: Error) => {
         // Log to external service in production
-        if (process.env.NODE_ENV === 'production') {
+        if (process.env.NODE_ENV === "production") {
             // Example: Send to error tracking service
             // errorTrackingService.captureException(error, { extra: errorInfo });
-            console.error('Global error caught:', error);
+            console.error("Global error caught:", error);
         }
     };
 
@@ -34,13 +34,14 @@ const GlobalErrorBoundary = ({ children }: Props) => {
                             <AlertTriangle className="h-8 w-8 text-destructive" />
                         </div>
                     </div>
-                    
+
                     <div className="space-y-2">
                         <h1 className="text-2xl font-bold text-foreground">
                             Application Error
                         </h1>
                         <p className="text-muted-foreground">
-                            We're sorry, but something went wrong. Our team has been notified and is working to fix the issue.
+                            We're sorry, but something went wrong. Our team has
+                            been notified and is working to fix the issue.
                         </p>
                     </div>
 
@@ -53,9 +54,9 @@ const GlobalErrorBoundary = ({ children }: Props) => {
                             <RefreshCw className="h-4 w-4" />
                             <span>Reload Application</span>
                         </Button>
-                        
+
                         <Button
-                            onClick={() => window.location.href = '/'}
+                            onClick={() => (window.location.href = "/")}
                             variant="outline"
                             className="flex items-center space-x-2"
                         >

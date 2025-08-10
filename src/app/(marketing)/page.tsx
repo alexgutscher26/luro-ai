@@ -25,7 +25,7 @@ const HomePage = () => {
                     />
                     <Hero />
                 </Container>
-                
+
                 {/* Newsletter Signup Section */}
                 <Container className="py-12 lg:py-20">
                     <div className="flex flex-col items-center justify-center text-center w-full px-4 md:px-0 mx-auto h-[400px] border border-foreground/10 rounded-3xl overflow-hidden relative">
@@ -35,10 +35,11 @@ const HomePage = () => {
                                 Stay Updated
                             </h2>
                             <p className="text-base md:text-lg text-center text-accent-foreground/60 max-w-xl mx-auto mb-8">
-                                Get the latest updates and insights delivered to your inbox.
+                                Get the latest updates and insights delivered to
+                                your inbox.
                             </p>
                             <div className="max-w-md mx-auto w-full">
-                                <NewsletterSignup 
+                                <NewsletterSignup
                                     variant="hero"
                                     placeholder="Enter your email address"
                                     buttonText="Subscribe"
@@ -48,7 +49,7 @@ const HomePage = () => {
                         </div>
                     </div>
                 </Container>
-                
+
                 <Container className="py-8 lg:py-20">
                     <Companies />
                 </Container>

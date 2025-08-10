@@ -9,13 +9,13 @@ import {
 
 /**
  * Application perks/features configuration
- * 
+ *
  * Defines the key features and benefits displayed on marketing pages.
  * Each perk includes an icon, title, and description for consistent
  * presentation across the application.
- * 
+ *
  * @constant {Array<PerkItem>} PERKS
- * 
+ *
  * @example
  * // Render perks in a component
  * {PERKS.map((perk, index) => (
@@ -25,7 +25,7 @@ import {
  *     <p>{perk.description}</p>
  *   </div>
  * ))}
- * 
+ *
  * @since 1.0.0
  */
 export const PERKS = [
@@ -35,7 +35,8 @@ export const PERKS = [
         /** Feature title */
         title: "Fast and Efficient",
         /** Feature description */
-        description: "Experience quick and seamless content creation with our optimized AI tools.",
+        description:
+            "Experience quick and seamless content creation with our optimized AI tools.",
     },
     {
         icon: ChartSplineIcon,

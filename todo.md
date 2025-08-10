@@ -30,8 +30,8 @@
 - [x] **Add error boundary components**
 
 ### Database & Backend
-- [ ] **Add database seeding scripts**
-- [ ] **Create database migration workflows**
+- [x] **Add database seeding scripts**
+- [x] **Create database migration workflows**
 - [ ] **Add API route examples** with proper error handling
 - [ ] **Implement rate limiting** for API routes
 - [ ] **Add input validation** with Zod schemas

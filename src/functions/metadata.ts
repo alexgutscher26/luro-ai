@@ -2,60 +2,60 @@ import { Metadata } from "next";
 
 /**
  * Configuration interface for metadata generation
- * 
+ *
  * Defines all possible options for generating Next.js metadata
  * including SEO, social sharing, and internationalization settings.
- * 
+ *
  * @interface MetadataProps
  */
 interface MetadataProps {
     /** Page title for browser tab and SEO */
     title?: string;
-    
+
     /** Meta description for search engines and social sharing */
     description?: string;
-    
+
     /** URL or path to social sharing image (null to disable) */
     image?: string | null;
-    
+
     /** Favicon and app icon configuration */
     icons?: Metadata["icons"];
-    
+
     /** Prevent search engine indexing when true */
     noIndex?: boolean;
-    
+
     /** Array of SEO keywords */
     keywords?: string[];
-    
+
     /** Content author name */
     author?: string;
-    
+
     /** Twitter handle for Twitter Card attribution */
     twitterHandle?: string;
-    
+
     /** OpenGraph content type */
     type?: "website" | "article" | "profile";
-    
+
     /** Content locale (e.g., 'en_US', 'es_ES') */
     locale?: string;
-    
+
     /** Alternate language versions mapping */
     alternates?: Record<string, string>;
-    
+
     /** Article publication date (ISO 8601 string) */
     publishedTime?: string;
-    
+
     /** Article last modified date (ISO 8601 string) */
     modifiedTime?: string;
 }
 
 /**
  * Generates Next.js metadata object for SEO optimization
- * 
+ *
  * Creates comprehensive metadata including OpenGraph, Twitter cards,
  * and standard meta tags for improved search engine visibility
  * and social media sharing.
- * 
+ *
  * @param {MetadataProps} props - Configuration object for metadata generation
  * @param {string} [props.title] - Page title (defaults to app name)
  * @param {string} [props.description] - Page description for SEO
@@ -70,16 +70,16 @@ interface MetadataProps {
  * @param {Record<string, string>} [props.alternates={}] - Alternate language URLs
  * @param {string} [props.publishedTime] - Article publish date (ISO string)
  * @param {string} [props.modifiedTime] - Article modified date (ISO string)
- * 
+ *
  * @returns {Metadata} Complete Next.js metadata object
- * 
+ *
  * @example
  * // Basic usage
  * const metadata = generateMetadata({
  *   title: "About Us",
  *   description: "Learn more about our company"
  * });
- * 
+ *
  * // Article with full metadata
  * const articleMetadata = generateMetadata({
  *   title: "How to Use AI for Content Creation",
@@ -88,12 +88,12 @@ interface MetadataProps {
  *   publishedTime: "2024-01-15T10:00:00Z",
  *   keywords: ["AI", "content creation", "automation"]
  * });
- * 
+ *
  * @since 1.0.0
  */
 export const generateMetadata = ({
-  title = `${process.env.NEXT_PUBLIC_APP_NAME} - Smart Social Media Marketing Platform`,
-  description = "Streamline your social media management with AI-powered analytics, scheduling, and content optimization. Get real-time insights, automate posts, and boost engagement across all platforms",
+    title = `${process.env.NEXT_PUBLIC_APP_NAME} - Smart Social Media Marketing Platform`,
+    description = "Streamline your social media management with AI-powered analytics, scheduling, and content optimization. Get real-time insights, automate posts, and boost engagement across all platforms",
     image = "/thumbnail.png",
     icons = [
         {
@@ -150,26 +150,29 @@ export const generateMetadata = ({
         icons,
 
         // OpenGraph
-        openGraph: type === 'article' ? {
-            type: 'article',
-            siteName: process.env.NEXT_PUBLIC_APP_NAME,
-            title,
-            description,
-            ...(imageUrl && {
-                images: [
-                    {
-                        url: imageUrl,
-                        width: 1200,
-                        height: 630,
-                        alt: title,
-                    },
-                ],
-            }),
-            locale,
-            alternateLocale: Object.keys(alternates),
-            ...(publishedTime && { publishedTime }),
-            ...(modifiedTime && { modifiedTime }),
-        } : undefined,
+        openGraph:
+            type === "article"
+                ? {
+                      type: "article",
+                      siteName: process.env.NEXT_PUBLIC_APP_NAME,
+                      title,
+                      description,
+                      ...(imageUrl && {
+                          images: [
+                              {
+                                  url: imageUrl,
+                                  width: 1200,
+                                  height: 630,
+                                  alt: title,
+                              },
+                          ],
+                      }),
+                      locale,
+                      alternateLocale: Object.keys(alternates),
+                      ...(publishedTime && { publishedTime }),
+                      ...(modifiedTime && { modifiedTime }),
+                  }
+                : undefined,
 
         // Twitter
         twitter: {
