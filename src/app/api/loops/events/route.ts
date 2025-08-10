@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
 import { LoopsClient } from "loops";
+import { withRateLimit } from "@/lib/with-rate-limit";
 
 const loops = new LoopsClient(process.env.LOOPS_API_KEY!);
 
-export async function POST(request: NextRequest) {
+async function handler(request: NextRequest) {
     try {
         const { email, eventName, eventProperties } = await request.json();
 
@@ -23,3 +24,6 @@ export async function POST(request: NextRequest) {
         );
     }
 }
+
+// Apply standard API rate limiting (100 requests per minute)
+export const POST = withRateLimit("api")(handler);
