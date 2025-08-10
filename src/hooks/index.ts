@@ -1,16 +1,20 @@
 import { useClickOutside } from "./use-click-outside";
-import { useUser } from "./use-user";
-import { useApiQuery, useApiMutation } from "./use-api";
 import { useLocalStorage } from "./use-local-storage";
-import { useDebouncedSearch } from "./use-debounced-search";
 import { useOptimisticUpdate } from "./use-optimistic-update";
+import { useDebouncedSearch } from "./use-debounced-search";
+import { useApiQuery, useApiMutation } from "./use-api";
+import { useUser } from "./use-user";
+import { useCreateLoopsContact, useSendTransactionalEmail, useTrackLoopsEvent } from "./use-loops";
 
-export { 
-  useClickOutside,
-  useUser,
-  useApiQuery,
-  useApiMutation,
-  useLocalStorage,
-  useDebouncedSearch,
-  useOptimisticUpdate,
+export {
+    useClickOutside,
+    useLocalStorage,
+    useOptimisticUpdate,
+    useDebouncedSearch,
+    useApiQuery,
+    useApiMutation,
+    useUser,
+    useCreateLoopsContact,
+    useSendTransactionalEmail,
+    useTrackLoopsEvent,
 };

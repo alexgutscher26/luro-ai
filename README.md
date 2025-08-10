@@ -85,23 +85,30 @@ Luro is a cutting-edge social media marketing platform that revolutionizes how b
    cd luro-ai
    pnpm install
    ```
-2. Set up environment variables in a `.env` file:
-    ```
-    # app
-    NEXT_PUBLIC_APP_NAME=
-    NEXT_PUBLIC_APP_DOMAIN=
+# Environment Variables
 
-    # database
-    DATABASE_URL=
+Create a `.env.local` file in the root directory with the following variables:
 
-    # auth
-    NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
-    CLERK_SECRET_KEY=
-    NEXT_PUBLIC_CLERK_SIGN_IN_URL="/signin"
-    NEXT_PUBLIC_CLERK_SIGN_UP_URL="/signup"
-    NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_URL="/"
-    NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_URL="/"
-    ```
+```bash
+# App Configuration
+NEXT_PUBLIC_APP_NAME=
+NEXT_PUBLIC_APP_DOMAIN=
+
+# Database
+DATABASE_URL=
+
+# Authentication (Clerk)
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+NEXT_PUBLIC_CLERK_SIGN_IN_URL="/signin"
+NEXT_PUBLIC_CLERK_SIGN_UP_URL="/signup"
+NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_URL="/"
+NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_URL="/"
+
+# Email Automation (Loops.so)
+LOOPS_API_KEY=
+NEXT_PUBLIC_LOOPS_FORM_ID=
+```
 
 4. Run the development server:
     ```bash

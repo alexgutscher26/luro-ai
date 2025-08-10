@@ -20,6 +20,7 @@ import Pricing from "./marketing/pricing";
 import Reviews from "./marketing/reviews";
 import CTA from "./marketing/cta";
 import Footer from "./marketing/footer";
+import { NewsletterSignup } from "./marketing/newsletter-signup";
 
 export {
     Icons,
@@ -37,6 +38,7 @@ export {
     Reviews,
     CTA,
     Footer,
+    NewsletterSignup,
     SignInForm,
     SignUpForm,
     Providers,
