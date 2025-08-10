@@ -48,17 +48,40 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-    (
-        { iconl, iconr, className, variant, size, asChild = false, ...props },
-        ref
-    ) => {
+    ({ iconl, iconr, className, variant, size, asChild = false, children, ...props }, ref) => {
         const Comp = asChild ? Slot : "button";
+        
+        // If button only contains icons and no text, ensure aria-label is provided
+        const hasOnlyIcons = !children && (iconl || iconr);
+        const needsAriaLabel = hasOnlyIcons && !props['aria-label'] && !props['aria-labelledby'];
+        
+        if (needsAriaLabel && process.env.NODE_ENV === 'development') {
+            console.warn('Button with only icons should have an aria-label for accessibility');
+        }
+        
+        // When asChild is true, we need to clone the child and add our props to it
+        if (asChild) {
+            return (
+                <Slot
+                    className={cn(buttonVariants({ variant, size, className }))}
+                    ref={ref}
+                    {...props}
+                >
+                    {children}
+                </Slot>
+            );
+        }
+        
         return (
             <Comp
                 className={cn(buttonVariants({ variant, size, className }))}
                 ref={ref}
                 {...props}
-            />
+            >
+                {iconl && <span aria-hidden="true">{iconl}</span>}
+                {children}
+                {iconr && <span aria-hidden="true">{iconr}</span>}
+            </Comp>
         );
     }
 );

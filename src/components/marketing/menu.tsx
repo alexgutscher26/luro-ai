@@ -38,7 +38,10 @@ const Menu = () => {
                     </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
-                    <NavigationMenuTrigger className="text-muted-foreground hover:text-foreground">
+                    <NavigationMenuTrigger 
+                        className="text-muted-foreground hover:text-foreground"
+                        aria-label="Features menu"
+                    >
                         Features
                     </NavigationMenuTrigger>
                     <NavigationMenuContent>

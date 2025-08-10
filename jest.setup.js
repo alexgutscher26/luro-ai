@@ -1,4 +1,5 @@
 import '@testing-library/jest-dom'
+import 'jest-axe/extend-expect'
 import { setupTest, cleanupTest } from './src/__tests__/utils/setup-tests'
 
 // Mock window.matchMedia

@@ -177,25 +177,25 @@ export function ApiKeysManagement() {
                                                     value={createdKey}
                                                     readOnly
                                                     className="font-mono text-sm bg-white dark:bg-green-950/30 border-green-300 dark:border-green-700"
+                                                    aria-label="Generated API key"
+                                                    aria-describedby="api-key-warning"
                                                 />
                                                 <Button
                                                     size="sm"
                                                     variant="outline"
-                                                    onClick={() =>
-                                                        handleCopyKey(
-                                                            createdKey
-                                                        )
-                                                    }
-                                                    className="border-green-300 hover:bg-green-50 dark:border-green-700 dark:hover:bg-green-950/30"
+                                                    onClick={() => handleCopyKey(createdKey)}
+                                                    className="shrink-0"
+                                                    aria-label="Copy API key"
                                                 >
-                                                    <Copy className="h-4 w-4" />
+                                                    <Copy className="h-4 w-4" aria-hidden="true" />
                                                 </Button>
                                             </div>
-                                            <p className="text-sm text-green-700 dark:text-green-300 mt-2 flex items-center gap-1">
-                                                <Shield className="h-3 w-3" />
-                                                Make sure to copy your API key
-                                                now. You won't be able to see it
-                                                again!
+                                            <p 
+                                                id="api-key-warning"
+                                                className="text-sm text-green-700 dark:text-green-300 mt-2 flex items-center gap-1"
+                                            >
+                                                <Shield className="h-3 w-3" aria-hidden="true" />
+                                                Make sure to copy your API key now. You won't be able to see it again!
                                             </p>
                                         </div>
                                         <DialogFooter>
@@ -495,8 +495,9 @@ export function ApiKeysManagement() {
                                                                         variant="ghost"
                                                                         size="sm"
                                                                         className="h-8 w-8 p-0"
+                                                                        aria-label={`Actions for API key ${apiKey.name}`}
                                                                     >
-                                                                        <MoreHorizontal className="h-4 w-4" />
+                                                                        <MoreHorizontal className="h-4 w-4" aria-hidden="true" />
                                                                     </Button>
                                                                 </DropdownMenuTrigger>
                                                                 <DropdownMenuContent

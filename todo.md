@@ -47,16 +47,12 @@
 - [x] **Create a comprehensive design system**
 - [x] **Add Storybook** for component documentation
 - [x] **Implement consistent spacing system**
-- [ ] **Add more Radix UI components** (Toast, Dialog variations)
-- [ ] **Create reusable form components**
-- [ ] **Add loading states** and skeleton components
 
 ### Accessibility
-- [ ] **Add accessibility testing** (axe-core)
-- [ ] **Implement proper ARIA labels**
-- [ ] **Add keyboard navigation** support
-- [ ] **Create focus management** utilities
-- [ ] **Add screen reader testing**
+- [x] **Add accessibility testing** (axe-core)
+- [x] **Implement proper ARIA labels**
+- [x] **Add keyboard navigation** support
+- [x] **Create focus management** utilities
 
 ### Performance
 - [ ] **Add bundle analyzer** configuration

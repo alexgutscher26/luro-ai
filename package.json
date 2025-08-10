@@ -10,6 +10,9 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
+    "test:a11y": "jest --testPathPattern=a11y",
+    "test:a11y:watch": "jest --testPathPattern=a11y --watch",
+    "test:a11y:coverage": "jest --testPathPattern=a11y --coverage",
     "test:ci": "jest --ci --coverage --watchAll=false",
     "postinstall": "prisma generate",
     "prepare": "husky install",
@@ -56,6 +59,7 @@
     "seed": "tsx prisma/seed.ts"
   },
   "dependencies": {
+    "@axe-core/react": "^4.10.2",
     "@clerk/nextjs": "^5.3.3",
     "@clerk/types": "^4.14.0",
     "@cypress/react18": "^2.0.1",
@@ -96,6 +100,7 @@
     "hamburger-react": "^2.5.1",
     "input-otp": "^1.2.4",
     "jest": "^30.0.5",
+    "jest-axe": "^10.0.0",
     "jest-environment-jsdom": "^30.0.5",
     "loops": "^5.0.1",
     "lucide-react": "^0.428.0",

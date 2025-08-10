@@ -9,6 +9,8 @@ import {
     useSendTransactionalEmail,
     useTrackLoopsEvent,
 } from "./use-loops";
+import { useKeyboardNavigation } from "./use-keyboard-navigation";
+import { useFocusManagement } from "./use-focus-management";
 
 export {
     useClickOutside,
@@ -21,5 +23,7 @@ export {
     useCreateLoopsContact,
     useSendTransactionalEmail,
     useTrackLoopsEvent,
+    useKeyboardNavigation,
+    useFocusManagement,
 };
 export * from './use-spacing';

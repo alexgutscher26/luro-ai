@@ -46,6 +46,9 @@ const MobileMenu = ({ isOpen, setIsOpen }: Props) => {
                 "absolute top-12 inset-x-0 size-full p-4 z-20 bg-inherit flex flex-1",
                 isOpen ? "flex" : "hidden"
             )}
+            id="mobile-menu"
+            role="navigation"
+            aria-label="Mobile navigation menu"
         >
             <motion.div
                 initial="closed"
