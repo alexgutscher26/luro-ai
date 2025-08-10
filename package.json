@@ -27,7 +27,15 @@
     "db:format": "prisma format",
     "db:validate": "prisma validate",
     "db:dev": "prisma migrate dev",
-    "db:reset:seed": "npm run db:reset && npm run db:seed"
+    "db:reset:seed": "npm run db:reset && npm run db:seed",
+    "db:migrate:status": "tsx scripts/migrate.ts status",
+    "db:migrate:create": "tsx scripts/migrate.ts create",
+    "db:migrate:deploy": "tsx scripts/migrate.ts deploy",
+    "db:migrate:deploy:force": "tsx scripts/migrate.ts deploy --force",
+    "db:migrate:reset": "tsx scripts/migrate.ts reset --force",
+    "db:migrate:check": "npx prisma migrate diff --from-empty --to-schema-datamodel prisma/schema.prisma",
+    "db:backup": "echo 'Backup command depends on your database provider'",
+    "db:restore": "echo 'Restore command depends on your database provider'"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -97,6 +105,7 @@
     "@types/react-dom": "^18",
     "@typescript-eslint/eslint-plugin": "^8.39.0",
     "@typescript-eslint/parser": "^8.39.0",
+    "commander": "^11.1.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.5",
     "eslint-config-prettier": "^10.1.8",

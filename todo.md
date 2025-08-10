@@ -32,10 +32,8 @@
 ### Database & Backend
 - [x] **Add database seeding scripts**
 - [x] **Create database migration workflows**
-- [ ] **Add API route examples** with proper error handling
-- [ ] **Implement rate limiting** for API routes
+- [x] **Implement rate limiting** for API routes
 - [ ] **Add input validation** with Zod schemas
-- [ ] **Create database backup strategies**
 
 ### Security Enhancements
 - [ ] **Add CSRF protection**

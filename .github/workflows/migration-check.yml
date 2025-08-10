@@ -1,0 +1,66 @@
+name: Migration Check
+
+on:
+  pull_request:
+    paths:
+      - 'prisma/schema.prisma'
+      - 'prisma/migrations/**'
+
+jobs:
+  check-migrations:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+          
+      - name: Install dependencies
+        run: npm ci
+        
+      - name: Generate Prisma client
+        run: npx prisma generate
+        
+      - name: Check migration status
+        run: |
+          echo "Checking for schema changes..."
+          npx prisma migrate diff --from-empty --to-schema-datamodel prisma/schema.prisma
+          
+      - name: Validate migrations
+        run: |
+          echo "Validating migration files..."
+          npx prisma validate
+          
+      - name: Check for pending migrations
+        run: |
+          echo "Checking for pending migrations..."
+          tsx scripts/migrate.ts status
+          
+      - name: Comment on PR
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const { execSync } = require('child_process');
+            
+            try {
+              const status = execSync('tsx scripts/migrate.ts status', { encoding: 'utf8' });
+              
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `## 🔄 Migration Check Results\n\n\`\`\`\n${status}\n\`\`\`\n\n⚠️ Please review the migration changes before merging.`
+              });
+            } catch (error) {
+              github.rest.issues.createComment({
+                issue_number: context.issue.number,
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                body: `## ❌ Migration Check Failed\n\n\`\`\`\n${error.message}\n\`\`\`\n\n🚨 Migration validation failed. Please fix the issues before merging.`
+              });
+            }
