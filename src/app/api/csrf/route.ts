@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import { generateCSRFToken } from "@/lib/csrf";
 import { withRateLimit } from "@/lib/with-rate-limit";
 
+/**
+ * Generates and returns a CSRF token in a JSON response.
+ */
 async function handler(_request: NextRequest) {
     try {
         const token = generateCSRFToken();
