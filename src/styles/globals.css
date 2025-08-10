@@ -133,6 +133,79 @@
     }
 }
 
+@layer base {
+    :root {
+        /* Spacing System */
+        --spacing-xs: 0.25rem;     /* 4px */
+        --spacing-sm: 0.5rem;      /* 8px */
+        --spacing-md: 1rem;        /* 16px */
+        --spacing-lg: 1.5rem;      /* 24px */
+        --spacing-xl: 2rem;        /* 32px */
+        --spacing-2xl: 3rem;       /* 48px */
+        --spacing-3xl: 4rem;       /* 64px */
+        --spacing-4xl: 6rem;       /* 96px */
+        --spacing-5xl: 8rem;       /* 128px */
+        
+        /* Component Spacing */
+        --component-padding-sm: var(--spacing-sm);   /* 8px */
+        --component-padding-md: var(--spacing-md);   /* 16px */
+        --component-padding-lg: var(--spacing-lg);   /* 24px */
+        --component-padding-xl: var(--spacing-xl);   /* 32px */
+        
+        /* Section Spacing */
+        --section-spacing-sm: var(--spacing-2xl);    /* 48px */
+        --section-spacing-md: var(--spacing-3xl);    /* 64px */
+        --section-spacing-lg: var(--spacing-4xl);    /* 96px */
+        --section-spacing-xl: var(--spacing-5xl);    /* 128px */
+        
+        /* Grid Gaps */
+        --grid-gap-sm: var(--spacing-sm);            /* 8px */
+        --grid-gap-md: var(--spacing-md);            /* 16px */
+        --grid-gap-lg: var(--spacing-lg);            /* 24px */
+        --grid-gap-xl: var(--spacing-xl);            /* 32px */
+    }
+    
+    .dark {
+        /* Spacing remains the same in dark mode */
+    }
+}
+
+/* Utility Classes for Consistent Spacing */
+@layer utilities {
+    .spacing-xs { @apply space-y-1; }
+    .spacing-sm { @apply space-y-2; }
+    .spacing-md { @apply space-y-4; }
+    .spacing-lg { @apply space-y-6; }
+    .spacing-xl { @apply space-y-8; }
+    .spacing-2xl { @apply space-y-12; }
+    .spacing-3xl { @apply space-y-16; }
+    
+    .spacing-x-xs { @apply space-x-1; }
+    .spacing-x-sm { @apply space-x-2; }
+    .spacing-x-md { @apply space-x-4; }
+    .spacing-x-lg { @apply space-x-6; }
+    .spacing-x-xl { @apply space-x-8; }
+    .spacing-x-2xl { @apply space-x-12; }
+    .spacing-x-3xl { @apply space-x-16; }
+    
+    /* Container Spacing */
+    .container-padding-sm { @apply px-4 py-8; }
+    .container-padding-md { @apply px-6 py-12; }
+    .container-padding-lg { @apply px-8 py-16; }
+    .container-padding-xl { @apply px-12 py-24; }
+    
+    /* Section Spacing */
+    .section-spacing-sm { @apply py-12 md:py-16; }
+    .section-spacing-md { @apply py-16 md:py-20 lg:py-24; }
+    .section-spacing-lg { @apply py-20 md:py-24 lg:py-32; }
+    .section-spacing-xl { @apply py-24 md:py-32 lg:py-40; }
+    
+    /* Grid Spacing */
+    .grid-gap-sm { @apply gap-2 md:gap-3; }
+    .grid-gap-md { @apply gap-4 md:gap-6; }
+    .grid-gap-lg { @apply gap-6 md:gap-8; }
+    .grid-gap-xl { @apply gap-8 md:gap-12; }
+}
 ::selection {
     background-color: #474747;
     color: #fff;

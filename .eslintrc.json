@@ -3,7 +3,8 @@
     "next/core-web-vitals",
     "@typescript-eslint/recommended",
     "@typescript-eslint/recommended-requiring-type-checking",
-    "prettier"
+    "prettier",
+    "plugin:storybook/recommended"
   ],
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
@@ -20,7 +21,6 @@
   "rules": {
     // Prettier integration
     "prettier/prettier": "error",
-    
     // TypeScript specific rules
     "@typescript-eslint/no-unused-vars": [
       "error",
@@ -43,11 +43,9 @@
     "@typescript-eslint/no-unnecessary-condition": "warn",
     "@typescript-eslint/no-floating-promises": "error",
     "@typescript-eslint/await-thenable": "error",
-    
     // React Hooks rules
     "react-hooks/rules-of-hooks": "error",
     "react-hooks/exhaustive-deps": "warn",
-    
     // Import ordering and organization
     "import/order": [
       "error",
@@ -79,7 +77,9 @@
             "position": "before"
           }
         ],
-        "pathGroupsExcludedImportTypes": ["react"],
+        "pathGroupsExcludedImportTypes": [
+          "react"
+        ],
         "newlines-between": "always",
         "alphabetize": {
           "order": "asc",
@@ -93,7 +93,6 @@
     "import/first": "error",
     "import/newline-after-import": "error",
     "import/no-anonymous-default-export": "warn",
-    
     // General JavaScript/TypeScript rules
     "prefer-const": "error",
     "no-var": "error",
@@ -103,29 +102,75 @@
     "no-duplicate-imports": "error",
     "no-unused-expressions": "error",
     "no-unreachable": "error",
-    "eqeqeq": ["error", "always"],
-    "curly": ["error", "all"],
-    
+    "eqeqeq": [
+      "error",
+      "always"
+    ],
+    "curly": [
+      "error",
+      "all"
+    ],
     // React specific rules
     "react/jsx-uses-react": "off",
     "react/react-in-jsx-scope": "off",
     "react/prop-types": "off",
     "react/display-name": "warn",
     "react/no-unescaped-entities": "warn",
-    
     // Next.js specific rules (already included in next/core-web-vitals)
     "@next/next/no-img-element": "warn",
-    
     // Complexity rules
-    "complexity": ["warn", { "max": 10 }],
-    "max-depth": ["warn", { "max": 4 }],
-    "max-lines": ["warn", { "max": 300, "skipBlankLines": true, "skipComments": true }],
-    "max-lines-per-function": ["warn", { "max": 50, "skipBlankLines": true, "skipComments": true }],
-    "max-nested-callbacks": ["warn", { "max": 3 }],
-    "max-params": ["warn", { "max": 4 }],
-    "max-statements": ["warn", { "max": 20 }],
-    "max-statements-per-line": ["error", { "max": 1 }],
-    
+    "complexity": [
+      "warn",
+      {
+        "max": 10
+      }
+    ],
+    "max-depth": [
+      "warn",
+      {
+        "max": 4
+      }
+    ],
+    "max-lines": [
+      "warn",
+      {
+        "max": 300,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
+    "max-lines-per-function": [
+      "warn",
+      {
+        "max": 50,
+        "skipBlankLines": true,
+        "skipComments": true
+      }
+    ],
+    "max-nested-callbacks": [
+      "warn",
+      {
+        "max": 3
+      }
+    ],
+    "max-params": [
+      "warn",
+      {
+        "max": 4
+      }
+    ],
+    "max-statements": [
+      "warn",
+      {
+        "max": 20
+      }
+    ],
+    "max-statements-per-line": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
     // TypeScript complexity rules
     "@typescript-eslint/prefer-reduce-type-parameter": "warn",
     "@typescript-eslint/prefer-return-this-type": "warn",

@@ -45,8 +45,8 @@
 
 ### Component Library
 - [x] **Create a comprehensive design system**
-- [ ] **Add Storybook** for component documentation
-- [ ] **Implement consistent spacing system**
+- [x] **Add Storybook** for component documentation
+- [x] **Implement consistent spacing system**
 - [ ] **Add more Radix UI components** (Toast, Dialog variations)
 - [ ] **Create reusable form components**
 - [ ] **Add loading states** and skeleton components
@@ -177,7 +177,7 @@
 - [x] **Add SonarQube** or similar
 - [x] **Implement code complexity** analysis
 - [x] **Create code review** templates
-- [ ] **Add commit message** linting
+- [x] **Add commit message** linting
 
 ## 📊 Analytics & Metrics
 

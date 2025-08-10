@@ -26,3 +26,4 @@ export {
     REVIEWS,
     FOOTER_LINKS,
 };
+export * from './spacing';

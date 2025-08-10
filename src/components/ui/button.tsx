@@ -44,6 +44,7 @@ export interface ButtonProps
     asChild?: boolean;
     iconl?: React.ReactNode;
     iconr?: React.ReactNode;
+    children?: React.ReactNode; // Add this line
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(

@@ -48,7 +48,9 @@
     "quality:full": "npm run lint && npm run type-check && npm run test:coverage && npm run complexity",
     "analyze": "npm run complexity && npm run sonar",
     "quality:check": "npm run lint && npm run type-check && npm run test:coverage",
-    "quality:fix": "npm run format && npm run lint -- --fix"
+    "quality:fix": "npm run format && npm run lint -- --fix",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "prisma": {
     "seed": "tsx prisma/seed.ts"
@@ -116,8 +118,13 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "4.1.0",
     "@commitlint/cli": "^19.8.1",
     "@commitlint/config-conventional": "^19.8.1",
+    "@storybook/addon-a11y": "9.1.1",
+    "@storybook/addon-docs": "9.1.1",
+    "@storybook/addon-onboarding": "9.1.1",
+    "@storybook/addon-vitest": "9.1.1",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
@@ -131,16 +138,22 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-prettier": "^5.5.4",
     "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-storybook": "9.1.1",
     "husky": "^9.1.7",
+    "jest-sonar-reporter": "^2.0.0",
     "lint-staged": "^16.1.5",
     "postcss": "^8",
     "prettier": "^3.6.2",
     "prisma": "5.21.1",
+    "sonarqube-scanner": "^4.0.1",
+    "storybook": "9.1.1",
     "tailwindcss": "^3.4.1",
     "tsx": "^4.20.3",
     "typescript": "^5",
-    "sonarqube-scanner": "^4.0.1",
-    "jest-sonar-reporter": "^2.0.0"
+    "@storybook/nextjs-vite": "^9.1.1",
+    "@vitest/browser": "3.2.4",
+    "playwright": "^1.54.2",
+    "@vitest/coverage-v8": "3.2.4"
   },
   "lint-staged": {
     "*.{ts,tsx,js,jsx}": [

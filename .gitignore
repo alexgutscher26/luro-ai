@@ -45,3 +45,5 @@ index.txt
 
 # Husky
 .husky/_
+*storybook.log
+storybook-static
