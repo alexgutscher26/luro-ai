@@ -29,7 +29,8 @@ export function withSecurity(
 
         // Apply CORS if enabled
         if (options.cors) {
-            const corsOptions = typeof options.cors === "boolean" ? {} : options.cors;
+            const corsOptions =
+                typeof options.cors === "boolean" ? {} : options.cors;
             securedHandler = withCORS(corsOptions)(securedHandler);
         }
 

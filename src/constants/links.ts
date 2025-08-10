@@ -16,6 +16,7 @@ import {
     LineChartIcon,
     MessageSquareTextIcon,
     UsersIcon,
+    KeyIcon, // Add this import
 } from "lucide-react";
 
 type Link = {
@@ -49,6 +50,11 @@ export const SIDEBAR_LINKS: Link[] = [
         href: "/dashboard/engagement",
         label: "Engagement",
         icon: UsersIcon,
+    },
+    {
+        href: "/app/api-keys",
+        label: "API Keys",
+        icon: KeyIcon,
     },
     {
         href: "/dashboard/billing",

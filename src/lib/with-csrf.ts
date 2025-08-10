@@ -1,5 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
-import { extractCSRFToken, requiresCSRFProtection, verifyCSRFToken } from "./csrf";
+import {
+    extractCSRFToken,
+    requiresCSRFProtection,
+    verifyCSRFToken,
+} from "./csrf";
 
 export function withCSRF(
     handler: (request: NextRequest) => Promise<NextResponse>
@@ -12,7 +16,7 @@ export function withCSRF(
 
         // Extract CSRF token from request
         const token = extractCSRFToken(request);
-        
+
         if (!token) {
             return NextResponse.json(
                 {

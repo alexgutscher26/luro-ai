@@ -2,17 +2,17 @@ import { NextRequest, NextResponse } from "next/server";
 import { generateCSRFToken } from "@/lib/csrf";
 import { withRateLimit } from "@/lib/with-rate-limit";
 
-async function handler(request: NextRequest) {
+async function handler(_request: NextRequest) {
     try {
         const token = generateCSRFToken();
-        
+
         return NextResponse.json(
             { csrfToken: token },
             {
                 status: 200,
                 headers: {
                     "Cache-Control": "no-store, no-cache, must-revalidate",
-                    "Pragma": "no-cache",
+                    Pragma: "no-cache",
                 },
             }
         );

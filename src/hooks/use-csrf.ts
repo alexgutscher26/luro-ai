@@ -13,13 +13,13 @@ export function useCSRF() {
         try {
             setIsLoading(true);
             setError(null);
-            
+
             const response = await fetch("/api/csrf");
-            
+
             if (!response.ok) {
                 throw new Error("Failed to fetch CSRF token");
             }
-            
+
             const data: CSRFResponse = await response.json();
             setCSRFToken(data.csrfToken);
         } catch (err) {

@@ -12,12 +12,13 @@ export function simpleRateLimit(
     limit: number = 100,
     windowMs: number = 60000 // 1 minute
 ) {
-    const ip = request.headers.get("x-forwarded-for") || request.ip || "unknown";
+    const ip =
+        request.headers.get("x-forwarded-for") || request.ip || "unknown";
     const now = Date.now();
     const key = `${ip}`;
-    
+
     const entry = rateLimitStore.get(key);
-    
+
     if (!entry || now > entry.resetTime) {
         // Create new entry or reset expired entry
         rateLimitStore.set(key, {
@@ -31,7 +32,7 @@ export function simpleRateLimit(
             limit,
         };
     }
-    
+
     if (entry.count >= limit) {
         return {
             success: false,
@@ -40,7 +41,7 @@ export function simpleRateLimit(
             limit,
         };
     }
-    
+
     entry.count++;
     return {
         success: true,

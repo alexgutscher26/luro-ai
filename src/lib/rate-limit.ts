@@ -16,21 +16,21 @@ export const rateLimiters = {
         limiter: Ratelimit.slidingWindow(100, "1 m"),
         analytics: true,
     }),
-    
+
     // Strict rate limit for sensitive endpoints: 10 requests per minute
     strict: new Ratelimit({
         redis,
         limiter: Ratelimit.slidingWindow(10, "1 m"),
         analytics: true,
     }),
-    
+
     // Auth endpoints: 5 requests per minute
     auth: new Ratelimit({
         redis,
         limiter: Ratelimit.slidingWindow(5, "1 m"),
         analytics: true,
     }),
-    
+
     // Contact/Newsletter: 3 requests per minute
     contact: new Ratelimit({
         redis,
@@ -44,7 +44,7 @@ export function getClientIdentifier(request: NextRequest): string {
     // Try to get user ID from headers (if authenticated)
     const userId = request.headers.get("x-user-id");
     if (userId) return `user:${userId}`;
-    
+
     // Fallback to IP address
     const forwarded = request.headers.get("x-forwarded-for");
     const ip = forwarded ? forwarded.split(",")[0] : request.ip || "unknown";
@@ -58,7 +58,7 @@ export async function checkRateLimit(
 ) {
     const identifier = getClientIdentifier(request);
     const result = await rateLimiters[limiter].limit(identifier);
-    
+
     return {
         success: result.success,
         limit: result.limit,

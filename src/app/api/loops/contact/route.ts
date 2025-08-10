@@ -47,18 +47,18 @@ async function handler(request: NextRequest) {
 
 // Apply both CSRF protection and rate limiting
 // Apply security with custom CORS for this specific endpoint
-export const POST = withSecurity({ 
-    rateLimit: "contact", 
+export const POST = withSecurity({
+    rateLimit: "contact",
     csrf: true,
     cors: {
         origin: ["https://yourdomain.com", "https://marketing.yourdomain.com"],
         methods: ["POST"],
-        credentials: true
-    }
+        credentials: true,
+    },
 })(handler);
 
 // Also handle OPTIONS for preflight
-export const OPTIONS = withSecurity({ 
+export const OPTIONS = withSecurity({
     cors: true,
     csrf: false,
 })(() => Promise.resolve(new NextResponse(null, { status: 200 })));
