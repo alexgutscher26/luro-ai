@@ -1,0 +1,1364 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Complexity Analysis Report</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; margin: 0; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        .header { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 8px 8px 0 0; }
+        .content { padding: 30px; }
+        .metric-card { background: #f8f9fa; border-radius: 6px; padding: 20px; margin: 10px 0; border-left: 4px solid #007bff; }
+        .high-complexity { border-left-color: #dc3545; }
+        .medium-complexity { border-left-color: #ffc107; }
+        .low-complexity { border-left-color: #28a745; }
+        .file-list { max-height: 400px; overflow-y: auto; }
+        .file-item { padding: 10px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; }
+        .recommendations { background: #e7f3ff; border-radius: 6px; padding: 20px; margin: 20px 0; }
+        .summary-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 20px 0; }
+        .chart-container { margin: 20px 0; }
+        table { width: 100%; border-collapse: collapse; margin: 20px 0; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid #ddd; }
+        th { background-color: #f8f9fa; font-weight: 600; }
+        .complexity-high { color: #dc3545; font-weight: bold; }
+        .complexity-medium { color: #ffc107; font-weight: bold; }
+        .complexity-low { color: #28a745; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🔍 Code Complexity Analysis Report</h1>
+            <p>Generated on 8/10/2025, 2:36:25 PM</p>
+        </div>
+        
+        <div class="content">
+            <div class="summary-grid">
+                <div class="metric-card">
+                    <h3>📁 Total Files Analyzed</h3>
+                    <h2>128</h2>
+                </div>
+                <div class="metric-card">
+                    <h3>📊 Average Complexity</h3>
+                    <h2>6.32</h2>
+                </div>
+                <div class="metric-card">
+                    <h3>🔧 Maintainability Score</h3>
+                    <h2>83.3</h2>
+                </div>
+                <div class="metric-card">
+                    <h3>⏱️ Technical Debt</h3>
+                    <h2>169 hours (High)</h2>
+                </div>
+            </div>
+            
+            <div class="recommendations">
+                <h3>💡 Recommendations</h3>
+                <ul>
+                    <li>🔴 20 files have high cyclomatic complexity (>10). Consider refactoring.</li><li>🟡 27 files have low maintainability index (<70). Review and simplify.</li><li>🟠 1 files have high dependency count (>15). Consider dependency injection or modularization.</li>
+                </ul>
+            </div>
+            
+            <h3>📋 Detailed File Analysis</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>File</th>
+                        <th>Cyclomatic Complexity</th>
+                        <th>Cognitive Complexity</th>
+                        <th>Lines of Code</th>
+                        <th>Maintainability Index</th>
+                        <th>Dependencies</th>
+                        <th>Test Coverage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                        <tr>
+                            <td>src\components\ui\chart.tsx</td>
+                            <td class="complexity-high">78</td>
+                            <td class="complexity-high">69</td>
+                            <td>367</td>
+                            <td class="complexity-high">29.23</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\marketing\newsletter-signup.tsx</td>
+                            <td class="complexity-high">47</td>
+                            <td class="complexity-high">62</td>
+                            <td>446</td>
+                            <td class="complexity-high">30.96</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\auth\signin-form.tsx</td>
+                            <td class="complexity-high">38</td>
+                            <td class="complexity-high">86</td>
+                            <td>367</td>
+                            <td class="complexity-high">37.6</td>
+                            <td>13</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\auth\signup-form.tsx</td>
+                            <td class="complexity-high">34</td>
+                            <td class="complexity-high">74</td>
+                            <td>359</td>
+                            <td class="complexity-high">38.78</td>
+                            <td>13</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\particles.tsx</td>
+                            <td class="complexity-high">32</td>
+                            <td class="complexity-high">78</td>
+                            <td>253</td>
+                            <td class="complexity-high">46.71</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\lib\with-cors.ts</td>
+                            <td class="complexity-high">30</td>
+                            <td class="complexity-high">68</td>
+                            <td>118</td>
+                            <td class="complexity-medium">62.05</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\functions\metadata.ts</td>
+                            <td class="complexity-high">29</td>
+                            <td class="complexity-medium">22</td>
+                            <td>121</td>
+                            <td class="complexity-medium">58.03</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\hooks\use-api.ts</td>
+                            <td class="complexity-high">28</td>
+                            <td class="complexity-high">49</td>
+                            <td>160</td>
+                            <td class="complexity-medium">56.5</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\dashboard\api-keys.tsx</td>
+                            <td class="complexity-high">27</td>
+                            <td class="complexity-high">44</td>
+                            <td>538</td>
+                            <td class="complexity-high">32.48</td>
+                            <td>9</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\carousel.tsx</td>
+                            <td class="complexity-high">24</td>
+                            <td class="complexity-high">36</td>
+                            <td>233</td>
+                            <td class="complexity-medium">50.72</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\lib\loops.ts</td>
+                            <td class="complexity-high">17</td>
+                            <td class="complexity-high">39</td>
+                            <td>97</td>
+                            <td class="complexity-medium">68.49</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\hooks\use-user.ts</td>
+                            <td class="complexity-high">16</td>
+                            <td class="complexity-medium">17</td>
+                            <td>64</td>
+                            <td class="complexity-low">75.23</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\lib\with-security.ts</td>
+                            <td class="complexity-medium">14</td>
+                            <td class="complexity-high">23</td>
+                            <td>39</td>
+                            <td class="complexity-low">86.41</td>
+                            <td>5</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\marketing\pricing.tsx</td>
+                            <td class="complexity-medium">13</td>
+                            <td class="complexity-low">12</td>
+                            <td>191</td>
+                            <td class="complexity-medium">55</td>
+                            <td>10</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\global\error-boundary.tsx</td>
+                            <td class="complexity-medium">13</td>
+                            <td class="complexity-high">23</td>
+                            <td>90</td>
+                            <td class="complexity-medium">67.77</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\auth\callback\page.tsx</td>
+                            <td class="complexity-medium">13</td>
+                            <td class="complexity-high">37</td>
+                            <td>62</td>
+                            <td class="complexity-low">78.11</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\hooks\use-local-storage.ts</td>
+                            <td class="complexity-medium">12</td>
+                            <td class="complexity-high">26</td>
+                            <td>75</td>
+                            <td class="complexity-low">74.51</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\lib\with-api-key.ts</td>
+                            <td class="complexity-medium">11</td>
+                            <td class="complexity-high">38</td>
+                            <td>63</td>
+                            <td class="complexity-low">76.91</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\hooks\use-api-keys.ts</td>
+                            <td class="complexity-medium">11</td>
+                            <td class="complexity-medium">21</td>
+                            <td>99</td>
+                            <td class="complexity-low">70.46</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\api\keys\[id]\route.ts</td>
+                            <td class="complexity-medium">11</td>
+                            <td class="complexity-high">27</td>
+                            <td>80</td>
+                            <td class="complexity-low">70.93</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\dot-pattern.tsx</td>
+                            <td class="complexity-low">9</td>
+                            <td class="complexity-low">1</td>
+                            <td>56</td>
+                            <td class="complexity-low">81.93</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\border-beam.tsx</td>
+                            <td class="complexity-low">9</td>
+                            <td class="complexity-low">0</td>
+                            <td>43</td>
+                            <td class="complexity-low">85.15</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\global\container.tsx</td>
+                            <td class="complexity-low">9</td>
+                            <td class="complexity-low">1</td>
+                            <td>35</td>
+                            <td class="complexity-low">90.4</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\api\keys\route.ts</td>
+                            <td class="complexity-low">9</td>
+                            <td class="complexity-high">33</td>
+                            <td>70</td>
+                            <td class="complexity-low">72.74</td>
+                            <td>5</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\lib\simple-rate-limit.ts</td>
+                            <td class="complexity-low">8</td>
+                            <td class="complexity-medium">21</td>
+                            <td>52</td>
+                            <td class="complexity-low">83.06</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\lib\env.ts</td>
+                            <td class="complexity-low">8</td>
+                            <td class="complexity-high">35</td>
+                            <td>72</td>
+                            <td class="complexity-low">75.44</td>
+                            <td>0</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\number-ticker.tsx</td>
+                            <td class="complexity-low">8</td>
+                            <td class="complexity-low">6</td>
+                            <td>48</td>
+                            <td class="complexity-low">83.47</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\middleware.ts</td>
+                            <td class="complexity-low">7</td>
+                            <td class="complexity-medium">16</td>
+                            <td>21</td>
+                            <td class="complexity-low">98.44</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\hooks\use-loops.ts</td>
+                            <td class="complexity-low">7</td>
+                            <td class="complexity-low">0</td>
+                            <td>46</td>
+                            <td class="complexity-low">85.27</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\hooks\use-debounced-search.ts</td>
+                            <td class="complexity-low">7</td>
+                            <td class="complexity-low">3</td>
+                            <td>47</td>
+                            <td class="complexity-low">85.39</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\progress-slider.tsx</td>
+                            <td class="complexity-low">7</td>
+                            <td class="complexity-low">9</td>
+                            <td>111</td>
+                            <td class="complexity-medium">67.08</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\marquee.tsx</td>
+                            <td class="complexity-low">7</td>
+                            <td class="complexity-low">1</td>
+                            <td>53</td>
+                            <td class="complexity-low">83.05</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\magic-card.tsx</td>
+                            <td class="complexity-low">7</td>
+                            <td class="complexity-low">4</td>
+                            <td>46</td>
+                            <td class="complexity-low">84.08</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\form.tsx</td>
+                            <td class="complexity-low">7</td>
+                            <td class="complexity-low">10</td>
+                            <td>158</td>
+                            <td class="complexity-medium">62.52</td>
+                            <td>5</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\dropdown-menu.tsx</td>
+                            <td class="complexity-low">7</td>
+                            <td class="complexity-low">3</td>
+                            <td>185</td>
+                            <td class="complexity-medium">58.7</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\blur-text.tsx</td>
+                            <td class="complexity-low">7</td>
+                            <td class="complexity-low">7</td>
+                            <td>51</td>
+                            <td class="complexity-low">82.97</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\marketing\navbar.tsx</td>
+                            <td class="complexity-low">7</td>
+                            <td class="complexity-low">9</td>
+                            <td>104</td>
+                            <td class="complexity-medium">68.2</td>
+                            <td>10</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\loading-icon.tsx</td>
+                            <td class="complexity-low">6</td>
+                            <td class="complexity-low">3</td>
+                            <td>20</td>
+                            <td class="complexity-low">101.29</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\marketing\perks.tsx</td>
+                            <td class="complexity-low">6</td>
+                            <td class="complexity-low">5</td>
+                            <td>78</td>
+                            <td class="complexity-low">73.31</td>
+                            <td>5</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\marketing\footer.tsx</td>
+                            <td class="complexity-low">6</td>
+                            <td class="complexity-low">6</td>
+                            <td>88</td>
+                            <td class="complexity-low">71.98</td>
+                            <td>7</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\lib\csrf.ts</td>
+                            <td class="complexity-low">5</td>
+                            <td class="complexity-low">12</td>
+                            <td>23</td>
+                            <td class="complexity-low">94.9</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\schema\signup-schema.ts</td>
+                            <td class="complexity-low">5</td>
+                            <td class="complexity-low">1</td>
+                            <td>23</td>
+                            <td class="complexity-low">97.76</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\schema\signin-schema.ts</td>
+                            <td class="complexity-low">5</td>
+                            <td class="complexity-low">1</td>
+                            <td>23</td>
+                            <td class="complexity-low">97.76</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\hooks\use-optimistic-update.ts</td>
+                            <td class="complexity-low">5</td>
+                            <td class="complexity-low">5</td>
+                            <td>41</td>
+                            <td class="complexity-low">86.9</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\ripple.tsx</td>
+                            <td class="complexity-low">5</td>
+                            <td class="complexity-low">1</td>
+                            <td>44</td>
+                            <td class="complexity-low">85.32</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\button.tsx</td>
+                            <td class="complexity-low">5</td>
+                            <td class="complexity-low">1</td>
+                            <td>61</td>
+                            <td class="complexity-low">78.23</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\lib\with-csrf.ts</td>
+                            <td class="complexity-low">4</td>
+                            <td class="complexity-medium">22</td>
+                            <td>35</td>
+                            <td class="complexity-low">91.19</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\lib\rate-limit.ts</td>
+                            <td class="complexity-low">4</td>
+                            <td class="complexity-low">14</td>
+                            <td>61</td>
+                            <td class="complexity-low">79.04</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\hooks\use-csrf.ts</td>
+                            <td class="complexity-low">4</td>
+                            <td class="complexity-low">11</td>
+                            <td>35</td>
+                            <td class="complexity-low">90.86</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\hooks\use-click-outside.ts</td>
+                            <td class="complexity-low">4</td>
+                            <td class="complexity-low">11</td>
+                            <td>16</td>
+                            <td class="complexity-low">100.87</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\spotlight.tsx</td>
+                            <td class="complexity-low">4</td>
+                            <td class="complexity-low">1</td>
+                            <td>57</td>
+                            <td class="complexity-low">81.42</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\lib\with-rate-limit.ts</td>
+                            <td class="complexity-low">3</td>
+                            <td class="complexity-low">13</td>
+                            <td>51</td>
+                            <td class="complexity-low">83.16</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\lib\prisma.ts</td>
+                            <td class="complexity-low">3</td>
+                            <td class="complexity-low">5</td>
+                            <td>14</td>
+                            <td class="complexity-low">110.05</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\functions\__tests__\cn.test.ts</td>
+                            <td class="complexity-low">3</td>
+                            <td class="complexity-low">8</td>
+                            <td>37</td>
+                            <td class="complexity-low">89.95</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\select.tsx</td>
+                            <td class="complexity-low">3</td>
+                            <td class="complexity-low">2</td>
+                            <td>146</td>
+                            <td class="complexity-medium">63.59</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\retro-grid.tsx</td>
+                            <td class="complexity-low">3</td>
+                            <td class="complexity-low">1</td>
+                            <td>31</td>
+                            <td class="complexity-low">91.89</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\menu-icon.tsx</td>
+                            <td class="complexity-low">3</td>
+                            <td class="complexity-low">0</td>
+                            <td>31</td>
+                            <td class="complexity-low">92.82</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\input-otp.tsx</td>
+                            <td class="complexity-low">3</td>
+                            <td class="complexity-low">2</td>
+                            <td>63</td>
+                            <td class="complexity-low">79.24</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\badge.tsx</td>
+                            <td class="complexity-low">3</td>
+                            <td class="complexity-low">3</td>
+                            <td>38</td>
+                            <td class="complexity-low">88.04</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\marketing\mobile-menu.tsx</td>
+                            <td class="complexity-low">3</td>
+                            <td class="complexity-low">0</td>
+                            <td>197</td>
+                            <td class="complexity-medium">58.84</td>
+                            <td>5</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\marketing\features.tsx</td>
+                            <td class="complexity-low">3</td>
+                            <td class="complexity-low">4</td>
+                            <td>212</td>
+                            <td class="complexity-medium">55.9</td>
+                            <td>6</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\api\loops\contact\route.ts</td>
+                            <td class="complexity-low">3</td>
+                            <td class="complexity-low">10</td>
+                            <td>51</td>
+                            <td class="complexity-low">82.17</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\lib\cors-config.ts</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">2</td>
+                            <td>28</td>
+                            <td class="complexity-low">97.25</td>
+                            <td>0</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\constants\plans.ts</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">6</td>
+                            <td>69</td>
+                            <td class="complexity-low">78.11</td>
+                            <td>0</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\__tests__\utils\test-utils.tsx</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">0</td>
+                            <td>23</td>
+                            <td class="complexity-low">99</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\progress.tsx</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">1</td>
+                            <td>24</td>
+                            <td class="complexity-low">97.94</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\marketing\menu.tsx</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">1</td>
+                            <td>154</td>
+                            <td class="complexity-medium">61.85</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\marketing\cta.tsx</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">0</td>
+                            <td>52</td>
+                            <td class="complexity-low">81.63</td>
+                            <td>5</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\global\wrapper.tsx</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">3</td>
+                            <td>19</td>
+                            <td class="complexity-low">98.95</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\global\providers.tsx</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">1</td>
+                            <td>32</td>
+                            <td class="complexity-low">93.37</td>
+                            <td>5</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\global\global-error-boundary.tsx</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">3</td>
+                            <td>65</td>
+                            <td class="complexity-low">77.04</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\dashboard\mobile-sidebar.tsx</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">0</td>
+                            <td>77</td>
+                            <td class="complexity-low">76.12</td>
+                            <td>7</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\dashboard\dashboard-sidebar.tsx</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">0</td>
+                            <td>80</td>
+                            <td class="complexity-low">74.74</td>
+                            <td>8</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\dashboard\dashboard-navbar.tsx</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">1</td>
+                            <td>44</td>
+                            <td class="complexity-low">85.67</td>
+                            <td>6</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\api\csrf\route.ts</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">4</td>
+                            <td>25</td>
+                            <td class="complexity-low">96.69</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\api\loops\events\route.ts</td>
+                            <td class="complexity-low">2</td>
+                            <td class="complexity-low">4</td>
+                            <td>22</td>
+                            <td class="complexity-low">98.6</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\schema\index.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>22</td>
+                            <td class="complexity-low">104.17</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\schema\env-schema.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">3</td>
+                            <td>36</td>
+                            <td class="complexity-low">88.62</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\hooks\index.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>23</td>
+                            <td class="complexity-low">102.12</td>
+                            <td>6</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\functions\index.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>3</td>
+                            <td class="complexity-low">140.5</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\functions\cn.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">5</td>
+                            <td>5</td>
+                            <td class="complexity-low">121.41</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\constants\site.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>12</td>
+                            <td class="complexity-low">112.83</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\constants\reviews.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">4</td>
+                            <td>80</td>
+                            <td class="complexity-low">72.61</td>
+                            <td>0</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\constants\perks.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">1</td>
+                            <td>46</td>
+                            <td class="complexity-low">83.43</td>
+                            <td>0</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\constants\links.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>106</td>
+                            <td class="complexity-low">71.12</td>
+                            <td>0</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\constants\index.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>27</td>
+                            <td class="complexity-low">100.05</td>
+                            <td>6</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\constants\fonts.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>36</td>
+                            <td class="complexity-low">93.04</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\constants\dashboard.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">1</td>
+                            <td>51</td>
+                            <td class="complexity-low">84.76</td>
+                            <td>0</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\constants\animation.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>20</td>
+                            <td class="complexity-low">106.41</td>
+                            <td>0</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\index.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>44</td>
+                            <td class="complexity-low">88.63</td>
+                            <td>21</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\layout.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">1</td>
+                            <td>26</td>
+                            <td class="complexity-low">96.12</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\__tests__\utils\setup-tests.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">2</td>
+                            <td>8</td>
+                            <td class="complexity-low">118.17</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\__tests__\utils\mock-providers.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>22</td>
+                            <td class="complexity-low">99.67</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\__tests__\utils\mock-handlers.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">1</td>
+                            <td>3</td>
+                            <td class="complexity-low">137.14</td>
+                            <td>0</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\__tests__\utils\mock-data.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>70</td>
+                            <td class="complexity-low">78.55</td>
+                            <td>0</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\tooltip.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>23</td>
+                            <td class="complexity-low">97.52</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\textarea.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>20</td>
+                            <td class="complexity-low">100.15</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\tabs.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>48</td>
+                            <td class="complexity-low">85.02</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\table.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>110</td>
+                            <td class="complexity-low">71.11</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\switch.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>25</td>
+                            <td class="complexity-low">95.65</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\sonner.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>25</td>
+                            <td class="complexity-low">97.88</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\skeleton.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">1</td>
+                            <td>13</td>
+                            <td class="complexity-low">111.2</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\sheet.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">3</td>
+                            <td>123</td>
+                            <td class="complexity-medium">65.03</td>
+                            <td>5</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\section-bade.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>13</td>
+                            <td class="complexity-low">106.56</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\navigation-menu.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">1</td>
+                            <td>117</td>
+                            <td class="complexity-medium">67.89</td>
+                            <td>5</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\label.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">1</td>
+                            <td>21</td>
+                            <td class="complexity-low">100.33</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\input.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>21</td>
+                            <td class="complexity-low">99.28</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\dialog.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>109</td>
+                            <td class="complexity-medium">69.42</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\card.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>78</td>
+                            <td class="complexity-low">78.73</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\avatar.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>44</td>
+                            <td class="complexity-low">88.44</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\ui\accordion.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>50</td>
+                            <td class="complexity-low">84.05</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\marketing\reviews.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>84</td>
+                            <td class="complexity-low">73.15</td>
+                            <td>5</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\marketing\hero.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">6</td>
+                            <td>73</td>
+                            <td class="complexity-low">74.62</td>
+                            <td>6</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\marketing\connect.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>35</td>
+                            <td class="complexity-low">89.95</td>
+                            <td>4</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\marketing\companies.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>30</td>
+                            <td class="complexity-low">93.15</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\global\images.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>23517</td>
+                            <td class="complexity-high">0</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\global\icons.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>245</td>
+                            <td class="complexity-medium">57.65</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\components\global\background.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>19</td>
+                            <td class="complexity-low">100.69</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\auth\layout.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>31</td>
+                            <td class="complexity-low">92.55</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\(marketing)\page.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>63</td>
+                            <td class="complexity-low">79.26</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\(marketing)\layout.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>19</td>
+                            <td class="complexity-low">101.53</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\auth\signup\page.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>14</td>
+                            <td class="complexity-low">109.1</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\auth\signin\page.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>14</td>
+                            <td class="complexity-low">109.1</td>
+                            <td>2</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\api\protected\route.ts</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">1</td>
+                            <td>22</td>
+                            <td class="complexity-low">99.23</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\(main)\app\page.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>229</td>
+                            <td class="complexity-medium">55.98</td>
+                            <td>8</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\(main)\app\layout.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>18</td>
+                            <td class="complexity-low">104.15</td>
+                            <td>3</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\auth\signup\sso-callback\page.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">1</td>
+                            <td>9</td>
+                            <td class="complexity-low">118.65</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                        <tr>
+                            <td>src\app\(main)\app\api-keys\page.tsx</td>
+                            <td class="complexity-low">1</td>
+                            <td class="complexity-low">0</td>
+                            <td>5</td>
+                            <td class="complexity-low">127.76</td>
+                            <td>1</td>
+                            <td>N/A</td>
+                        </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

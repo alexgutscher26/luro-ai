@@ -42,6 +42,11 @@
     "db:restore": "echo 'Restore command depends on your database provider'",
     "sonar": "sonar-scanner",
     "sonar:local": "sonar-scanner -Dsonar.host.url=http://localhost:9000",
+    "complexity": "tsx scripts/complexity-analysis.ts",
+    "complexity:watch": "tsx scripts/complexity-analysis.ts --watch",
+    "complexity:ci": "tsx scripts/complexity-analysis.ts --ci",
+    "quality:full": "npm run lint && npm run type-check && npm run test:coverage && npm run complexity",
+    "analyze": "npm run complexity && npm run sonar",
     "quality:check": "npm run lint && npm run type-check && npm run test:coverage",
     "quality:fix": "npm run format && npm run lint -- --fix"
   },

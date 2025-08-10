@@ -1,0 +1,44 @@
+{
+  "thresholds": {
+    "cyclomaticComplexity": {
+      "low": 5,
+      "medium": 10,
+      "high": 15
+    },
+    "cognitiveComplexity": {
+      "low": 8,
+      "medium": 15,
+      "high": 25
+    },
+    "maintainabilityIndex": {
+      "low": 50,
+      "medium": 70,
+      "high": 85
+    },
+    "linesOfCode": {
+      "low": 100,
+      "medium": 200,
+      "high": 300
+    }
+  },
+  "excludePatterns": [
+    "**/*.test.ts",
+    "**/*.test.tsx",
+    "**/*.spec.ts",
+    "**/*.spec.tsx",
+    "**/node_modules/**",
+    "**/.next/**",
+    "**/coverage/**",
+    "**/prisma/migrations/**"
+  ],
+  "includePatterns": [
+    "src/**/*.ts",
+    "src/**/*.tsx"
+  ],
+  "reportFormats": ["json", "html", "console"],
+  "integrations": {
+    "sonarqube": true,
+    "eslint": true,
+    "jest": true
+  }
+}

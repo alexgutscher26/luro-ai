@@ -1,0 +1,66 @@
+name: Code Complexity Analysis
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  complexity-analysis:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Run complexity analysis
+      run: npm run complexity:ci
+    
+    - name: Upload complexity report
+      uses: actions/upload-artifact@v4
+      with:
+        name: complexity-report
+        path: reports/
+    
+    - name: Comment PR with complexity results
+      if: github.event_name == 'pull_request'
+      uses: actions/github-script@v7
+      with:
+        script: |
+          const fs = require('fs');
+          const path = './reports/complexity-report-latest.json';
+          
+          if (fs.existsSync(path)) {
+            const report = JSON.parse(fs.readFileSync(path, 'utf8'));
+            
+            const comment = `## 🔍 Code Complexity Analysis
+            
+            **Summary:**
+            - 📁 Files analyzed: ${report.summary.totalFiles}
+            - 📊 Average complexity: ${report.summary.averageComplexity}
+            - 🔧 Maintainability score: ${report.summary.maintainabilityScore}
+            - ⏱️ Technical debt: ${report.summary.technicalDebt}
+            
+            **High complexity files:** ${report.summary.highComplexityFiles.length}
+            
+            **Recommendations:**
+            ${report.recommendations.map(rec => `- ${rec}`).join('\n')}
+            
+            [View detailed report](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }})`;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
+          }

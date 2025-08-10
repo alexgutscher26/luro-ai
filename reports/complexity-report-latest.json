@@ -1,0 +1,1962 @@
+{
+  "summary": {
+    "totalFiles": 128,
+    "averageComplexity": 6.32,
+    "highComplexityFiles": [
+      "src\\middleware.ts",
+      "src\\lib\\with-security.ts",
+      "src\\lib\\with-csrf.ts",
+      "src\\lib\\with-cors.ts",
+      "src\\lib\\with-api-key.ts",
+      "src\\lib\\simple-rate-limit.ts",
+      "src\\lib\\loops.ts",
+      "src\\lib\\env.ts",
+      "src\\hooks\\use-user.ts",
+      "src\\hooks\\use-local-storage.ts",
+      "src\\hooks\\use-api.ts",
+      "src\\hooks\\use-api-keys.ts",
+      "src\\functions\\metadata.ts",
+      "src\\components\\ui\\particles.tsx",
+      "src\\components\\ui\\chart.tsx",
+      "src\\components\\ui\\carousel.tsx",
+      "src\\components\\marketing\\pricing.tsx",
+      "src\\components\\marketing\\newsletter-signup.tsx",
+      "src\\components\\global\\error-boundary.tsx",
+      "src\\components\\dashboard\\api-keys.tsx",
+      "src\\components\\auth\\signup-form.tsx",
+      "src\\components\\auth\\signin-form.tsx",
+      "src\\app\\auth\\callback\\page.tsx",
+      "src\\app\\api\\keys\\route.ts",
+      "src\\app\\api\\keys\\[id]\\route.ts"
+    ],
+    "maintainabilityScore": 83.3,
+    "technicalDebt": "169 hours (High)"
+  },
+  "files": [
+    {
+      "file": "src\\components\\ui\\chart.tsx",
+      "cyclomaticComplexity": 78,
+      "cognitiveComplexity": 69,
+      "linesOfCode": 367,
+      "maintainabilityIndex": 29.23,
+      "halsteadMetrics": {
+        "vocabulary": 225,
+        "length": 2031,
+        "difficulty": 39.57,
+        "effort": 80363,
+        "bugs": 26.788
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\components\\marketing\\newsletter-signup.tsx",
+      "cyclomaticComplexity": 47,
+      "cognitiveComplexity": 62,
+      "linesOfCode": 446,
+      "maintainabilityIndex": 30.96,
+      "halsteadMetrics": {
+        "vocabulary": 346,
+        "length": 2891,
+        "difficulty": 39.51,
+        "effort": 114230,
+        "bugs": 38.077
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\components\\auth\\signin-form.tsx",
+      "cyclomaticComplexity": 38,
+      "cognitiveComplexity": 86,
+      "linesOfCode": 367,
+      "maintainabilityIndex": 37.6,
+      "halsteadMetrics": {
+        "vocabulary": 264,
+        "length": 2020,
+        "difficulty": 33.11,
+        "effort": 66873,
+        "bugs": 22.291
+      },
+      "dependencies": 13
+    },
+    {
+      "file": "src\\components\\auth\\signup-form.tsx",
+      "cyclomaticComplexity": 34,
+      "cognitiveComplexity": 74,
+      "linesOfCode": 359,
+      "maintainabilityIndex": 38.78,
+      "halsteadMetrics": {
+        "vocabulary": 269,
+        "length": 1946,
+        "difficulty": 33.81,
+        "effort": 65800,
+        "bugs": 21.933
+      },
+      "dependencies": 13
+    },
+    {
+      "file": "src\\components\\ui\\particles.tsx",
+      "cyclomaticComplexity": 32,
+      "cognitiveComplexity": 78,
+      "linesOfCode": 253,
+      "maintainabilityIndex": 46.71,
+      "halsteadMetrics": {
+        "vocabulary": 190,
+        "length": 1627,
+        "difficulty": 42,
+        "effort": 68334,
+        "bugs": 22.778
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\lib\\with-cors.ts",
+      "cyclomaticComplexity": 30,
+      "cognitiveComplexity": 68,
+      "linesOfCode": 118,
+      "maintainabilityIndex": 62.05,
+      "halsteadMetrics": {
+        "vocabulary": 117,
+        "length": 629,
+        "difficulty": 28.11,
+        "effort": 17683,
+        "bugs": 5.894
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\functions\\metadata.ts",
+      "cyclomaticComplexity": 29,
+      "cognitiveComplexity": 22,
+      "linesOfCode": 121,
+      "maintainabilityIndex": 58.03,
+      "halsteadMetrics": {
+        "vocabulary": 245,
+        "length": 1167,
+        "difficulty": 24.89,
+        "effort": 29045,
+        "bugs": 9.682
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\hooks\\use-api.ts",
+      "cyclomaticComplexity": 28,
+      "cognitiveComplexity": 49,
+      "linesOfCode": 160,
+      "maintainabilityIndex": 56.5,
+      "halsteadMetrics": {
+        "vocabulary": 144,
+        "length": 957,
+        "difficulty": 30,
+        "effort": 28710,
+        "bugs": 9.57
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\components\\dashboard\\api-keys.tsx",
+      "cyclomaticComplexity": 27,
+      "cognitiveComplexity": 44,
+      "linesOfCode": 538,
+      "maintainabilityIndex": 32.48,
+      "halsteadMetrics": {
+        "vocabulary": 349,
+        "length": 3434,
+        "difficulty": 45.74,
+        "effort": 157085,
+        "bugs": 52.362
+      },
+      "dependencies": 9
+    },
+    {
+      "file": "src\\components\\ui\\carousel.tsx",
+      "cyclomaticComplexity": 24,
+      "cognitiveComplexity": 36,
+      "linesOfCode": 233,
+      "maintainabilityIndex": 50.72,
+      "halsteadMetrics": {
+        "vocabulary": 162,
+        "length": 1254,
+        "difficulty": 33.02,
+        "effort": 41404,
+        "bugs": 13.801
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\lib\\loops.ts",
+      "cyclomaticComplexity": 17,
+      "cognitiveComplexity": 39,
+      "linesOfCode": 97,
+      "maintainabilityIndex": 68.49,
+      "halsteadMetrics": {
+        "vocabulary": 111,
+        "length": 486,
+        "difficulty": 19.22,
+        "effort": 9340,
+        "bugs": 3.113
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\hooks\\use-user.ts",
+      "cyclomaticComplexity": 16,
+      "cognitiveComplexity": 17,
+      "linesOfCode": 64,
+      "maintainabilityIndex": 75.23,
+      "halsteadMetrics": {
+        "vocabulary": 116,
+        "length": 456,
+        "difficulty": 20.57,
+        "effort": 9379,
+        "bugs": 3.126
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\lib\\with-security.ts",
+      "cyclomaticComplexity": 14,
+      "cognitiveComplexity": 23,
+      "linesOfCode": 39,
+      "maintainabilityIndex": 86.41,
+      "halsteadMetrics": {
+        "vocabulary": 69,
+        "length": 265,
+        "difficulty": 18.26,
+        "effort": 4840,
+        "bugs": 1.613
+      },
+      "dependencies": 5
+    },
+    {
+      "file": "src\\components\\marketing\\pricing.tsx",
+      "cyclomaticComplexity": 13,
+      "cognitiveComplexity": 12,
+      "linesOfCode": 191,
+      "maintainabilityIndex": 55,
+      "halsteadMetrics": {
+        "vocabulary": 215,
+        "length": 1523,
+        "difficulty": 35.38,
+        "effort": 53891,
+        "bugs": 17.964
+      },
+      "dependencies": 10
+    },
+    {
+      "file": "src\\components\\global\\error-boundary.tsx",
+      "cyclomaticComplexity": 13,
+      "cognitiveComplexity": 23,
+      "linesOfCode": 90,
+      "maintainabilityIndex": 67.77,
+      "halsteadMetrics": {
+        "vocabulary": 192,
+        "length": 747,
+        "difficulty": 19.14,
+        "effort": 14295,
+        "bugs": 4.765
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\app\\auth\\callback\\page.tsx",
+      "cyclomaticComplexity": 13,
+      "cognitiveComplexity": 37,
+      "linesOfCode": 62,
+      "maintainabilityIndex": 78.11,
+      "halsteadMetrics": {
+        "vocabulary": 84,
+        "length": 336,
+        "difficulty": 18.82,
+        "effort": 6325,
+        "bugs": 2.108
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\hooks\\use-local-storage.ts",
+      "cyclomaticComplexity": 12,
+      "cognitiveComplexity": 26,
+      "linesOfCode": 75,
+      "maintainabilityIndex": 74.51,
+      "halsteadMetrics": {
+        "vocabulary": 97,
+        "length": 491,
+        "difficulty": 22.74,
+        "effort": 11164,
+        "bugs": 3.721
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\lib\\with-api-key.ts",
+      "cyclomaticComplexity": 11,
+      "cognitiveComplexity": 38,
+      "linesOfCode": 63,
+      "maintainabilityIndex": 76.91,
+      "halsteadMetrics": {
+        "vocabulary": 110,
+        "length": 402,
+        "difficulty": 15.39,
+        "effort": 6189,
+        "bugs": 2.063
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\hooks\\use-api-keys.ts",
+      "cyclomaticComplexity": 11,
+      "cognitiveComplexity": 21,
+      "linesOfCode": 99,
+      "maintainabilityIndex": 70.46,
+      "halsteadMetrics": {
+        "vocabulary": 93,
+        "length": 620,
+        "difficulty": 27.22,
+        "effort": 16877,
+        "bugs": 5.626
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\app\\api\\keys\\[id]\\route.ts",
+      "cyclomaticComplexity": 11,
+      "cognitiveComplexity": 27,
+      "linesOfCode": 80,
+      "maintainabilityIndex": 70.93,
+      "halsteadMetrics": {
+        "vocabulary": 165,
+        "length": 738,
+        "difficulty": 19.4,
+        "effort": 14317,
+        "bugs": 4.772
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\components\\ui\\dot-pattern.tsx",
+      "cyclomaticComplexity": 9,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 56,
+      "maintainabilityIndex": 81.93,
+      "halsteadMetrics": {
+        "vocabulary": 66,
+        "length": 249,
+        "difficulty": 16.16,
+        "effort": 4024,
+        "bugs": 1.341
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\components\\ui\\border-beam.tsx",
+      "cyclomaticComplexity": 9,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 43,
+      "maintainabilityIndex": 85.15,
+      "halsteadMetrics": {
+        "vocabulary": 81,
+        "length": 367,
+        "difficulty": 19.71,
+        "effort": 7235,
+        "bugs": 2.412
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\components\\global\\container.tsx",
+      "cyclomaticComplexity": 9,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 35,
+      "maintainabilityIndex": 90.4,
+      "halsteadMetrics": {
+        "vocabulary": 56,
+        "length": 174,
+        "difficulty": 11.5,
+        "effort": 2001,
+        "bugs": 0.667
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\app\\api\\keys\\route.ts",
+      "cyclomaticComplexity": 9,
+      "cognitiveComplexity": 33,
+      "linesOfCode": 70,
+      "maintainabilityIndex": 72.74,
+      "halsteadMetrics": {
+        "vocabulary": 193,
+        "length": 725,
+        "difficulty": 19.44,
+        "effort": 14090,
+        "bugs": 4.697
+      },
+      "dependencies": 5
+    },
+    {
+      "file": "src\\lib\\simple-rate-limit.ts",
+      "cyclomaticComplexity": 8,
+      "cognitiveComplexity": 21,
+      "linesOfCode": 52,
+      "maintainabilityIndex": 83.06,
+      "halsteadMetrics": {
+        "vocabulary": 70,
+        "length": 292,
+        "difficulty": 21.81,
+        "effort": 6369,
+        "bugs": 2.123
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\lib\\env.ts",
+      "cyclomaticComplexity": 8,
+      "cognitiveComplexity": 35,
+      "linesOfCode": 72,
+      "maintainabilityIndex": 75.44,
+      "halsteadMetrics": {
+        "vocabulary": 110,
+        "length": 498,
+        "difficulty": 24.16,
+        "effort": 12033,
+        "bugs": 4.011
+      },
+      "dependencies": 0
+    },
+    {
+      "file": "src\\components\\ui\\number-ticker.tsx",
+      "cyclomaticComplexity": 8,
+      "cognitiveComplexity": 6,
+      "linesOfCode": 48,
+      "maintainabilityIndex": 83.47,
+      "halsteadMetrics": {
+        "vocabulary": 83,
+        "length": 287,
+        "difficulty": 15.65,
+        "effort": 4490,
+        "bugs": 1.497
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\middleware.ts",
+      "cyclomaticComplexity": 7,
+      "cognitiveComplexity": 16,
+      "linesOfCode": 21,
+      "maintainabilityIndex": 98.44,
+      "halsteadMetrics": {
+        "vocabulary": 64,
+        "length": 235,
+        "difficulty": 17.72,
+        "effort": 4165,
+        "bugs": 1.388
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\hooks\\use-loops.ts",
+      "cyclomaticComplexity": 7,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 46,
+      "maintainabilityIndex": 85.27,
+      "halsteadMetrics": {
+        "vocabulary": 70,
+        "length": 249,
+        "difficulty": 13.38,
+        "effort": 3330,
+        "bugs": 1.11
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\hooks\\use-debounced-search.ts",
+      "cyclomaticComplexity": 7,
+      "cognitiveComplexity": 3,
+      "linesOfCode": 47,
+      "maintainabilityIndex": 85.39,
+      "halsteadMetrics": {
+        "vocabulary": 64,
+        "length": 265,
+        "difficulty": 21.11,
+        "effort": 5594,
+        "bugs": 1.865
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\components\\ui\\progress-slider.tsx",
+      "cyclomaticComplexity": 7,
+      "cognitiveComplexity": 9,
+      "linesOfCode": 111,
+      "maintainabilityIndex": 67.08,
+      "halsteadMetrics": {
+        "vocabulary": 149,
+        "length": 820,
+        "difficulty": 25.21,
+        "effort": 20673,
+        "bugs": 6.891
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\components\\ui\\marquee.tsx",
+      "cyclomaticComplexity": 7,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 53,
+      "maintainabilityIndex": 83.05,
+      "halsteadMetrics": {
+        "vocabulary": 69,
+        "length": 258,
+        "difficulty": 15.25,
+        "effort": 3933,
+        "bugs": 1.311
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\components\\ui\\magic-card.tsx",
+      "cyclomaticComplexity": 7,
+      "cognitiveComplexity": 4,
+      "linesOfCode": 46,
+      "maintainabilityIndex": 84.08,
+      "halsteadMetrics": {
+        "vocabulary": 88,
+        "length": 268,
+        "difficulty": 11.92,
+        "effort": 3194,
+        "bugs": 1.065
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\components\\ui\\form.tsx",
+      "cyclomaticComplexity": 7,
+      "cognitiveComplexity": 10,
+      "linesOfCode": 158,
+      "maintainabilityIndex": 62.52,
+      "halsteadMetrics": {
+        "vocabulary": 119,
+        "length": 848,
+        "difficulty": 27.96,
+        "effort": 23711,
+        "bugs": 7.904
+      },
+      "dependencies": 5
+    },
+    {
+      "file": "src\\components\\ui\\dropdown-menu.tsx",
+      "cyclomaticComplexity": 7,
+      "cognitiveComplexity": 3,
+      "linesOfCode": 185,
+      "maintainabilityIndex": 58.7,
+      "halsteadMetrics": {
+        "vocabulary": 152,
+        "length": 1474,
+        "difficulty": 47.08,
+        "effort": 69399,
+        "bugs": 23.133
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\components\\ui\\blur-text.tsx",
+      "cyclomaticComplexity": 7,
+      "cognitiveComplexity": 7,
+      "linesOfCode": 51,
+      "maintainabilityIndex": 82.97,
+      "halsteadMetrics": {
+        "vocabulary": 79,
+        "length": 295,
+        "difficulty": 16.18,
+        "effort": 4772,
+        "bugs": 1.591
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\components\\marketing\\navbar.tsx",
+      "cyclomaticComplexity": 7,
+      "cognitiveComplexity": 9,
+      "linesOfCode": 104,
+      "maintainabilityIndex": 68.2,
+      "halsteadMetrics": {
+        "vocabulary": 147,
+        "length": 738,
+        "difficulty": 22.74,
+        "effort": 16785,
+        "bugs": 5.595
+      },
+      "dependencies": 10
+    },
+    {
+      "file": "src\\components\\ui\\loading-icon.tsx",
+      "cyclomaticComplexity": 6,
+      "cognitiveComplexity": 3,
+      "linesOfCode": 20,
+      "maintainabilityIndex": 101.29,
+      "halsteadMetrics": {
+        "vocabulary": 45,
+        "length": 125,
+        "difficulty": 13.25,
+        "effort": 1656,
+        "bugs": 0.552
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\components\\marketing\\perks.tsx",
+      "cyclomaticComplexity": 6,
+      "cognitiveComplexity": 5,
+      "linesOfCode": 78,
+      "maintainabilityIndex": 73.31,
+      "halsteadMetrics": {
+        "vocabulary": 141,
+        "length": 781,
+        "difficulty": 22.32,
+        "effort": 17433,
+        "bugs": 5.811
+      },
+      "dependencies": 5
+    },
+    {
+      "file": "src\\components\\marketing\\footer.tsx",
+      "cyclomaticComplexity": 6,
+      "cognitiveComplexity": 6,
+      "linesOfCode": 88,
+      "maintainabilityIndex": 71.98,
+      "halsteadMetrics": {
+        "vocabulary": 125,
+        "length": 677,
+        "difficulty": 19.8,
+        "effort": 13406,
+        "bugs": 4.469
+      },
+      "dependencies": 7
+    },
+    {
+      "file": "src\\lib\\csrf.ts",
+      "cyclomaticComplexity": 5,
+      "cognitiveComplexity": 12,
+      "linesOfCode": 23,
+      "maintainabilityIndex": 94.9,
+      "halsteadMetrics": {
+        "vocabulary": 104,
+        "length": 288,
+        "difficulty": 13.48,
+        "effort": 3883,
+        "bugs": 1.294
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\schema\\signup-schema.ts",
+      "cyclomaticComplexity": 5,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 23,
+      "maintainabilityIndex": 97.76,
+      "halsteadMetrics": {
+        "vocabulary": 60,
+        "length": 172,
+        "difficulty": 18.31,
+        "effort": 3149,
+        "bugs": 1.05
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\schema\\signin-schema.ts",
+      "cyclomaticComplexity": 5,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 23,
+      "maintainabilityIndex": 97.76,
+      "halsteadMetrics": {
+        "vocabulary": 60,
+        "length": 170,
+        "difficulty": 18.04,
+        "effort": 3067,
+        "bugs": 1.022
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\hooks\\use-optimistic-update.ts",
+      "cyclomaticComplexity": 5,
+      "cognitiveComplexity": 5,
+      "linesOfCode": 41,
+      "maintainabilityIndex": 86.9,
+      "halsteadMetrics": {
+        "vocabulary": 80,
+        "length": 293,
+        "difficulty": 14.75,
+        "effort": 4322,
+        "bugs": 1.441
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\components\\ui\\ripple.tsx",
+      "cyclomaticComplexity": 5,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 44,
+      "maintainabilityIndex": 85.32,
+      "halsteadMetrics": {
+        "vocabulary": 87,
+        "length": 290,
+        "difficulty": 15,
+        "effort": 4350,
+        "bugs": 1.45
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\components\\ui\\button.tsx",
+      "cyclomaticComplexity": 5,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 61,
+      "maintainabilityIndex": 78.23,
+      "halsteadMetrics": {
+        "vocabulary": 123,
+        "length": 468,
+        "difficulty": 17.27,
+        "effort": 8083,
+        "bugs": 2.694
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\lib\\with-csrf.ts",
+      "cyclomaticComplexity": 4,
+      "cognitiveComplexity": 22,
+      "linesOfCode": 35,
+      "maintainabilityIndex": 91.19,
+      "halsteadMetrics": {
+        "vocabulary": 60,
+        "length": 188,
+        "difficulty": 11.5,
+        "effort": 2162,
+        "bugs": 0.721
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\lib\\rate-limit.ts",
+      "cyclomaticComplexity": 4,
+      "cognitiveComplexity": 14,
+      "linesOfCode": 61,
+      "maintainabilityIndex": 79.04,
+      "halsteadMetrics": {
+        "vocabulary": 110,
+        "length": 452,
+        "difficulty": 18.47,
+        "effort": 8350,
+        "bugs": 2.783
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\hooks\\use-csrf.ts",
+      "cyclomaticComplexity": 4,
+      "cognitiveComplexity": 11,
+      "linesOfCode": 35,
+      "maintainabilityIndex": 90.86,
+      "halsteadMetrics": {
+        "vocabulary": 64,
+        "length": 205,
+        "difficulty": 14.67,
+        "effort": 3007,
+        "bugs": 1.002
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\hooks\\use-click-outside.ts",
+      "cyclomaticComplexity": 4,
+      "cognitiveComplexity": 11,
+      "linesOfCode": 16,
+      "maintainabilityIndex": 100.87,
+      "halsteadMetrics": {
+        "vocabulary": 107,
+        "length": 377,
+        "difficulty": 15.98,
+        "effort": 6024,
+        "bugs": 2.008
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\components\\ui\\spotlight.tsx",
+      "cyclomaticComplexity": 4,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 57,
+      "maintainabilityIndex": 81.42,
+      "halsteadMetrics": {
+        "vocabulary": 86,
+        "length": 236,
+        "difficulty": 12.07,
+        "effort": 2849,
+        "bugs": 0.95
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\lib\\with-rate-limit.ts",
+      "cyclomaticComplexity": 3,
+      "cognitiveComplexity": 13,
+      "linesOfCode": 51,
+      "maintainabilityIndex": 83.16,
+      "halsteadMetrics": {
+        "vocabulary": 91,
+        "length": 286,
+        "difficulty": 13.82,
+        "effort": 3951,
+        "bugs": 1.317
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\lib\\prisma.ts",
+      "cyclomaticComplexity": 3,
+      "cognitiveComplexity": 5,
+      "linesOfCode": 14,
+      "maintainabilityIndex": 110.05,
+      "halsteadMetrics": {
+        "vocabulary": 29,
+        "length": 72,
+        "difficulty": 8.1,
+        "effort": 583,
+        "bugs": 0.194
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\functions\\__tests__\\cn.test.ts",
+      "cyclomaticComplexity": 3,
+      "cognitiveComplexity": 8,
+      "linesOfCode": 37,
+      "maintainabilityIndex": 89.95,
+      "halsteadMetrics": {
+        "vocabulary": 67,
+        "length": 334,
+        "difficulty": 19.42,
+        "effort": 6485,
+        "bugs": 2.162
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\components\\ui\\select.tsx",
+      "cyclomaticComplexity": 3,
+      "cognitiveComplexity": 2,
+      "linesOfCode": 146,
+      "maintainabilityIndex": 63.59,
+      "halsteadMetrics": {
+        "vocabulary": 148,
+        "length": 1184,
+        "difficulty": 33.82,
+        "effort": 40041,
+        "bugs": 13.347
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\components\\ui\\retro-grid.tsx",
+      "cyclomaticComplexity": 3,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 31,
+      "maintainabilityIndex": 91.89,
+      "halsteadMetrics": {
+        "vocabulary": 80,
+        "length": 308,
+        "difficulty": 15.52,
+        "effort": 4779,
+        "bugs": 1.593
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\components\\ui\\menu-icon.tsx",
+      "cyclomaticComplexity": 3,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 31,
+      "maintainabilityIndex": 92.82,
+      "halsteadMetrics": {
+        "vocabulary": 67,
+        "length": 210,
+        "difficulty": 14.13,
+        "effort": 2968,
+        "bugs": 0.989
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\components\\ui\\input-otp.tsx",
+      "cyclomaticComplexity": 3,
+      "cognitiveComplexity": 2,
+      "linesOfCode": 63,
+      "maintainabilityIndex": 79.24,
+      "halsteadMetrics": {
+        "vocabulary": 100,
+        "length": 483,
+        "difficulty": 20.86,
+        "effort": 10074,
+        "bugs": 3.358
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\components\\ui\\badge.tsx",
+      "cyclomaticComplexity": 3,
+      "cognitiveComplexity": 3,
+      "linesOfCode": 38,
+      "maintainabilityIndex": 88.04,
+      "halsteadMetrics": {
+        "vocabulary": 89,
+        "length": 286,
+        "difficulty": 15.94,
+        "effort": 4558,
+        "bugs": 1.519
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\components\\marketing\\mobile-menu.tsx",
+      "cyclomaticComplexity": 3,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 197,
+      "maintainabilityIndex": 58.84,
+      "halsteadMetrics": {
+        "vocabulary": 145,
+        "length": 1507,
+        "difficulty": 37.13,
+        "effort": 55953,
+        "bugs": 18.651
+      },
+      "dependencies": 5
+    },
+    {
+      "file": "src\\components\\marketing\\features.tsx",
+      "cyclomaticComplexity": 3,
+      "cognitiveComplexity": 4,
+      "linesOfCode": 212,
+      "maintainabilityIndex": 55.9,
+      "halsteadMetrics": {
+        "vocabulary": 203,
+        "length": 1926,
+        "difficulty": 46.11,
+        "effort": 88808,
+        "bugs": 29.603
+      },
+      "dependencies": 6
+    },
+    {
+      "file": "src\\app\\api\\loops\\contact\\route.ts",
+      "cyclomaticComplexity": 3,
+      "cognitiveComplexity": 10,
+      "linesOfCode": 51,
+      "maintainabilityIndex": 82.17,
+      "halsteadMetrics": {
+        "vocabulary": 110,
+        "length": 329,
+        "difficulty": 11.89,
+        "effort": 3910,
+        "bugs": 1.303
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\lib\\cors-config.ts",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 2,
+      "linesOfCode": 28,
+      "maintainabilityIndex": 97.25,
+      "halsteadMetrics": {
+        "vocabulary": 41,
+        "length": 127,
+        "difficulty": 11.79,
+        "effort": 1498,
+        "bugs": 0.499
+      },
+      "dependencies": 0
+    },
+    {
+      "file": "src\\constants\\plans.ts",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 6,
+      "linesOfCode": 69,
+      "maintainabilityIndex": 78.11,
+      "halsteadMetrics": {
+        "vocabulary": 98,
+        "length": 319,
+        "difficulty": 12.21,
+        "effort": 3895,
+        "bugs": 1.298
+      },
+      "dependencies": 0
+    },
+    {
+      "file": "src\\__tests__\\utils\\test-utils.tsx",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 23,
+      "maintainabilityIndex": 99,
+      "halsteadMetrics": {
+        "vocabulary": 54,
+        "length": 159,
+        "difficulty": 12.95,
+        "effort": 2059,
+        "bugs": 0.686
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\components\\ui\\progress.tsx",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 24,
+      "maintainabilityIndex": 97.94,
+      "halsteadMetrics": {
+        "vocabulary": 58,
+        "length": 166,
+        "difficulty": 13.95,
+        "effort": 2316,
+        "bugs": 0.772
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\components\\marketing\\menu.tsx",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 154,
+      "maintainabilityIndex": 61.85,
+      "halsteadMetrics": {
+        "vocabulary": 183,
+        "length": 1022,
+        "difficulty": 22.05,
+        "effort": 22539,
+        "bugs": 7.513
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\components\\marketing\\cta.tsx",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 52,
+      "maintainabilityIndex": 81.63,
+      "halsteadMetrics": {
+        "vocabulary": 120,
+        "length": 438,
+        "difficulty": 16.57,
+        "effort": 7258,
+        "bugs": 2.419
+      },
+      "dependencies": 5
+    },
+    {
+      "file": "src\\components\\global\\wrapper.tsx",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 3,
+      "linesOfCode": 19,
+      "maintainabilityIndex": 98.95,
+      "halsteadMetrics": {
+        "vocabulary": 99,
+        "length": 274,
+        "difficulty": 13.11,
+        "effort": 3592,
+        "bugs": 1.197
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\components\\global\\providers.tsx",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 32,
+      "maintainabilityIndex": 93.37,
+      "halsteadMetrics": {
+        "vocabulary": 57,
+        "length": 179,
+        "difficulty": 11.88,
+        "effort": 2127,
+        "bugs": 0.709
+      },
+      "dependencies": 5
+    },
+    {
+      "file": "src\\components\\global\\global-error-boundary.tsx",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 3,
+      "linesOfCode": 65,
+      "maintainabilityIndex": 77.04,
+      "halsteadMetrics": {
+        "vocabulary": 145,
+        "length": 508,
+        "difficulty": 12.46,
+        "effort": 6329,
+        "bugs": 2.11
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\components\\dashboard\\mobile-sidebar.tsx",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 77,
+      "maintainabilityIndex": 76.12,
+      "halsteadMetrics": {
+        "vocabulary": 102,
+        "length": 485,
+        "difficulty": 20.47,
+        "effort": 9926,
+        "bugs": 3.309
+      },
+      "dependencies": 7
+    },
+    {
+      "file": "src\\components\\dashboard\\dashboard-sidebar.tsx",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 80,
+      "maintainabilityIndex": 74.74,
+      "halsteadMetrics": {
+        "vocabulary": 118,
+        "length": 532,
+        "difficulty": 20.28,
+        "effort": 10790,
+        "bugs": 3.597
+      },
+      "dependencies": 8
+    },
+    {
+      "file": "src\\components\\dashboard\\dashboard-navbar.tsx",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 44,
+      "maintainabilityIndex": 85.67,
+      "halsteadMetrics": {
+        "vocabulary": 93,
+        "length": 311,
+        "difficulty": 12.35,
+        "effort": 3841,
+        "bugs": 1.28
+      },
+      "dependencies": 6
+    },
+    {
+      "file": "src\\app\\api\\csrf\\route.ts",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 4,
+      "linesOfCode": 25,
+      "maintainabilityIndex": 96.69,
+      "halsteadMetrics": {
+        "vocabulary": 65,
+        "length": 174,
+        "difficulty": 8.86,
+        "effort": 1542,
+        "bugs": 0.514
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\app\\api\\loops\\events\\route.ts",
+      "cyclomaticComplexity": 2,
+      "cognitiveComplexity": 4,
+      "linesOfCode": 22,
+      "maintainabilityIndex": 98.6,
+      "halsteadMetrics": {
+        "vocabulary": 67,
+        "length": 174,
+        "difficulty": 8.74,
+        "effort": 1521,
+        "bugs": 0.507
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\schema\\index.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 22,
+      "maintainabilityIndex": 104.17,
+      "halsteadMetrics": {
+        "vocabulary": 24,
+        "length": 77,
+        "difficulty": 6.83,
+        "effort": 526,
+        "bugs": 0.175
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\schema\\env-schema.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 3,
+      "linesOfCode": 36,
+      "maintainabilityIndex": 88.62,
+      "halsteadMetrics": {
+        "vocabulary": 103,
+        "length": 443,
+        "difficulty": 16.96,
+        "effort": 7513,
+        "bugs": 2.504
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\hooks\\index.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 23,
+      "maintainabilityIndex": 102.12,
+      "halsteadMetrics": {
+        "vocabulary": 31,
+        "length": 109,
+        "difficulty": 6.36,
+        "effort": 693,
+        "bugs": 0.231
+      },
+      "dependencies": 6
+    },
+    {
+      "file": "src\\functions\\index.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 3,
+      "maintainabilityIndex": 140.5,
+      "halsteadMetrics": {
+        "vocabulary": 11,
+        "length": 23,
+        "difficulty": 4.58,
+        "effort": 105,
+        "bugs": 0.035
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\functions\\cn.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 5,
+      "linesOfCode": 5,
+      "maintainabilityIndex": 121.41,
+      "halsteadMetrics": {
+        "vocabulary": 88,
+        "length": 230,
+        "difficulty": 9.63,
+        "effort": 2215,
+        "bugs": 0.738
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\constants\\site.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 12,
+      "maintainabilityIndex": 112.83,
+      "halsteadMetrics": {
+        "vocabulary": 30,
+        "length": 75,
+        "difficulty": 11.29,
+        "effort": 847,
+        "bugs": 0.282
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\constants\\reviews.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 4,
+      "linesOfCode": 80,
+      "maintainabilityIndex": 72.61,
+      "halsteadMetrics": {
+        "vocabulary": 186,
+        "length": 623,
+        "difficulty": 11.88,
+        "effort": 7401,
+        "bugs": 2.467
+      },
+      "dependencies": 0
+    },
+    {
+      "file": "src\\constants\\perks.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 46,
+      "maintainabilityIndex": 83.43,
+      "halsteadMetrics": {
+        "vocabulary": 130,
+        "length": 344,
+        "difficulty": 12.26,
+        "effort": 4218,
+        "bugs": 1.406
+      },
+      "dependencies": 0
+    },
+    {
+      "file": "src\\constants\\links.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 106,
+      "maintainabilityIndex": 71.12,
+      "halsteadMetrics": {
+        "vocabulary": 103,
+        "length": 469,
+        "difficulty": 9.57,
+        "effort": 4488,
+        "bugs": 1.496
+      },
+      "dependencies": 0
+    },
+    {
+      "file": "src\\constants\\index.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 27,
+      "maintainabilityIndex": 100.05,
+      "halsteadMetrics": {
+        "vocabulary": 28,
+        "length": 99,
+        "difficulty": 5.22,
+        "effort": 517,
+        "bugs": 0.172
+      },
+      "dependencies": 6
+    },
+    {
+      "file": "src\\constants\\fonts.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 36,
+      "maintainabilityIndex": 93.04,
+      "halsteadMetrics": {
+        "vocabulary": 44,
+        "length": 232,
+        "difficulty": 15.75,
+        "effort": 3654,
+        "bugs": 1.218
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\constants\\dashboard.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 51,
+      "maintainabilityIndex": 84.76,
+      "halsteadMetrics": {
+        "vocabulary": 73,
+        "length": 332,
+        "difficulty": 10.95,
+        "effort": 3636,
+        "bugs": 1.212
+      },
+      "dependencies": 0
+    },
+    {
+      "file": "src\\constants\\animation.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 20,
+      "maintainabilityIndex": 106.41,
+      "halsteadMetrics": {
+        "vocabulary": 21,
+        "length": 143,
+        "difficulty": 9.6,
+        "effort": 1373,
+        "bugs": 0.458
+      },
+      "dependencies": 0
+    },
+    {
+      "file": "src\\components\\index.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 44,
+      "maintainabilityIndex": 88.63,
+      "halsteadMetrics": {
+        "vocabulary": 55,
+        "length": 228,
+        "difficulty": 8.14,
+        "effort": 1857,
+        "bugs": 0.619
+      },
+      "dependencies": 21
+    },
+    {
+      "file": "src\\app\\layout.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 26,
+      "maintainabilityIndex": 96.12,
+      "halsteadMetrics": {
+        "vocabulary": 67,
+        "length": 160,
+        "difficulty": 9.15,
+        "effort": 1464,
+        "bugs": 0.488
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\__tests__\\utils\\setup-tests.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 2,
+      "linesOfCode": 8,
+      "maintainabilityIndex": 118.17,
+      "halsteadMetrics": {
+        "vocabulary": 38,
+        "length": 82,
+        "difficulty": 5.73,
+        "effort": 470,
+        "bugs": 0.157
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\__tests__\\utils\\mock-providers.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 22,
+      "maintainabilityIndex": 99.67,
+      "halsteadMetrics": {
+        "vocabulary": 57,
+        "length": 150,
+        "difficulty": 10.58,
+        "effort": 1587,
+        "bugs": 0.529
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\__tests__\\utils\\mock-handlers.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 3,
+      "maintainabilityIndex": 137.14,
+      "halsteadMetrics": {
+        "vocabulary": 21,
+        "length": 29,
+        "difficulty": 3.13,
+        "effort": 91,
+        "bugs": 0.03
+      },
+      "dependencies": 0
+    },
+    {
+      "file": "src\\__tests__\\utils\\mock-data.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 70,
+      "maintainabilityIndex": 78.55,
+      "halsteadMetrics": {
+        "vocabulary": 90,
+        "length": 337,
+        "difficulty": 11.9,
+        "effort": 4011,
+        "bugs": 1.337
+      },
+      "dependencies": 0
+    },
+    {
+      "file": "src\\components\\ui\\tooltip.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 23,
+      "maintainabilityIndex": 97.52,
+      "halsteadMetrics": {
+        "vocabulary": 75,
+        "length": 275,
+        "difficulty": 17.13,
+        "effort": 4709,
+        "bugs": 1.57
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\components\\ui\\textarea.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 20,
+      "maintainabilityIndex": 100.15,
+      "halsteadMetrics": {
+        "vocabulary": 70,
+        "length": 156,
+        "difficulty": 10.64,
+        "effort": 1659,
+        "bugs": 0.553
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\components\\ui\\tabs.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 48,
+      "maintainabilityIndex": 85.02,
+      "halsteadMetrics": {
+        "vocabulary": 84,
+        "length": 394,
+        "difficulty": 21.2,
+        "effort": 8351,
+        "bugs": 2.784
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\components\\ui\\table.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 110,
+      "maintainabilityIndex": 71.11,
+      "halsteadMetrics": {
+        "vocabulary": 92,
+        "length": 637,
+        "difficulty": 27.16,
+        "effort": 17300,
+        "bugs": 5.767
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\components\\ui\\switch.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 25,
+      "maintainabilityIndex": 95.65,
+      "halsteadMetrics": {
+        "vocabulary": 83,
+        "length": 266,
+        "difficulty": 15,
+        "effort": 3990,
+        "bugs": 1.33
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\components\\ui\\sonner.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 25,
+      "maintainabilityIndex": 97.88,
+      "halsteadMetrics": {
+        "vocabulary": 54,
+        "length": 199,
+        "difficulty": 15.22,
+        "effort": 3030,
+        "bugs": 1.01
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\components\\ui\\skeleton.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 13,
+      "maintainabilityIndex": 111.2,
+      "halsteadMetrics": {
+        "vocabulary": 32,
+        "length": 59,
+        "difficulty": 7.5,
+        "effort": 443,
+        "bugs": 0.148
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\components\\ui\\sheet.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 3,
+      "linesOfCode": 123,
+      "maintainabilityIndex": 65.03,
+      "halsteadMetrics": {
+        "vocabulary": 209,
+        "length": 1284,
+        "difficulty": 26.28,
+        "effort": 33743,
+        "bugs": 11.248
+      },
+      "dependencies": 5
+    },
+    {
+      "file": "src\\components\\ui\\section-bade.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 13,
+      "maintainabilityIndex": 106.56,
+      "halsteadMetrics": {
+        "vocabulary": 78,
+        "length": 253,
+        "difficulty": 12.98,
+        "effort": 3283,
+        "bugs": 1.094
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\components\\ui\\navigation-menu.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 117,
+      "maintainabilityIndex": 67.89,
+      "halsteadMetrics": {
+        "vocabulary": 141,
+        "length": 1038,
+        "difficulty": 34,
+        "effort": 35292,
+        "bugs": 11.764
+      },
+      "dependencies": 5
+    },
+    {
+      "file": "src\\components\\ui\\label.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 21,
+      "maintainabilityIndex": 100.33,
+      "halsteadMetrics": {
+        "vocabulary": 58,
+        "length": 157,
+        "difficulty": 12.73,
+        "effort": 1998,
+        "bugs": 0.666
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\components\\ui\\input.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 21,
+      "maintainabilityIndex": 99.28,
+      "halsteadMetrics": {
+        "vocabulary": 71,
+        "length": 179,
+        "difficulty": 10.2,
+        "effort": 1825,
+        "bugs": 0.608
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\components\\ui\\dialog.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 109,
+      "maintainabilityIndex": 69.42,
+      "halsteadMetrics": {
+        "vocabulary": 131,
+        "length": 878,
+        "difficulty": 28.24,
+        "effort": 24798,
+        "bugs": 8.266
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\components\\ui\\card.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 78,
+      "maintainabilityIndex": 78.73,
+      "halsteadMetrics": {
+        "vocabulary": 62,
+        "length": 426,
+        "difficulty": 21.48,
+        "effort": 9150,
+        "bugs": 3.05
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\components\\ui\\avatar.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 44,
+      "maintainabilityIndex": 88.44,
+      "halsteadMetrics": {
+        "vocabulary": 57,
+        "length": 283,
+        "difficulty": 18.8,
+        "effort": 5320,
+        "bugs": 1.773
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\components\\ui\\accordion.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 50,
+      "maintainabilityIndex": 84.05,
+      "halsteadMetrics": {
+        "vocabulary": 89,
+        "length": 395,
+        "difficulty": 20.71,
+        "effort": 8181,
+        "bugs": 2.727
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\components\\marketing\\reviews.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 84,
+      "maintainabilityIndex": 73.15,
+      "halsteadMetrics": {
+        "vocabulary": 144,
+        "length": 717,
+        "difficulty": 19.94,
+        "effort": 14298,
+        "bugs": 4.766
+      },
+      "dependencies": 5
+    },
+    {
+      "file": "src\\components\\marketing\\hero.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 6,
+      "linesOfCode": 73,
+      "maintainabilityIndex": 74.62,
+      "halsteadMetrics": {
+        "vocabulary": 168,
+        "length": 872,
+        "difficulty": 23.21,
+        "effort": 20240,
+        "bugs": 6.747
+      },
+      "dependencies": 6
+    },
+    {
+      "file": "src\\components\\marketing\\connect.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 35,
+      "maintainabilityIndex": 89.95,
+      "halsteadMetrics": {
+        "vocabulary": 87,
+        "length": 263,
+        "difficulty": 11.12,
+        "effort": 2925,
+        "bugs": 0.975
+      },
+      "dependencies": 4
+    },
+    {
+      "file": "src\\components\\marketing\\companies.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 30,
+      "maintainabilityIndex": 93.15,
+      "halsteadMetrics": {
+        "vocabulary": 76,
+        "length": 321,
+        "difficulty": 15.79,
+        "effort": 5067,
+        "bugs": 1.689
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\components\\global\\images.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 23517,
+      "maintainabilityIndex": 0,
+      "halsteadMetrics": {
+        "vocabulary": 1608,
+        "length": 66518,
+        "difficulty": 132.17,
+        "effort": 8791393,
+        "bugs": 2930.464
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\components\\global\\icons.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 245,
+      "maintainabilityIndex": 57.65,
+      "halsteadMetrics": {
+        "vocabulary": 101,
+        "length": 1548,
+        "difficulty": 31.69,
+        "effort": 49049,
+        "bugs": 16.35
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\components\\global\\background.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 19,
+      "maintainabilityIndex": 100.69,
+      "halsteadMetrics": {
+        "vocabulary": 74,
+        "length": 381,
+        "difficulty": 21.38,
+        "effort": 8146,
+        "bugs": 2.715
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\app\\auth\\layout.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 31,
+      "maintainabilityIndex": 92.55,
+      "halsteadMetrics": {
+        "vocabulary": 77,
+        "length": 223,
+        "difficulty": 11.33,
+        "effort": 2527,
+        "bugs": 0.842
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\app\\(marketing)\\page.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 63,
+      "maintainabilityIndex": 79.26,
+      "halsteadMetrics": {
+        "vocabulary": 109,
+        "length": 413,
+        "difficulty": 16.6,
+        "effort": 6857,
+        "bugs": 2.286
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\app\\(marketing)\\layout.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 19,
+      "maintainabilityIndex": 101.53,
+      "halsteadMetrics": {
+        "vocabulary": 63,
+        "length": 166,
+        "difficulty": 10.47,
+        "effort": 1738,
+        "bugs": 0.579
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\app\\auth\\signup\\page.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 14,
+      "maintainabilityIndex": 109.1,
+      "halsteadMetrics": {
+        "vocabulary": 38,
+        "length": 97,
+        "difficulty": 10.38,
+        "effort": 1007,
+        "bugs": 0.336
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\app\\auth\\signin\\page.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 14,
+      "maintainabilityIndex": 109.1,
+      "halsteadMetrics": {
+        "vocabulary": 38,
+        "length": 97,
+        "difficulty": 10.38,
+        "effort": 1007,
+        "bugs": 0.336
+      },
+      "dependencies": 2
+    },
+    {
+      "file": "src\\app\\api\\protected\\route.ts",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 22,
+      "maintainabilityIndex": 99.23,
+      "halsteadMetrics": {
+        "vocabulary": 62,
+        "length": 175,
+        "difficulty": 10.14,
+        "effort": 1774,
+        "bugs": 0.591
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\app\\(main)\\app\\page.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 229,
+      "maintainabilityIndex": 55.98,
+      "halsteadMetrics": {
+        "vocabulary": 172,
+        "length": 1380,
+        "difficulty": 27.99,
+        "effort": 38631,
+        "bugs": 12.877
+      },
+      "dependencies": 8
+    },
+    {
+      "file": "src\\app\\(main)\\app\\layout.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 18,
+      "maintainabilityIndex": 104.15,
+      "halsteadMetrics": {
+        "vocabulary": 45,
+        "length": 134,
+        "difficulty": 10.51,
+        "effort": 1409,
+        "bugs": 0.47
+      },
+      "dependencies": 3
+    },
+    {
+      "file": "src\\app\\auth\\signup\\sso-callback\\page.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 1,
+      "linesOfCode": 9,
+      "maintainabilityIndex": 118.65,
+      "halsteadMetrics": {
+        "vocabulary": 24,
+        "length": 37,
+        "difficulty": 6.07,
+        "effort": 225,
+        "bugs": 0.075
+      },
+      "dependencies": 1
+    },
+    {
+      "file": "src\\app\\(main)\\app\\api-keys\\page.tsx",
+      "cyclomaticComplexity": 1,
+      "cognitiveComplexity": 0,
+      "linesOfCode": 5,
+      "maintainabilityIndex": 127.76,
+      "halsteadMetrics": {
+        "vocabulary": 26,
+        "length": 44,
+        "difficulty": 6.6,
+        "effort": 290,
+        "bugs": 0.097
+      },
+      "dependencies": 1
+    }
+  ],
+  "recommendations": [
+    "🔴 20 files have high cyclomatic complexity (>10). Consider refactoring.",
+    "🟡 27 files have low maintainability index (<70). Review and simplify.",
+    "🟠 1 files have high dependency count (>15). Consider dependency injection or modularization."
+  ]
+}
