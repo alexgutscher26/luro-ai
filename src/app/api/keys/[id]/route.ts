@@ -3,6 +3,20 @@ import { currentUser } from "@clerk/nextjs/server";
 import { db } from "@/lib/prisma";
 import { withSecurity } from "@/lib/with-security";
 
+/**
+ * Handles API key operations based on the request method.
+ *
+ * This function first authenticates the user and checks if they exist in the database.
+ * It then retrieves the specified API key associated with the authenticated user.
+ * Depending on the HTTP method, it either updates or deletes the API key.
+ * If the method is PUT, it updates the API key's details such as name, active status, expiration date, and permissions.
+ * If the method is DELETE, it removes the API key from the database.
+ * For unsupported methods, it returns a 405 Method Not Allowed response.
+ *
+ * @param request - The Next.js request object containing the HTTP method and body.
+ * @param params - An object containing route parameters, specifically the API key ID.
+ * @returns A JSON response with the updated API key details or a success message upon deletion.
+ */
 async function handler(
     request: NextRequest,
     { params }: { params: { id: string } }
@@ -79,6 +93,9 @@ async function handler(
 // For dynamic routes, we need to wrap the handler differently
 const securedHandler = withSecurity({ rateLimit: "api", csrf: true });
 
+/**
+ * Handles a PUT request with security checks.
+ */
 export async function PUT(
     request: NextRequest,
     context: { params: { id: string } }
@@ -88,6 +105,9 @@ export async function PUT(
     })(request);
 }
 
+/**
+ * Deletes a resource by handling the request securely.
+ */
 export async function DELETE(
     request: NextRequest,
     context: { params: { id: string } }
