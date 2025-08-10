@@ -1,25 +1,12 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
+import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { useSignIn, useSignUp } from "@clerk/nextjs";
 
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form";
-import { SignUpSchema, SignUpSchemaType } from "@/schema";
-import Container from "../global/container";
 import Link from "next/link";
 import { ArrowLeftIcon, MailIcon } from "lucide-react";
 import Icons from "../global/icons";
@@ -31,9 +18,9 @@ import { OAuthStrategy } from "@clerk/types";
 const SignUpForm = () => {
     const router = useRouter();
 
-    const params = useSearchParams();
 
-    const from = params.get("from");
+    const searchParams = new URLSearchParams(window.location.search);
+    const from = searchParams.get("from");
 
     const { signIn } = useSignIn();
 
@@ -184,7 +171,8 @@ const SignUpForm = () => {
             >
                 <div className="flex justify-center">
                     <Link href="/">
-                        <Icons.icon className="w-8 h-8" />
+                        {typeof Icons.icon === 'function' && <Icons.icon className="w-8 h-8" />}
+
                     </Link>
                 </div>
                 <h1 className="text-2xl text-center mt-4">

@@ -45,7 +45,7 @@ const Navbar = () => {
                                 href="/"
                                 className="text-lg font-semibold text-foreground"
                             >
-                                <Icons.icon className="w-auto h-5" />
+                                {typeof Icons.logo === 'function' && <Icons.logo className="w-auto h-5" />}
                             </Link>
                             <div className="items-center hidden ml-4 lg:flex">
                                 <Menu />
@@ -93,7 +93,7 @@ const Navbar = () => {
                                 {isOpen ? (
                                     <XIcon className="w-4 h-4 duration-300" />
                                 ) : (
-                                    <Icons.menu className="w-3.5 h-3.5 duration-300" />
+                                    typeof Icons.menu === 'function' && <Icons.menu className="w-3.5 h-3.5 duration-300" />
                                 )}
                             </Button>
                         </div>

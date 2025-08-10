@@ -49,7 +49,8 @@ const Menu = () => {
                                         href="/"
                                         className="flex flex-col justify-end w-full h-full p-4 no-underline rounded-lg outline-none select-none bg-gradient-to-tr from-accent to-accent/50 focus:shadow-md"
                                     >
-                                        <Icons.icon className="w-6 h-6" />
+                                        {typeof Icons.icon === 'function' && <Icons.icon className="w-6 h-6" />}
+
                                         <div className="my-2 text-lg font-normal">
                                             Luro AI
                                         </div>

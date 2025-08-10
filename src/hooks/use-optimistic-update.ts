@@ -34,7 +34,7 @@ export const useOptimisticUpdate = <TData, TVariables>({
 
       return { previousData };
     },
-    onError: (error, variables, context) => {
+    onError: (_error, _variables, context) => {
       // Rollback on error
       if (context?.previousData) {
         queryClient.setQueryData(queryKey, context.previousData);

@@ -22,6 +22,9 @@ export default clerkMiddleware((auth, req) => {
     if (userId && isAuthRoute(req)) {
         return NextResponse.redirect(new URL("/app", req.url));
     }
+
+    // Allow authenticated users to access protected routes
+    return NextResponse.next();
 });
 
 export const config = {

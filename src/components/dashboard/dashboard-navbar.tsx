@@ -16,7 +16,8 @@ const DashboardNavbar = () => {
             <Container className="flex items-center justify-between size-full">
                 <div className="flex items-center">
                     <Link href="/app" className="flex items-center gap-x-2">
-                        <Icons.icon className="w-6" />
+                        {typeof Icons.icon === 'function' && <Icons.icon className="w-6" />}
+
                         <span className="text-lg font-semibold">Luro</span>
                     </Link>
                 </div>

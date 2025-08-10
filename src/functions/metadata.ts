@@ -139,7 +139,7 @@ export const generateMetadata = ({
         },
         description,
         keywords,
-        authors: [{ name: author }],
+        authors: author ? [{ name: author }] : undefined,
         creator: author,
         publisher: process.env.NEXT_PUBLIC_APP_NAME,
         formatDetection: {
@@ -150,8 +150,8 @@ export const generateMetadata = ({
         icons,
 
         // OpenGraph
-        openGraph: {
-            type,
+        openGraph: type === 'article' ? {
+            type: 'article',
             siteName: process.env.NEXT_PUBLIC_APP_NAME,
             title,
             description,
@@ -169,7 +169,7 @@ export const generateMetadata = ({
             alternateLocale: Object.keys(alternates),
             ...(publishedTime && { publishedTime }),
             ...(modifiedTime && { modifiedTime }),
-        },
+        } : undefined,
 
         // Twitter
         twitter: {
@@ -196,9 +196,9 @@ export const generateMetadata = ({
 
         // Verification
         verification: {
-            google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION,
-            yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
-            yahoo: process.env.NEXT_PUBLIC_YAHOO_VERIFICATION,
+            google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? null,
+            yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION ?? null,
+            yahoo: process.env.NEXT_PUBLIC_YAHOO_VERIFICATION ?? null,
         },
     };
 };

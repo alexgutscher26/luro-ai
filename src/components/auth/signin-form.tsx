@@ -2,23 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useForm } from "react-hook-form";
 import { motion } from "framer-motion";
 
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
-import {
-    Form,
-    FormControl,
-    FormDescription,
-    FormField,
-    FormItem,
-    FormLabel,
-    FormMessage,
-} from "@/components/ui/form";
-import { SignUpSchema, SignUpSchemaType } from "@/schema";
-import Container from "../global/container";
 import Link from "next/link";
 import { ArrowLeftIcon, MailIcon } from "lucide-react";
 import Icons from "../global/icons";

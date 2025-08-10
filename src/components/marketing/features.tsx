@@ -33,7 +33,7 @@ const Features = () => {
                             >
                                 <div className="bento-card flex items-center justify-center min-h-72">
                                     <span className="text-muted-foreground group-hover:text-foreground mx-auto relative">
-                                        <Icons.stars className="w-20 h-20" />
+                                        {typeof Icons.stars === 'function' && <Icons.stars className="w-20 h-20" />}
                                     </span>
                                     <Ripple />
                                 </div>
@@ -128,7 +128,8 @@ const Features = () => {
                                         <div className="w-full h-48 relative">
                                             <Images.rings className="w-full h-full absolute inset-0" />
                                             <Images.rings className="w-56 h-56 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
-                                            <Icons.icon className="w-24 h-24 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80" />
+                                            {typeof Icons.icon === 'function' && <Icons.icon className="w-24 h-24 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-80" />}
+
                                             <Images.circlePallete className="w-full h-full opacity-30" />
                                         </div>
                                         <div className="w-28 h-28 rounded-full bg-primary/10 blur-3xl -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>

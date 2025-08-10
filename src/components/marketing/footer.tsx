@@ -20,7 +20,8 @@ const Footer = () => {
                     />
                     <div className="flex flex-col items-start max-w-48">
                         <div className="flex items-center gap-2">
-                            <Icons.icon className="w-5 h-5" />
+                            {typeof Icons.Logo === 'function' && <Icons.Logo className="w-5 h-5" />}
+
                             <span className="text-xl font-medium">Luro</span>
                         </div>
                         <p className="text-base max-w mt-4">
@@ -64,13 +65,13 @@ const Footer = () => {
                     </p>
                     <div className="flex items-center gap-4">
                         <Link href="#" className="p-1">
-                            <Icons.instagram className="w-5 h-5 text-muted-foreground hover:text-secondary-foreground" />
+                            {typeof Icons.instagram === 'function' && <Icons.instagram className="w-5 h-5 text-muted-foreground hover:text-secondary-foreground" />}
                         </Link>
                         <Link href="#" className="p-1">
-                            <Icons.twitter className="w-5 h-5 text-muted-foreground hover:text-secondary-foreground" />
+                            {typeof Icons.twitter === 'function' && <Icons.twitter className="w-5 h-5 text-muted-foreground hover:text-secondary-foreground" />}
                         </Link>
                         <Link href="#" className="p-1">
-                            <Icons.discord className="w-5 h-5 text-muted-foreground hover:text-secondary-foreground" />
+                            {typeof Icons.discord === 'function' && <Icons.discord className="w-5 h-5 text-muted-foreground hover:text-secondary-foreground" />}
                         </Link>
                     </div>
                 </Wrapper>

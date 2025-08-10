@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 const AuthCallbackPage = async () => {
     const user = await currentUser();
 
-    if (!user?.id || !user.emailAddresses[0].emailAddress) {
+    if (!user || !user.id || !user.emailAddresses || !user.emailAddresses[0] || !user.emailAddresses[0].emailAddress) {
         return redirect("/auth/signin");
     }
 
