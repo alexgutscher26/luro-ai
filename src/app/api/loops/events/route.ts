@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { LoopsClient } from "loops";
-import { withRateLimit } from "@/lib/with-rate-limit";
+import { withSecurity } from "@/lib/with-security";
 
 const loops = new LoopsClient(process.env.LOOPS_API_KEY!);
 
@@ -25,5 +25,5 @@ async function handler(request: NextRequest) {
     }
 }
 
-// Apply standard API rate limiting (100 requests per minute)
-export const POST = withRateLimit("api")(handler);
+// Apply both CSRF protection and rate limiting
+export const POST = withSecurity({ rateLimit: "api", csrf: true })(handler);

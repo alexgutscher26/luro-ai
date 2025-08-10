@@ -117,3 +117,77 @@ export const useApiMutation = <TData, TVariables = unknown>({
         },
     });
 };
+
+import { useCSRF } from "./use-csrf";
+
+export function useSecureAPI() {
+    const { csrfToken } = useCSRF();
+
+    const securePost = async (url: string, data: any) => {
+        if (!csrfToken) {
+            throw new Error("CSRF token not available");
+        }
+
+        const response = await fetch(url, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-Token": csrfToken,
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return response.json();
+    };
+
+    const securePut = async (url: string, data: any) => {
+        if (!csrfToken) {
+            throw new Error("CSRF token not available");
+        }
+
+        const response = await fetch(url, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+                "X-CSRF-Token": csrfToken,
+            },
+            body: JSON.stringify(data),
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return response.json();
+    };
+
+    const secureDelete = async (url: string) => {
+        if (!csrfToken) {
+            throw new Error("CSRF token not available");
+        }
+
+        const response = await fetch(url, {
+            method: "DELETE",
+            headers: {
+                "X-CSRF-Token": csrfToken,
+            },
+        });
+
+        if (!response.ok) {
+            throw new Error(`HTTP error! status: ${response.status}`);
+        }
+
+        return response.json();
+    };
+
+    return {
+        post: securePost,
+        put: securePut,
+        delete: secureDelete,
+        csrfToken,
+    };
+}

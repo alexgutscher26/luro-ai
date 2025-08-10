@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { LoopsClient } from "loops";
-import { withRateLimit } from "@/lib/with-rate-limit";
+import { withSecurity } from "@/lib/with-security";
 
 const loops = new LoopsClient(process.env.LOOPS_API_KEY!);
 
@@ -45,5 +45,20 @@ async function handler(request: NextRequest) {
     }
 }
 
-// Apply rate limiting with 'contact' limiter (3 requests per minute)
-export const POST = withRateLimit("contact")(handler);
+// Apply both CSRF protection and rate limiting
+// Apply security with custom CORS for this specific endpoint
+export const POST = withSecurity({ 
+    rateLimit: "contact", 
+    csrf: true,
+    cors: {
+        origin: ["https://yourdomain.com", "https://marketing.yourdomain.com"],
+        methods: ["POST"],
+        credentials: true
+    }
+})(handler);
+
+// Also handle OPTIONS for preflight
+export const OPTIONS = withSecurity({ 
+    cors: true,
+    csrf: false,
+})(() => Promise.resolve(new NextResponse(null, { status: 200 })));
