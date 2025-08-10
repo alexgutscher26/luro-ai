@@ -176,8 +176,7 @@
 ### Static Analysis
 - [x] **Add SonarQube** or similar
 - [x] **Implement code complexity** analysis
-- [ ] **Add security scanning** tools
-- [ ] **Create code review** templates
+- [x] **Create code review** templates
 - [ ] **Add commit message** linting
 
 ## 📊 Analytics & Metrics
