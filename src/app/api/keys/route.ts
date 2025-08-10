@@ -4,6 +4,22 @@ import { db } from "@/lib/prisma";
 import { withSecurity } from "@/lib/with-security";
 import crypto from "crypto";
 
+/**
+ * Handles API requests related to managing user API keys.
+ *
+ * This function first checks if the user is authenticated. If not, it returns a 401 Unauthorized response.
+ * It then retrieves the user from the database using their Clerk ID. If the user does not exist, it returns a 404 Not Found response.
+ *
+ * For GET requests, it fetches all API keys associated with the user and returns them in descending order of creation time.
+ * For POST requests, it validates the request body to ensure the 'name' field is present and valid. It then generates a random
+ * API key, hashes it for security, and stores it in the database along with other provided details like expiry and permissions.
+ * The raw API key is returned only once upon creation for the user to copy.
+ *
+ * If the request method is neither GET nor POST, it returns a 405 Method Not Allowed response.
+ *
+ * @param request - The incoming Next.js request object.
+ * @returns A JSON response containing either the list of API keys or details of the newly created API key, or an error message.
+ */
 async function handler(request: NextRequest) {
     const user = await currentUser();
 
