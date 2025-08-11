@@ -1,9 +1,25 @@
 "use client";
 
 import React from "react";
-import { ArrowDownIcon, ArrowUpIcon, BarChart3Icon, TrendingUpIcon, UsersIcon, EyeIcon, MousePointerClickIcon } from "lucide-react";
+import {
+    ArrowDownIcon,
+    ArrowUpIcon,
+    BarChart3Icon,
+    TrendingUpIcon,
+    UsersIcon,
+    EyeIcon,
+    MousePointerClickIcon,
+} from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Area, AreaChart, CartesianGrid, XAxis, Bar, BarChart, ResponsiveContainer } from "recharts";
+import {
+    Area,
+    AreaChart,
+    CartesianGrid,
+    XAxis,
+    Bar,
+    BarChart,
+    ResponsiveContainer,
+} from "recharts";
 import {
     ChartConfig,
     ChartContainer,
@@ -14,18 +30,90 @@ import { Container } from "@/components";
 
 // Analytics data
 const DETAILED_ANALYTICS = [
-    { name: "Jan", reach: 5200, engagement: 3000, clicks: 1200, conversions: 85 },
-    { name: "Feb", reach: 4800, engagement: 3500, clicks: 1400, conversions: 92 },
-    { name: "Mar", reach: 6900, engagement: 1800, clicks: 900, conversions: 65 },
-    { name: "Apr", reach: 4800, engagement: 2900, clicks: 1160, conversions: 78 },
-    { name: "May", reach: 6200, engagement: 3600, clicks: 1440, conversions: 105 },
-    { name: "Jun", reach: 6400, engagement: 3800, clicks: 1520, conversions: 112 },
-    { name: "Jul", reach: 7600, engagement: 4200, clicks: 1680, conversions: 128 },
-    { name: "Aug", reach: 5800, engagement: 3400, clicks: 1360, conversions: 95 },
-    { name: "Sep", reach: 6500, engagement: 3800, clicks: 1520, conversions: 110 },
-    { name: "Oct", reach: 8200, engagement: 4600, clicks: 1840, conversions: 145 },
-    { name: "Nov", reach: 7000, engagement: 3900, clicks: 1560, conversions: 118 },
-    { name: "Dec", reach: 5600, engagement: 3200, clicks: 1280, conversions: 88 },
+    {
+        name: "Jan",
+        reach: 5200,
+        engagement: 3000,
+        clicks: 1200,
+        conversions: 85,
+    },
+    {
+        name: "Feb",
+        reach: 4800,
+        engagement: 3500,
+        clicks: 1400,
+        conversions: 92,
+    },
+    {
+        name: "Mar",
+        reach: 6900,
+        engagement: 1800,
+        clicks: 900,
+        conversions: 65,
+    },
+    {
+        name: "Apr",
+        reach: 4800,
+        engagement: 2900,
+        clicks: 1160,
+        conversions: 78,
+    },
+    {
+        name: "May",
+        reach: 6200,
+        engagement: 3600,
+        clicks: 1440,
+        conversions: 105,
+    },
+    {
+        name: "Jun",
+        reach: 6400,
+        engagement: 3800,
+        clicks: 1520,
+        conversions: 112,
+    },
+    {
+        name: "Jul",
+        reach: 7600,
+        engagement: 4200,
+        clicks: 1680,
+        conversions: 128,
+    },
+    {
+        name: "Aug",
+        reach: 5800,
+        engagement: 3400,
+        clicks: 1360,
+        conversions: 95,
+    },
+    {
+        name: "Sep",
+        reach: 6500,
+        engagement: 3800,
+        clicks: 1520,
+        conversions: 110,
+    },
+    {
+        name: "Oct",
+        reach: 8200,
+        engagement: 4600,
+        clicks: 1840,
+        conversions: 145,
+    },
+    {
+        name: "Nov",
+        reach: 7000,
+        engagement: 3900,
+        clicks: 1560,
+        conversions: 118,
+    },
+    {
+        name: "Dec",
+        reach: 5600,
+        engagement: 3200,
+        clicks: 1280,
+        conversions: 88,
+    },
 ];
 
 const CONVERSION_DATA = [
@@ -156,7 +244,10 @@ const AnalyticsPage = () => {
                             </CardHeader>
                             <CardContent className="py-2 w-full">
                                 <ChartContainer config={chartConfig}>
-                                    <ResponsiveContainer width="100%" height={400}>
+                                    <ResponsiveContainer
+                                        width="100%"
+                                        height={400}
+                                    >
                                         <AreaChart
                                             accessibilityLayer
                                             data={DETAILED_ANALYTICS}
@@ -177,7 +268,9 @@ const AnalyticsPage = () => {
                                             />
                                             <ChartTooltip
                                                 cursor={false}
-                                                content={<ChartTooltipContent />}
+                                                content={
+                                                    <ChartTooltipContent />
+                                                }
                                             />
                                             <defs>
                                                 <linearGradient
@@ -252,8 +345,14 @@ const AnalyticsPage = () => {
                                 </p>
                             </CardHeader>
                             <CardContent>
-                                <ChartContainer config={chartConfig} className="h-[300px]">
-                                    <ResponsiveContainer width="100%" height="100%">
+                                <ChartContainer
+                                    config={chartConfig}
+                                    className="h-[300px]"
+                                >
+                                    <ResponsiveContainer
+                                        width="100%"
+                                        height="100%"
+                                    >
                                         <BarChart
                                             data={CONVERSION_DATA}
                                             margin={{
@@ -267,9 +366,15 @@ const AnalyticsPage = () => {
                                             <XAxis dataKey="name" />
                                             <ChartTooltip
                                                 cursor={false}
-                                                content={<ChartTooltipContent />}
+                                                content={
+                                                    <ChartTooltipContent />
+                                                }
                                             />
-                                            <Bar dataKey="value" fill="hsl(var(--chart-1))" radius={[4, 4, 0, 0]} />
+                                            <Bar
+                                                dataKey="value"
+                                                fill="hsl(var(--chart-1))"
+                                                radius={[4, 4, 0, 0]}
+                                            />
                                         </BarChart>
                                     </ResponsiveContainer>
                                 </ChartContainer>
@@ -286,8 +391,14 @@ const AnalyticsPage = () => {
                                 </p>
                             </CardHeader>
                             <CardContent>
-                                <ChartContainer config={chartConfig} className="h-[300px]">
-                                    <ResponsiveContainer width="100%" height="100%">
+                                <ChartContainer
+                                    config={chartConfig}
+                                    className="h-[300px]"
+                                >
+                                    <ResponsiveContainer
+                                        width="100%"
+                                        height="100%"
+                                    >
                                         <AreaChart
                                             data={DETAILED_ANALYTICS}
                                             margin={{
@@ -298,13 +409,17 @@ const AnalyticsPage = () => {
                                             }}
                                         >
                                             <CartesianGrid strokeDasharray="3 3" />
-                                            <XAxis 
-                                                dataKey="name" 
-                                                tickFormatter={value => value.slice(0, 3)}
+                                            <XAxis
+                                                dataKey="name"
+                                                tickFormatter={value =>
+                                                    value.slice(0, 3)
+                                                }
                                             />
                                             <ChartTooltip
                                                 cursor={false}
-                                                content={<ChartTooltipContent />}
+                                                content={
+                                                    <ChartTooltipContent />
+                                                }
                                             />
                                             <Area
                                                 type="monotone"

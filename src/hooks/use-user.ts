@@ -35,7 +35,7 @@ export const useUser = () => {
 
             return response.json();
         },
-        enabled: !!clerkUser?.id && isLoaded,
+        enabled: Boolean(clerkUser?.id) && isLoaded,
         staleTime: 1000 * 60 * 5, // 5 minutes
     });
 

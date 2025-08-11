@@ -287,7 +287,6 @@ const SignInForm = () => {
                             >
                                 <div className="w-full">
                                     <Input
-                                        autoFocus={true}
                                         name="code"
                                         type="number"
                                         value={code}
@@ -359,7 +358,6 @@ const SignInForm = () => {
                             >
                                 <div className="w-full">
                                     <Input
-                                        autoFocus={true}
                                         name="email"
                                         type="email"
                                         value={email}

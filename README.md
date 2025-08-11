@@ -17,6 +17,7 @@ Luro is a cutting-edge social media marketing platform that revolutionizes how b
 ## ✨ Key Features
 
 ### 📊 **Analytics & Insights**
+
 - **Real-time Performance Tracking** - Monitor engagement across all social platforms
 - **Advanced Analytics Dashboard** - Comprehensive metrics with interactive charts
 - **Engagement Rate Calculations** - Track trends and optimize content strategy
@@ -25,17 +26,20 @@ Luro is a cutting-edge social media marketing platform that revolutionizes how b
 - **Custom Report Generation** - Create tailored reports for stakeholders
 
 ### 🤖 **AI-Powered Tools**
+
 - **Smart Content Creation** - AI-assisted post generation and optimization
 - **Automated Scheduling** - Intelligent posting times based on audience activity
 - **Content Optimization** - AI recommendations for better engagement
 - **Trend Analysis** - Stay ahead with AI-powered trend detection
 
 ### 🔐 **Security & Authentication**
+
 - **Secure User Authentication** - Powered by Clerk with multiple OAuth providers
 - **Role-based Access Control** - Manage team permissions effectively
 - **Data Protection** - Enterprise-grade security for your social media data
 
 ### 🎨 **User Experience**
+
 - **Responsive Design** - Seamless experience across all devices
 - **Dark/Light Mode** - Customizable interface preferences
 - **Intuitive Dashboard** - Clean, modern interface built with Shadcn UI
@@ -44,6 +48,7 @@ Luro is a cutting-edge social media marketing platform that revolutionizes how b
 ## 🛠️ Tech Stack
 
 ### **Frontend**
+
 - **[Next.js 14](https://nextjs.org/)** - React framework with App Router
 - **[TypeScript](https://www.typescriptlang.org/)** - Type-safe development
 - **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
@@ -53,15 +58,18 @@ Luro is a cutting-edge social media marketing platform that revolutionizes how b
 - **[Framer Motion](https://www.framer.com/motion/)** - Smooth animations
 
 ### **Backend & Database**
+
 - **[Prisma](https://prisma.io/)** - Next-generation ORM
 - **[MongoDB](https://www.mongodb.com/)** - NoSQL database
 - **[Clerk](https://clerk.com/)** - Authentication and user management
 
 ### **Data Visualization**
+
 - **[Recharts](https://recharts.org/)** - Composable charting library
 - **Custom Analytics Components** - Tailored data visualization
 
 ### **Development Tools**
+
 - **[React Hook Form](https://react-hook-form.com/)** - Performant forms
 - **[Zod](https://zod.dev/)** - TypeScript-first schema validation
 - **[Jest](https://jestjs.io/)** - Testing framework
@@ -72,7 +80,8 @@ Luro is a cutting-edge social media marketing platform that revolutionizes how b
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
+
+- Node.js 18+
 - pnpm (recommended) or npm
 - MongoDB database
 - Clerk account for authentication
@@ -80,11 +89,12 @@ Luro is a cutting-edge social media marketing platform that revolutionizes how b
 ### Installation
 
 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Shreyas-29/luro-ai.git
-   cd luro-ai
-   pnpm install
-   ```
+    ```bash
+    git clone https://github.com/Shreyas-29/luro-ai.git
+    cd luro-ai
+    pnpm install
+    ```
+
 # Environment Variables
 
 Create a `.env.local` file in the root directory with the following variables:
@@ -116,13 +126,16 @@ NEXT_PUBLIC_LOOPS_FORM_ID=
     ```
 
 ## ☕ Buy Me a Coffee
+
 If you enjoy using Luro, consider supporting my work!  
 [Buy Me a Coffee ☕](https://buymeacoffee.com/shreyas29)
 
 ## 📜 License
+
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## 💬 Contact
+
 If you have any questions or feedback, feel free to reach out via [GitHub Issues](https://github.com/Shreyas-29/luro-ai/issues).
 
 ---

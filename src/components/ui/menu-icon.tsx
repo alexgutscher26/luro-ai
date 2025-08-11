@@ -20,13 +20,13 @@ const MenuIcon = ({ isOpen, onClick }: Props) => {
                     "block w-4 h-[1.5px] bg-current rounded-full origin-center transform transition-transform duration-300 ease-in-out",
                     isOpen ? "rotate-45" : "rotate-0"
                 )}
-            ></span>
+            />
             <span
                 className={cn(
                     "block w-4 h-[1.5px] bg-current rounded-full origin-center transform transition-transform duration-300 ease-in-out",
                     isOpen ? "-rotate-45" : "rotate-0"
                 )}
-            ></span>
+            />
         </button>
     );
 };

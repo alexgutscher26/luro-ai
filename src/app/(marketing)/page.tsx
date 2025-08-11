@@ -14,6 +14,9 @@ import {
 } from "@/components";
 import { Spotlight } from "@/components/ui/spotlight";
 
+/**
+ * Renders the main homepage with various sections including hero, newsletter signup, companies, connect, features, perks, pricing, reviews, and CTA.
+ */
 const HomePage = () => {
     return (
         <Background>
@@ -29,7 +32,7 @@ const HomePage = () => {
                 {/* Newsletter Signup Section */}
                 <Container className="py-12 lg:py-20">
                     <div className="flex flex-col items-center justify-center text-center w-full px-4 md:px-0 mx-auto h-[400px] border border-foreground/10 rounded-3xl overflow-hidden relative">
-                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-12 bg-primary/30 blur-[10rem]"></div>
+                        <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-12 bg-primary/30 blur-[10rem]" />
                         <div className="flex flex-col items-center justify-center w-full z-20">
                             <h2 className="text-4xl md:text-5xl font-heading heading font-semibold !leading-tight mb-4">
                                 Stay Updated

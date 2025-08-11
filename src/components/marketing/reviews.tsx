@@ -39,10 +39,10 @@ const Reviews = () => {
                                 <ReviewCard key={review.username} {...review} />
                             ))}
                         </Marquee>
-                        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background"></div>
-                        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background"></div>
-                        <div className="absolute hidden lg:block top-1/4 left-1/4 w-28 h-28 rounded-full bg-primary/80 -z-10 blur-[6rem]"></div>
-                        <div className="absolute hidden lg:block top-1/4 right-1/4 w-28 h-28 rounded-full bg-primary/80 -z-10 blur-[6rem]"></div>
+                        <div className="pointer-events-none absolute inset-y-0 left-0 w-1/4 bg-gradient-to-r from-background" />
+                        <div className="pointer-events-none absolute inset-y-0 right-0 w-1/4 bg-gradient-to-l from-background" />
+                        <div className="absolute hidden lg:block top-1/4 left-1/4 w-28 h-28 rounded-full bg-primary/80 -z-10 blur-[6rem]" />
+                        <div className="absolute hidden lg:block top-1/4 right-1/4 w-28 h-28 rounded-full bg-primary/80 -z-10 blur-[6rem]" />
                     </div>
                 </div>
             </Container>
@@ -70,7 +70,7 @@ const ReviewCard = ({
                     height={32}
                     alt={`${name} profile picture`}
                     src={img}
-                    lazyLoad={true}
+                    lazyLoad
                 />
                 <div className="flex flex-col">
                     <figcaption className="text-sm font-medium text-foreground">

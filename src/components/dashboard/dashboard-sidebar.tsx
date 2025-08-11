@@ -90,10 +90,10 @@ const DashboardSidebar = () => {
                     </div>
                 </div>
             </div>
-            
-            <SearchModal 
-                isOpen={isSearchOpen} 
-                onClose={() => setIsSearchOpen(false)} 
+
+            <SearchModal
+                isOpen={isSearchOpen}
+                onClose={() => setIsSearchOpen(false)}
             />
         </>
     );

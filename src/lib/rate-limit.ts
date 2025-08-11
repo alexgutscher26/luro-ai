@@ -74,8 +74,9 @@ export function getRateLimitHeaders(result: {
     remaining: number;
     reset: Date | number;
 }) {
-    const resetTime = result.reset instanceof Date ? result.reset.getTime() : result.reset;
-    
+    const resetTime =
+        result.reset instanceof Date ? result.reset.getTime() : result.reset;
+
     return {
         "X-RateLimit-Limit": result.limit.toString(),
         "X-RateLimit-Remaining": result.remaining.toString(),
