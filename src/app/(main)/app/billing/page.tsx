@@ -131,6 +131,15 @@ const PAYMENT_METHODS = [
     }
 ];
 
+/**
+ * Determines the CSS classes for a status indicator based on the provided status string.
+ *
+ * This function maps specific status strings ("paid", "failed", "pending") to predefined sets of CSS classes
+ * that define background, text, and border colors. For any other status, it defaults to a gray color scheme.
+ *
+ * @param status - The status string to determine the CSS classes for.
+ * @returns A string containing space-separated CSS class names.
+ */
 const getStatusColor = (status: string) => {
     switch (status) {
         case "paid":
@@ -144,6 +153,9 @@ const getStatusColor = (status: string) => {
     }
 };
 
+/**
+ * Formats a date string to a locale-specific format ('en-US').
+ */
 const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
         year: 'numeric',
@@ -152,6 +164,9 @@ const formatDate = (dateString: string) => {
     });
 };
 
+/**
+ * Renders the billing page component with subscription management, payment methods, and billing history sections.
+ */
 const BillingPage = () => {
     const [isAddPaymentOpen, setIsAddPaymentOpen] = useState(false);
     const [isChangePlanOpen, setIsChangePlanOpen] = useState(false);
@@ -163,6 +178,9 @@ const BillingPage = () => {
         name: ""
     });
 
+    /**
+     * Handles adding a payment method and resets form fields.
+     */
     const handleAddPaymentMethod = () => {
         // Add payment method logic here
         toast.success("Payment method added successfully!");
@@ -176,6 +194,9 @@ const BillingPage = () => {
         });
     };
 
+    /**
+     * Handles the download of an invoice and displays a success notification.
+     */
     const handleDownloadInvoice = (invoice: string) => {
         // Download invoice logic here
         toast.success(`Downloading invoice ${invoice}`);
