@@ -401,7 +401,9 @@ export const NewsletterSignup = React.memo<NewsletterSignupProps>(
                                             required
                                             className={`w-full ${styles.input} ${state.emailError ? "border-red-500/50" : ""}`}
                                             disabled={createContact.isPending}
-                                            aria-invalid={Boolean(state.emailError)}
+                                            aria-invalid={Boolean(
+                                                state.emailError
+                                            )}
                                             aria-describedby={
                                                 state.emailError
                                                     ? "email-error"
