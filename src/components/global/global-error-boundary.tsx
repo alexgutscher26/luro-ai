@@ -73,7 +73,7 @@ const GlobalErrorBoundary = ({ children }: Props) => {
         <ErrorBoundary
             fallback={globalFallback}
             onError={handleError}
-            showDetails={true}
+            showDetails
         >
             {children}
         </ErrorBoundary>
