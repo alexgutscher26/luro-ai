@@ -52,7 +52,7 @@ const DashboardSidebar = () => {
                             const isActive = pathname === link.href;
 
                             return (
-                                <li key={index} className="w-full">
+                                <li key={link.href} className="w-full">
                                     <Container delay={0.1 + index / 10}>
                                         <Link
                                             href={link.href}
