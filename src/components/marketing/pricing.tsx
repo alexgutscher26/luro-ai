@@ -168,8 +168,11 @@ const Plan = ({
                         </AnimatePresence>
                     </div>
                     <ul className="space-y-4 w-full">
-                        {features.map((feature) => (
-                            <li key={feature} className="flex items-center gap-2">
+                        {features.map(feature => (
+                            <li
+                                key={feature}
+                                className="flex items-center gap-2"
+                            >
                                 <CheckIcon className="w-4 h-4 text-green-500" />
                                 <span className="text-sm text-muted-foreground">
                                     {feature}
