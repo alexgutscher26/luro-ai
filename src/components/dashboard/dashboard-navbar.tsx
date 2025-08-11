@@ -20,6 +20,15 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { PLANS } from "@/constants/plans";
 
+/**
+ * Dashboard navigation bar component.
+ *
+ * This component renders a fixed header with branding and upgrade options. It includes a modal dialog for displaying
+ * details about the Pro plan, including pricing and features. The component also contains links to help documentation
+ * and a mobile sidebar.
+ *
+ * @returns JSX element representing the dashboard navbar.
+ */
 const DashboardNavbar = () => {
     const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
     
