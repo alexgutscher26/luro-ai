@@ -39,7 +39,7 @@ export default function ProgressSlider({ items }: { items: Item[] }) {
     };
 
     const heightFix = () => {
-        if (itemsRef.current && itemsRef.current.parentElement)
+        if (itemsRef.current?.parentElement)
             itemsRef.current.parentElement.style.height = `${itemsRef.current.clientHeight}px`;
     };
 
