@@ -275,7 +275,6 @@ const SignUpForm = () => {
                             >
                                 <div className="w-full">
                                     <Input
-                                        
                                         name="code"
                                         type="code"
                                         value={code}
@@ -344,7 +343,6 @@ const SignUpForm = () => {
                             >
                                 <div className="w-full">
                                     <Input
-                                        
                                         name="email"
                                         type="email"
                                         value={email}
