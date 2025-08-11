@@ -130,6 +130,16 @@ const PRIVACY_SETTINGS = [
     }
 ];
 
+/**
+ * Renders a settings page component.
+ *
+ * The component manages various user settings including profile, appearance, notifications,
+ * and privacy settings. It includes functionality to edit profile details, change passwords,
+ * toggle notification and privacy preferences, and delete accounts. The UI is composed of multiple
+ * cards for different settings sections, with dialogs for password changes and account deletions.
+ *
+ * @returns A React component representing the settings page.
+ */
 const SettingsPage = () => {
     const [isEditingProfile, setIsEditingProfile] = useState(false);
     const [isChangePasswordOpen, setIsChangePasswordOpen] = useState(false);
@@ -155,6 +165,9 @@ const SettingsPage = () => {
         confirm: false
     });
 
+    /**
+     * Toggles the notification setting for a given ID and updates the user with a success message.
+     */
     const handleNotificationToggle = (id: string) => {
         setNotificationSettings(prev => 
             prev.map(setting => 
@@ -166,6 +179,9 @@ const SettingsPage = () => {
         toast.success("Notification preferences updated");
     };
 
+    /**
+     * Toggles the privacy setting for a given ID and shows a success notification.
+     */
     const handlePrivacyToggle = (id: string) => {
         setPrivacySettings(prev => 
             prev.map(setting => 
@@ -177,11 +193,21 @@ const SettingsPage = () => {
         toast.success("Privacy settings updated");
     };
 
+    /**
+     * Handles profile save by setting editing state to false and showing a success toast.
+     */
     const handleProfileSave = () => {
         setIsEditingProfile(false);
         toast.success("Profile updated successfully");
     };
 
+    /**
+     * Handles the password change process by validating inputs and updating state.
+     *
+     * This function checks if the new password matches the confirmation, ensures the
+     * password meets length requirements, updates UI states, and provides feedback via
+     * toast notifications.
+     */
     const handlePasswordChange = () => {
         if (passwordData.new !== passwordData.confirm) {
             toast.error("New passwords don't match");
@@ -196,6 +222,9 @@ const SettingsPage = () => {
         toast.success("Password changed successfully");
     };
 
+    /**
+     * Closes the delete account modal and shows a success toast.
+     */
     const handleDeleteAccount = () => {
         setIsDeleteAccountOpen(false);
         toast.success("Account deletion request submitted");
