@@ -105,6 +105,16 @@ const searchFunction = async (query: string): Promise<SearchResult[]> => {
     );
 };
 
+/**
+ * Search modal component that provides a searchable interface with keyboard navigation and category grouping.
+ *
+ * This component manages search functionality, including handling input changes, debouncing search requests,
+ * displaying results, and managing user interactions such as keyboard navigation and result selection. It also
+ * groups results by category for better organization and provides visual feedback based on the search state.
+ *
+ * @param isOpen - Indicates whether the modal is currently open.
+ * @param onClose - A function to close the modal.
+ */
 export const SearchModal: React.FC<SearchModalProps> = ({
     isOpen,
     onClose,
