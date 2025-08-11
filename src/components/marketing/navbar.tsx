@@ -91,15 +91,25 @@ const Navbar = () => {
                                 variant="ghost"
                                 onClick={() => setIsOpen(prev => !prev)}
                                 className="lg:hidden p-2 w-8 h-8"
-                                aria-label={isOpen ? "Close mobile menu" : "Open mobile menu"}
+                                aria-label={
+                                    isOpen
+                                        ? "Close mobile menu"
+                                        : "Open mobile menu"
+                                }
                                 aria-expanded={isOpen}
                                 aria-controls="mobile-menu"
                             >
                                 {isOpen ? (
-                                    <XIcon className="w-4 h-4 duration-300" aria-hidden="true" />
+                                    <XIcon
+                                        className="w-4 h-4 duration-300"
+                                        aria-hidden="true"
+                                    />
                                 ) : (
                                     typeof Icons.menu === "function" && (
-                                        <Icons.menu className="w-3.5 h-3.5 duration-300" aria-hidden="true" />
+                                        <Icons.menu
+                                            className="w-3.5 h-3.5 duration-300"
+                                            aria-hidden="true"
+                                        />
                                     )
                                 )}
                             </Button>

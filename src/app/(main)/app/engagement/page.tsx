@@ -1,13 +1,14 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
-import { 
-    HeartIcon, 
-    MessageCircleIcon, 
+import {
+    HeartIcon,
+    MessageCircleIcon,
     ShareIcon,
     TrendingUpIcon,
     EyeIcon,
-    SearchIcon} from "lucide-react";
+    SearchIcon,
+} from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Container } from "@/components";
@@ -33,35 +34,36 @@ const ENGAGEMENT_STATS = [
         value: "127.5K",
         change: "+23.1% from last month",
         icon: HeartIcon,
-        trend: "up"
+        trend: "up",
     },
     {
         title: "Engagement Rate",
         value: "4.8%",
         change: "+0.7% from last month",
         icon: TrendingUpIcon,
-        trend: "up"
+        trend: "up",
     },
     {
         title: "Comments",
         value: "8.2K",
         change: "+15.3% from last month",
         icon: MessageCircleIcon,
-        trend: "up"
+        trend: "up",
     },
     {
         title: "Shares",
         value: "3.4K",
         change: "+8.9% from last month",
         icon: ShareIcon,
-        trend: "up"
-    }
+        trend: "up",
+    },
 ];
 
 const ENGAGEMENT_DATA = [
     {
         id: 1,
-        postContent: "🚀 Exciting news! We're launching our new AI-powered analytics dashboard...",
+        postContent:
+            "🚀 Exciting news! We're launching our new AI-powered analytics dashboard...",
         platform: "twitter",
         publishedAt: "2024-01-15T10:30:00Z",
         engagement: {
@@ -69,13 +71,14 @@ const ENGAGEMENT_DATA = [
             comments: 18,
             shares: 32,
             views: 3200,
-            rate: 4.2
+            rate: 4.2,
         },
-        author: "Marketing Team"
+        author: "Marketing Team",
     },
     {
         id: 2,
-        postContent: "Check out our latest blog post about social media trends for 2024!",
+        postContent:
+            "Check out our latest blog post about social media trends for 2024!",
         platform: "instagram",
         publishedAt: "2024-01-14T15:45:00Z",
         engagement: {
@@ -83,13 +86,14 @@ const ENGAGEMENT_DATA = [
             comments: 24,
             shares: 15,
             views: 2800,
-            rate: 5.1
+            rate: 5.1,
         },
-        author: "Content Team"
+        author: "Content Team",
     },
     {
         id: 3,
-        postContent: "Customer spotlight: See how @CompanyX increased their engagement by 150%!",
+        postContent:
+            "Customer spotlight: See how @CompanyX increased their engagement by 150%!",
         platform: "linkedin",
         publishedAt: "2024-01-13T11:20:00Z",
         engagement: {
@@ -97,13 +101,14 @@ const ENGAGEMENT_DATA = [
             comments: 12,
             shares: 28,
             views: 2100,
-            rate: 6.2
+            rate: 6.2,
         },
-        author: "Success Team"
+        author: "Success Team",
     },
     {
         id: 4,
-        postContent: "Tips for better social media engagement: 1. Post consistently 2. Use relevant hashtags...",
+        postContent:
+            "Tips for better social media engagement: 1. Post consistently 2. Use relevant hashtags...",
         platform: "facebook",
         publishedAt: "2024-01-12T09:15:00Z",
         engagement: {
@@ -111,13 +116,14 @@ const ENGAGEMENT_DATA = [
             comments: 31,
             shares: 19,
             views: 1800,
-            rate: 3.8
+            rate: 3.8,
         },
-        author: "Marketing Team"
+        author: "Marketing Team",
     },
     {
         id: 5,
-        postContent: "Behind the scenes: Our team working on the next big feature!",
+        postContent:
+            "Behind the scenes: Our team working on the next big feature!",
         platform: "instagram",
         publishedAt: "2024-01-11T16:30:00Z",
         engagement: {
@@ -125,10 +131,10 @@ const ENGAGEMENT_DATA = [
             comments: 45,
             shares: 67,
             views: 4200,
-            rate: 7.1
+            rate: 7.1,
         },
-        author: "Product Team"
-    }
+        author: "Product Team",
+    },
 ];
 
 const CHART_DATA = [
@@ -143,7 +149,7 @@ const CHART_DATA = [
     { name: "Sep", engagement: 7500, rate: 5.4 },
     { name: "Oct", engagement: 8200, rate: 5.8 },
     { name: "Nov", engagement: 7900, rate: 5.6 },
-    { name: "Dec", engagement: 8500, rate: 6.1 }
+    { name: "Dec", engagement: 8500, rate: 6.1 },
 ];
 
 const chartConfig = {
@@ -159,11 +165,16 @@ const chartConfig = {
 
 const getPlatformColor = (platform: string) => {
     switch (platform) {
-        case "twitter": return "bg-blue-100 text-blue-800";
-        case "instagram": return "bg-pink-100 text-pink-800";
-        case "facebook": return "bg-blue-100 text-blue-800";
-        case "linkedin": return "bg-blue-100 text-blue-800";
-        default: return "bg-gray-100 text-gray-800";
+        case "twitter":
+            return "bg-blue-100 text-blue-800";
+        case "instagram":
+            return "bg-pink-100 text-pink-800";
+        case "facebook":
+            return "bg-blue-100 text-blue-800";
+        case "linkedin":
+            return "bg-blue-100 text-blue-800";
+        default:
+            return "bg-gray-100 text-gray-800";
     }
 };
 
@@ -174,11 +185,11 @@ const getEngagementColor = (rate: number) => {
 };
 
 const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-US', {
-        month: 'short',
-        day: 'numeric',
-        hour: '2-digit',
-        minute: '2-digit'
+    return new Date(dateString).toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+        hour: "2-digit",
+        minute: "2-digit",
     });
 };
 
@@ -189,10 +200,14 @@ const EngagementPage = () => {
 
     const filteredEngagements = useMemo(() => {
         return ENGAGEMENT_DATA.filter(item => {
-            const matchesSearch = item.postContent.toLowerCase().includes(searchTerm.toLowerCase()) ||
-                                item.author.toLowerCase().includes(searchTerm.toLowerCase());
-            const matchesPlatform = platformFilter === "all" || item.platform === platformFilter;
-            
+            const matchesSearch =
+                item.postContent
+                    .toLowerCase()
+                    .includes(searchTerm.toLowerCase()) ||
+                item.author.toLowerCase().includes(searchTerm.toLowerCase());
+            const matchesPlatform =
+                platformFilter === "all" || item.platform === platformFilter;
+
             return matchesSearch && matchesPlatform;
         }).sort((a, b) => {
             switch (sortBy) {
@@ -202,18 +217,32 @@ const EngagementPage = () => {
                     return b.engagement.likes - a.engagement.likes;
                 case "date":
                 default:
-                    return new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime();
+                    return (
+                        new Date(b.publishedAt).getTime() -
+                        new Date(a.publishedAt).getTime()
+                    );
             }
         });
     }, [searchTerm, platformFilter, sortBy]);
 
-    const totalEngagement = filteredEngagements.reduce((sum, item) => 
-        sum + item.engagement.likes + item.engagement.comments + item.engagement.shares, 0
+    const totalEngagement = filteredEngagements.reduce(
+        (sum, item) =>
+            sum +
+            item.engagement.likes +
+            item.engagement.comments +
+            item.engagement.shares,
+        0
     );
 
-    const averageRate = filteredEngagements.length > 0 
-        ? (filteredEngagements.reduce((sum, item) => sum + item.engagement.rate, 0) / filteredEngagements.length).toFixed(1)
-        : "0.0";
+    const averageRate =
+        filteredEngagements.length > 0
+            ? (
+                  filteredEngagements.reduce(
+                      (sum, item) => sum + item.engagement.rate,
+                      0
+                  ) / filteredEngagements.length
+              ).toFixed(1)
+            : "0.0";
 
     return (
         <div className="p-4 w-full">
@@ -221,8 +250,13 @@ const EngagementPage = () => {
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 mb-6">
                     <div>
-                        <h1 className="text-2xl font-bold tracking-tight">Engagement Analytics</h1>
-                        <p className="text-muted-foreground">Monitor and analyze your social media engagement performance</p>
+                        <h1 className="text-2xl font-bold tracking-tight">
+                            Engagement Analytics
+                        </h1>
+                        <p className="text-muted-foreground">
+                            Monitor and analyze your social media engagement
+                            performance
+                        </p>
                     </div>
                 </div>
 
@@ -240,7 +274,9 @@ const EngagementPage = () => {
                                         <Icon className="h-4 w-4 text-muted-foreground" />
                                     </CardHeader>
                                     <CardContent>
-                                        <div className="text-2xl font-bold">{stat.value}</div>
+                                        <div className="text-2xl font-bold">
+                                            {stat.value}
+                                        </div>
                                         <p className="text-xs text-muted-foreground">
                                             {stat.change}
                                         </p>
@@ -273,11 +309,22 @@ const EngagementPage = () => {
                                         tickLine={false}
                                         axisLine={false}
                                         tickMargin={8}
-                                        tickFormatter={(value) => value.slice(0, 3)}
+                                        tickFormatter={value =>
+                                            value.slice(0, 3)
+                                        }
                                     />
-                                    <ChartTooltip cursor={false} content={<ChartTooltipContent />} />
+                                    <ChartTooltip
+                                        cursor={false}
+                                        content={<ChartTooltipContent />}
+                                    />
                                     <defs>
-                                        <linearGradient id="fillEngagement" x1="0" y1="0" x2="0" y2="1">
+                                        <linearGradient
+                                            id="fillEngagement"
+                                            x1="0"
+                                            y1="0"
+                                            x2="0"
+                                            y2="1"
+                                        >
                                             <stop
                                                 offset="5%"
                                                 stopColor="var(--color-engagement)"
@@ -318,31 +365,55 @@ const EngagementPage = () => {
                                         <Input
                                             placeholder="Search posts or authors..."
                                             value={searchTerm}
-                                            onChange={(e) => setSearchTerm(e.target.value)}
+                                            onChange={e =>
+                                                setSearchTerm(e.target.value)
+                                            }
                                             className="pl-10"
                                         />
                                     </div>
                                 </div>
-                                <Select value={platformFilter} onValueChange={setPlatformFilter}>
+                                <Select
+                                    value={platformFilter}
+                                    onValueChange={setPlatformFilter}
+                                >
                                     <SelectTrigger className="w-full sm:w-[180px]">
                                         <SelectValue placeholder="Platform" />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="all">All Platforms</SelectItem>
-                                        <SelectItem value="twitter">Twitter</SelectItem>
-                                        <SelectItem value="instagram">Instagram</SelectItem>
-                                        <SelectItem value="facebook">Facebook</SelectItem>
-                                        <SelectItem value="linkedin">LinkedIn</SelectItem>
+                                        <SelectItem value="all">
+                                            All Platforms
+                                        </SelectItem>
+                                        <SelectItem value="twitter">
+                                            Twitter
+                                        </SelectItem>
+                                        <SelectItem value="instagram">
+                                            Instagram
+                                        </SelectItem>
+                                        <SelectItem value="facebook">
+                                            Facebook
+                                        </SelectItem>
+                                        <SelectItem value="linkedin">
+                                            LinkedIn
+                                        </SelectItem>
                                     </SelectContent>
                                 </Select>
-                                <Select value={sortBy} onValueChange={setSortBy}>
+                                <Select
+                                    value={sortBy}
+                                    onValueChange={setSortBy}
+                                >
                                     <SelectTrigger className="w-full sm:w-[180px]">
                                         <SelectValue placeholder="Sort by" />
                                     </SelectTrigger>
                                     <SelectContent>
-                                        <SelectItem value="date">Date</SelectItem>
-                                        <SelectItem value="engagement">Engagement Rate</SelectItem>
-                                        <SelectItem value="likes">Likes</SelectItem>
+                                        <SelectItem value="date">
+                                            Date
+                                        </SelectItem>
+                                        <SelectItem value="engagement">
+                                            Engagement Rate
+                                        </SelectItem>
+                                        <SelectItem value="likes">
+                                            Likes
+                                        </SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>
@@ -350,35 +421,58 @@ const EngagementPage = () => {
                             {/* Summary */}
                             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">
                                 <div className="bg-black border border-gray-700 rounded-lg p-3">
-                                    <div className="text-sm text-gray-300 font-medium">Total Posts</div>
-                                    <div className="text-xl font-semibold text-white">{filteredEngagements.length}</div>
+                                    <div className="text-sm text-gray-300 font-medium">
+                                        Total Posts
+                                    </div>
+                                    <div className="text-xl font-semibold text-white">
+                                        {filteredEngagements.length}
+                                    </div>
                                 </div>
                                 <div className="bg-black border border-gray-700 rounded-lg p-3">
-                                    <div className="text-sm text-gray-300 font-medium">Total Engagement</div>
-                                    <div className="text-xl font-semibold text-white">{totalEngagement.toLocaleString()}</div>
+                                    <div className="text-sm text-gray-300 font-medium">
+                                        Total Engagement
+                                    </div>
+                                    <div className="text-xl font-semibold text-white">
+                                        {totalEngagement.toLocaleString()}
+                                    </div>
                                 </div>
                                 <div className="bg-black border border-gray-700 rounded-lg p-3">
-                                    <div className="text-sm text-gray-300 font-medium">Average Rate</div>
-                                    <div className="text-xl font-semibold text-white">{averageRate}%</div>
+                                    <div className="text-sm text-gray-300 font-medium">
+                                        Average Rate
+                                    </div>
+                                    <div className="text-xl font-semibold text-white">
+                                        {averageRate}%
+                                    </div>
                                 </div>
                             </div>
 
                             {/* Engagement List */}
                             <div className="space-y-4">
-                                {filteredEngagements.map((item) => (
-                                    <div key={item.id} className="border rounded-lg p-4 hover:bg-gray-900 hover:border-gray-600 hover:shadow-lg transition-all duration-200 ease-in-out transform hover:scale-[1.02]">
+                                {filteredEngagements.map(item => (
+                                    <div
+                                        key={item.id}
+                                        className="border rounded-lg p-4 hover:bg-gray-900 hover:border-gray-600 hover:shadow-lg transition-all duration-200 ease-in-out transform hover:scale-[1.02]"
+                                    >
                                         <div className="flex flex-col sm:flex-row justify-between items-start gap-4">
                                             <div className="flex-1">
                                                 <div className="flex items-center gap-2 mb-2">
-                                                    <Badge className={getPlatformColor(item.platform)}>
+                                                    <Badge
+                                                        className={getPlatformColor(
+                                                            item.platform
+                                                        )}
+                                                    >
                                                         {item.platform}
                                                     </Badge>
                                                     <span className="text-sm text-muted-foreground">
                                                         by {item.author}
                                                     </span>
-                                                    <span className="text-sm text-muted-foreground">•</span>
                                                     <span className="text-sm text-muted-foreground">
-                                                        {formatDate(item.publishedAt)}
+                                                        •
+                                                    </span>
+                                                    <span className="text-sm text-muted-foreground">
+                                                        {formatDate(
+                                                            item.publishedAt
+                                                        )}
                                                     </span>
                                                 </div>
                                                 <p className="text-sm mb-3 line-clamp-2">
@@ -387,25 +481,49 @@ const EngagementPage = () => {
                                                 <div className="flex items-center gap-6 text-sm text-muted-foreground">
                                                     <div className="flex items-center gap-1">
                                                         <HeartIcon className="h-4 w-4" />
-                                                        <span>{item.engagement.likes}</span>
+                                                        <span>
+                                                            {
+                                                                item.engagement
+                                                                    .likes
+                                                            }
+                                                        </span>
                                                     </div>
                                                     <div className="flex items-center gap-1">
                                                         <MessageCircleIcon className="h-4 w-4" />
-                                                        <span>{item.engagement.comments}</span>
+                                                        <span>
+                                                            {
+                                                                item.engagement
+                                                                    .comments
+                                                            }
+                                                        </span>
                                                     </div>
                                                     <div className="flex items-center gap-1">
                                                         <ShareIcon className="h-4 w-4" />
-                                                        <span>{item.engagement.shares}</span>
+                                                        <span>
+                                                            {
+                                                                item.engagement
+                                                                    .shares
+                                                            }
+                                                        </span>
                                                     </div>
                                                     <div className="flex items-center gap-1">
                                                         <EyeIcon className="h-4 w-4" />
-                                                        <span>{item.engagement.views}</span>
+                                                        <span>
+                                                            {
+                                                                item.engagement
+                                                                    .views
+                                                            }
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div className="text-right">
-                                                <div className="text-sm text-muted-foreground mb-1">Engagement Rate</div>
-                                                <div className={`text-lg font-semibold ${getEngagementColor(item.engagement.rate)}`}>
+                                                <div className="text-sm text-muted-foreground mb-1">
+                                                    Engagement Rate
+                                                </div>
+                                                <div
+                                                    className={`text-lg font-semibold ${getEngagementColor(item.engagement.rate)}`}
+                                                >
                                                     {item.engagement.rate}%
                                                 </div>
                                             </div>
@@ -416,7 +534,10 @@ const EngagementPage = () => {
 
                             {filteredEngagements.length === 0 && (
                                 <div className="text-center py-8">
-                                    <p className="text-muted-foreground">No engagement data found matching your filters.</p>
+                                    <p className="text-muted-foreground">
+                                        No engagement data found matching your
+                                        filters.
+                                    </p>
                                 </div>
                             )}
                         </CardContent>

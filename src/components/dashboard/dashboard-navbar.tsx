@@ -22,7 +22,7 @@ import { PLANS } from "@/constants/plans";
 
 const DashboardNavbar = () => {
     const [isUpgradeModalOpen, setIsUpgradeModalOpen] = useState(false);
-    
+
     // Get the Pro plan from constants
     const proPlan = PLANS.find(plan => plan.id === "pro");
 
@@ -42,7 +42,10 @@ const DashboardNavbar = () => {
                     </Link>
                 </div>
                 <div className="flex items-center gap-x-2">
-                    <Dialog open={isUpgradeModalOpen} onOpenChange={setIsUpgradeModalOpen}>
+                    <Dialog
+                        open={isUpgradeModalOpen}
+                        onOpenChange={setIsUpgradeModalOpen}
+                    >
                         <DialogTrigger asChild>
                             <Button size="sm" variant="ghost">
                                 <ZapIcon className="size-4 mr-1.5 text-orange-500 fill-orange-500" />
@@ -59,52 +62,72 @@ const DashboardNavbar = () => {
                                     {proPlan?.desc}
                                 </DialogDescription>
                             </DialogHeader>
-                            
+
                             <div className="space-y-4">
                                 <Card>
                                     <CardHeader className="pb-3">
                                         <div className="flex items-center justify-between">
-                                            <CardTitle className="text-lg">{proPlan?.title}</CardTitle>
+                                            <CardTitle className="text-lg">
+                                                {proPlan?.title}
+                                            </CardTitle>
                                             {proPlan?.badge && (
-                                                <Badge variant="secondary" className="bg-orange-100 text-orange-800">
+                                                <Badge
+                                                    variant="secondary"
+                                                    className="bg-orange-100 text-orange-800"
+                                                >
                                                     {proPlan.badge}
                                                 </Badge>
                                             )}
                                         </div>
                                         <div className="flex items-baseline gap-1">
-                                            <span className="text-3xl font-bold">${proPlan?.monthlyPrice}</span>
-                                            <span className="text-muted-foreground">/month</span>
+                                            <span className="text-3xl font-bold">
+                                                ${proPlan?.monthlyPrice}
+                                            </span>
+                                            <span className="text-muted-foreground">
+                                                /month
+                                            </span>
                                         </div>
                                         <div className="text-sm text-muted-foreground">
-                                            or ${proPlan?.yearlyPrice}/year (save ${(proPlan?.monthlyPrice || 0) * 12 - (proPlan?.yearlyPrice || 0)})
+                                            or ${proPlan?.yearlyPrice}/year
+                                            (save $
+                                            {(proPlan?.monthlyPrice || 0) * 12 -
+                                                (proPlan?.yearlyPrice || 0)}
+                                            )
                                         </div>
                                     </CardHeader>
                                     <CardContent className="space-y-3">
                                         <div className="space-y-2">
-                                            {proPlan?.features.map((feature, index) => (
-                                                <div key={index} className="flex items-center gap-2">
-                                                    <CheckIcon className="h-4 w-4 text-green-500 flex-shrink-0" />
-                                                    <span className="text-sm">{feature}</span>
-                                                </div>
-                                            ))}
+                                            {proPlan?.features.map(
+                                                (feature, index) => (
+                                                    <div
+                                                        key={index}
+                                                        className="flex items-center gap-2"
+                                                    >
+                                                        <CheckIcon className="h-4 w-4 text-green-500 flex-shrink-0" />
+                                                        <span className="text-sm">
+                                                            {feature}
+                                                        </span>
+                                                    </div>
+                                                )
+                                            )}
                                         </div>
                                     </CardContent>
                                 </Card>
                             </div>
 
                             <DialogFooter className="gap-2">
-                                <Button 
-                                    variant="outline" 
+                                <Button
+                                    variant="outline"
                                     onClick={() => setIsUpgradeModalOpen(false)}
                                 >
                                     Maybe Later
                                 </Button>
-                                <Button 
+                                <Button
                                     className="bg-gradient-to-r from-orange-500 to-yellow-500 hover:from-orange-600 hover:to-yellow-600"
                                     onClick={() => {
                                         // Redirect to the plan's link or handle upgrade logic
                                         if (proPlan?.link) {
-                                            window.open(proPlan.link, '_blank');
+                                            window.open(proPlan.link, "_blank");
                                         }
                                         setIsUpgradeModalOpen(false);
                                     }}
@@ -115,7 +138,7 @@ const DashboardNavbar = () => {
                             </DialogFooter>
                         </DialogContent>
                     </Dialog>
-                    
+
                     <Button
                         asChild
                         size="icon"

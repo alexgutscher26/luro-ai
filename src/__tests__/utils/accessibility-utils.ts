@@ -1,9 +1,9 @@
-import { axe, toHaveNoViolations } from 'jest-axe'
-import { render, RenderResult } from '@testing-library/react'
-import { ReactElement } from 'react'
+import { axe, toHaveNoViolations } from "jest-axe";
+import { render, RenderResult } from "@testing-library/react";
+import { ReactElement } from "react";
 
 // Extend Jest matchers
-expect.extend(toHaveNoViolations)
+expect.extend(toHaveNoViolations);
 
 /**
  * Test a component for accessibility violations
@@ -11,13 +11,13 @@ expect.extend(toHaveNoViolations)
  * @param options - Optional axe configuration
  */
 export const testAccessibility = async (
-  component: ReactElement,
-  options?: any
+    component: ReactElement,
+    options?: any
 ): Promise<void> => {
-  const { container } = render(component)
-  const results = await axe(container, options)
-  expect(results).toHaveNoViolations()
-}
+    const { container } = render(component);
+    const results = await axe(container, options);
+    expect(results).toHaveNoViolations();
+};
 
 /**
  * Test accessibility on an already rendered component
@@ -25,39 +25,39 @@ export const testAccessibility = async (
  * @param options - Optional axe configuration
  */
 export const testAccessibilityOnRendered = async (
-  renderResult: RenderResult,
-  options?: any
+    renderResult: RenderResult,
+    options?: any
 ): Promise<void> => {
-  const results = await axe(renderResult.container, options)
-  expect(results).toHaveNoViolations()
-}
+    const results = await axe(renderResult.container, options);
+    expect(results).toHaveNoViolations();
+};
 
 /**
  * Common axe rules for different scenarios
  */
 export const axeRules = {
-  // Basic accessibility rules
-  basic: {
-    rules: {
-      'color-contrast': { enabled: true },
-      'keyboard-navigation': { enabled: true },
-      'focus-management': { enabled: true },
+    // Basic accessibility rules
+    basic: {
+        rules: {
+            "color-contrast": { enabled: true },
+            "keyboard-navigation": { enabled: true },
+            "focus-management": { enabled: true },
+        },
     },
-  },
-  // Strict rules for production
-  strict: {
-    rules: {
-      'color-contrast': { enabled: true },
-      'keyboard-navigation': { enabled: true },
-      'focus-management': { enabled: true },
-      'aria-labels': { enabled: true },
-      'semantic-markup': { enabled: true },
+    // Strict rules for production
+    strict: {
+        rules: {
+            "color-contrast": { enabled: true },
+            "keyboard-navigation": { enabled: true },
+            "focus-management": { enabled: true },
+            "aria-labels": { enabled: true },
+            "semantic-markup": { enabled: true },
+        },
     },
-  },
-  // Rules excluding color contrast (useful for design system components)
-  noColorContrast: {
-    rules: {
-      'color-contrast': { enabled: false },
+    // Rules excluding color contrast (useful for design system components)
+    noColorContrast: {
+        rules: {
+            "color-contrast": { enabled: false },
+        },
     },
-  },
-}
+};

@@ -17,13 +17,13 @@ interface UseFocusManagementOptions {
 
 /**
  * Custom hook for advanced focus management
- * 
+ *
  * Provides focus trapping, focus restoration, and auto-focus capabilities
  * for modals, dialogs, and other overlay components.
- * 
+ *
  * @param options Configuration options for focus management
  * @returns Object with container ref and focus management functions
- * 
+ *
  * @example
  * // Modal with focus trap
  * const Modal = ({ isOpen, onClose }) => {
@@ -32,9 +32,9 @@ interface UseFocusManagementOptions {
  *     restoreFocus: true,
  *     autoFocus: true
  *   });
- * 
+ *
  *   if (!isOpen) return null;
- * 
+ *
  *   return (
  *     <div ref={containerRef} role="dialog" aria-modal="true">
  *       <button onClick={onClose}>Close</button>
@@ -81,36 +81,40 @@ export const useFocusManagement = ({
         }
     }, [getFocusableElements]);
 
-    const handleTabKey = useCallback((event: KeyboardEvent) => {
-        if (!trapFocus || event.key !== 'Tab') return;
-        if (!containerRef.current?.contains(event.target as Node)) return;
+    const handleTabKey = useCallback(
+        (event: KeyboardEvent) => {
+            if (!trapFocus || event.key !== "Tab") return;
+            if (!containerRef.current?.contains(event.target as Node)) return;
 
-        const elements = getFocusableElements();
-        if (elements.length === 0) return;
+            const elements = getFocusableElements();
+            if (elements.length === 0) return;
 
-        const firstElement = elements[0];
-        const lastElement = elements[elements.length - 1];
-        const activeElement = document.activeElement as HTMLElement;
+            const firstElement = elements[0];
+            const lastElement = elements[elements.length - 1];
+            const activeElement = document.activeElement as HTMLElement;
 
-        if (event.shiftKey) {
-            // Shift + Tab: moving backwards
-            if (activeElement === firstElement) {
-                event.preventDefault();
-                lastElement.focus();
+            if (event.shiftKey) {
+                // Shift + Tab: moving backwards
+                if (activeElement === firstElement) {
+                    event.preventDefault();
+                    lastElement.focus();
+                }
+            } else {
+                // Tab: moving forwards
+                if (activeElement === lastElement) {
+                    event.preventDefault();
+                    firstElement.focus();
+                }
             }
-        } else {
-            // Tab: moving forwards
-            if (activeElement === lastElement) {
-                event.preventDefault();
-                firstElement.focus();
-            }
-        }
-    }, [trapFocus, getFocusableElements]);
+        },
+        [trapFocus, getFocusableElements]
+    );
 
     // Store the previously focused element when component mounts
     useEffect(() => {
         if (restoreFocus) {
-            previousActiveElementRef.current = document.activeElement as HTMLElement;
+            previousActiveElementRef.current =
+                document.activeElement as HTMLElement;
         }
 
         if (autoFocus) {
@@ -123,8 +127,8 @@ export const useFocusManagement = ({
     // Set up focus trap
     useEffect(() => {
         if (trapFocus) {
-            document.addEventListener('keydown', handleTabKey);
-            return () => document.removeEventListener('keydown', handleTabKey);
+            document.addEventListener("keydown", handleTabKey);
+            return () => document.removeEventListener("keydown", handleTabKey);
         }
     }, [trapFocus, handleTabKey]);
 
@@ -132,7 +136,8 @@ export const useFocusManagement = ({
     useEffect(() => {
         return () => {
             if (restoreFocus) {
-                const elementToFocus = returnFocusRef?.current || previousActiveElementRef.current;
+                const elementToFocus =
+                    returnFocusRef?.current || previousActiveElementRef.current;
                 if (elementToFocus && document.contains(elementToFocus)) {
                     elementToFocus.focus();
                 }

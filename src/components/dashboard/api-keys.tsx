@@ -116,11 +116,12 @@ export function ApiKeysManagement() {
     };
 
     const activeKeys =
-        apiKeysData?.apiKeys?.filter((key: { isActive: any; }) => key.isActive).length || 0;
+        apiKeysData?.apiKeys?.filter((key: { isActive: any }) => key.isActive)
+            .length || 0;
     const totalKeys = apiKeysData?.apiKeys?.length || 0;
     const recentlyUsed =
         apiKeysData?.apiKeys?.filter(
-            (            key: { lastUsedAt: string | number | Date; }) =>
+            (key: { lastUsedAt: string | number | Date }) =>
                 key.lastUsedAt &&
                 new Date(key.lastUsedAt) >
                     new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
@@ -183,19 +184,31 @@ export function ApiKeysManagement() {
                                                 <Button
                                                     size="sm"
                                                     variant="outline"
-                                                    onClick={() => handleCopyKey(createdKey)}
+                                                    onClick={() =>
+                                                        handleCopyKey(
+                                                            createdKey
+                                                        )
+                                                    }
                                                     className="shrink-0"
                                                     aria-label="Copy API key"
                                                 >
-                                                    <Copy className="h-4 w-4" aria-hidden="true" />
+                                                    <Copy
+                                                        className="h-4 w-4"
+                                                        aria-hidden="true"
+                                                    />
                                                 </Button>
                                             </div>
-                                            <p 
+                                            <p
                                                 id="api-key-warning"
                                                 className="text-sm text-green-700 dark:text-green-300 mt-2 flex items-center gap-1"
                                             >
-                                                <Shield className="h-3 w-3" aria-hidden="true" />
-                                                Make sure to copy your API key now. You won't be able to see it again!
+                                                <Shield
+                                                    className="h-3 w-3"
+                                                    aria-hidden="true"
+                                                />
+                                                Make sure to copy your API key
+                                                now. You won't be able to see it
+                                                again!
                                             </p>
                                         </div>
                                         <DialogFooter>
@@ -412,7 +425,31 @@ export function ApiKeysManagement() {
                                         </TableHeader>
                                         <TableBody>
                                             {apiKeysData?.apiKeys?.map(
-                                                (apiKey: { id: any[] | React.Key | null | undefined; name: string | number | bigint | boolean | React.ReactElement<any, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<React.AwaitedReactNode> | null | undefined; isActive: boolean; createdAt: Date | null; expiresAt: Date | null; }) => (
+                                                (apiKey: {
+                                                    id:
+                                                        | any[]
+                                                        | React.Key
+                                                        | null
+                                                        | undefined;
+                                                    name:
+                                                        | string
+                                                        | number
+                                                        | bigint
+                                                        | boolean
+                                                        | React.ReactElement<
+                                                              any,
+                                                              | string
+                                                              | React.JSXElementConstructor<any>
+                                                          >
+                                                        | Iterable<React.ReactNode>
+                                                        | React.ReactPortal
+                                                        | Promise<React.AwaitedReactNode>
+                                                        | null
+                                                        | undefined;
+                                                    isActive: boolean;
+                                                    createdAt: Date | null;
+                                                    expiresAt: Date | null;
+                                                }) => (
                                                     <TableRow
                                                         key={apiKey.id}
                                                         className="hover:bg-muted/30 transition-colors"
@@ -497,7 +534,10 @@ export function ApiKeysManagement() {
                                                                         className="h-8 w-8 p-0"
                                                                         aria-label={`Actions for API key ${apiKey.name}`}
                                                                     >
-                                                                        <MoreHorizontal className="h-4 w-4" aria-hidden="true" />
+                                                                        <MoreHorizontal
+                                                                            className="h-4 w-4"
+                                                                            aria-hidden="true"
+                                                                        />
                                                                     </Button>
                                                                 </DropdownMenuTrigger>
                                                                 <DropdownMenuContent

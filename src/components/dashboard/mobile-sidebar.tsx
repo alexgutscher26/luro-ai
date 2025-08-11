@@ -43,52 +43,52 @@ const MobileSidebar = () => {
                                 <SearchIcon className="size-4" />
                                 <span className="text-sm">Search...</span>
                             </Button>
-                        <ul className="w-full space-y-2 py-5">
-                            {SIDEBAR_LINKS.map((link, index) => {
-                                const isActive = pathname === link.href;
+                            <ul className="w-full space-y-2 py-5">
+                                {SIDEBAR_LINKS.map((link, index) => {
+                                    const isActive = pathname === link.href;
 
-                                return (
-                                    <li key={index} className="w-full">
-                                        <Link
-                                            href={link.href}
-                                            className={buttonVariants({
-                                                variant: "ghost",
-                                                className: isActive
-                                                    ? "bg-muted text-primary w-full !justify-start"
-                                                    : "text-foreground/70 w-full !justify-start",
-                                                // "w-full !justify-start text-foreground/70"
-                                            })}
-                                        >
-                                            <link.icon
-                                                strokeWidth={2}
-                                                className="size-[18px] mr-1.5"
-                                            />
-                                            {link.label}
-                                        </Link>
-                                    </li>
-                                );
-                            })}
-                        </ul>
+                                    return (
+                                        <li key={index} className="w-full">
+                                            <Link
+                                                href={link.href}
+                                                className={buttonVariants({
+                                                    variant: "ghost",
+                                                    className: isActive
+                                                        ? "bg-muted text-primary w-full !justify-start"
+                                                        : "text-foreground/70 w-full !justify-start",
+                                                    // "w-full !justify-start text-foreground/70"
+                                                })}
+                                            >
+                                                <link.icon
+                                                    strokeWidth={2}
+                                                    className="size-[18px] mr-1.5"
+                                                />
+                                                {link.label}
+                                            </Link>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
 
-                        <div className="flex flex-col w-full mt-auto pb-4">
-                            <Button
-                                size="sm"
-                                variant="ghost"
-                                className="w-full justify-start gap-2 px-4"
-                                onClick={handleLogout}
-                            >
-                                <LogOutIcon className="size-4 mr-1.5" />
-                                Logout
-                            </Button>
+                            <div className="flex flex-col w-full mt-auto pb-4">
+                                <Button
+                                    size="sm"
+                                    variant="ghost"
+                                    className="w-full justify-start gap-2 px-4"
+                                    onClick={handleLogout}
+                                >
+                                    <LogOutIcon className="size-4 mr-1.5" />
+                                    Logout
+                                </Button>
+                            </div>
                         </div>
-                    </div>
-                </SheetContent>
-            </Sheet>
-        </div>
-            
-            <SearchModal 
-                isOpen={isSearchOpen} 
-                onClose={() => setIsSearchOpen(false)} 
+                    </SheetContent>
+                </Sheet>
+            </div>
+
+            <SearchModal
+                isOpen={isSearchOpen}
+                onClose={() => setIsSearchOpen(false)}
             />
         </>
     );
