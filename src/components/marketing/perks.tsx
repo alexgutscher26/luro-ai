@@ -4,6 +4,9 @@ import { LucideIcon } from "lucide-react";
 import Container from "../global/container";
 import { SectionBadge } from "../ui/section-bade";
 
+/**
+ * Renders a component displaying perks and their benefits.
+ */
 const Perks = () => {
     return (
         <div className="flex flex-col items-center justify-center py-12 md:py-16 lg:py-24 w-full">

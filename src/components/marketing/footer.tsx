@@ -6,6 +6,12 @@ import Wrapper from "../global/wrapper";
 import { Button } from "../ui/button";
 import { Particles } from "../ui/particles";
 
+/**
+ * Renders a footer component with a logo, description, and links.
+ *
+ * The footer includes a background of animated particles, a section for the company logo and a brief description,
+ * a call-to-action button, and navigation links organized into sections. It also features social media icons.
+ */
 const Footer = () => {
     return (
         <footer className="w-full py-10 relative">
@@ -34,13 +40,16 @@ const Footer = () => {
                         </Button>
                     </div>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-lg mt-10 md:mt-0">
-                        {FOOTER_LINKS?.map((section) => (
-                            <div key={section.title} className="flex flex-col gap-4">
+                        {FOOTER_LINKS?.map(section => (
+                            <div
+                                key={section.title}
+                                className="flex flex-col gap-4"
+                            >
                                 <h4 className="text-sm font-medium">
                                     {section.title}
                                 </h4>
                                 <ul className="space-y-4 w-full">
-                                    {section.links.map((link) => (
+                                    {section.links.map(link => (
                                         <li
                                             key={link.name}
                                             className="text-sm text-muted-foreground hover:text-foreground transition-all w-full"

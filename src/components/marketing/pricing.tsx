@@ -13,6 +13,9 @@ import { SectionBadge } from "../ui/section-bade";
 
 type Plan = "monthly" | "yearly";
 
+/**
+ * Renders a pricing page with plan options and tabs for monthly and yearly plans.
+ */
 const Pricing = () => {
     return (
         <div className="flex flex-col items-center justify-center py-12 md:py-16 lg:py-24  w-full relative">
@@ -71,6 +74,23 @@ const Pricing = () => {
     );
 };
 
+/**
+ * Renders a plan component with details such as title, description, price, and features.
+ *
+ * The component calculates the displayed price based on whether the plan is monthly or yearly,
+ * applying a 20% discount for yearly plans. It also highlights the most popular plan ("pro")
+ * with specific styling and includes interactive animations for certain elements.
+ *
+ * @param id - A unique identifier for the plan.
+ * @param title - The title of the plan.
+ * @param desc - A description of the plan.
+ * @param monthlyPrice - The price for a monthly subscription.
+ * @param yearlyPrice - The price for an annual subscription.
+ * @param buttonText - The text displayed on the action button.
+ * @param features - An array of feature descriptions included in the plan.
+ * @param index - The index of the plan in its list.
+ * @param plan - The type of plan ("monthly" or "yearly").
+ */
 const Plan = ({
     id,
     title,
@@ -168,8 +188,11 @@ const Plan = ({
                         </AnimatePresence>
                     </div>
                     <ul className="space-y-4 w-full">
-                        {features.map((feature) => (
-                            <li key={feature} className="flex items-center gap-2">
+                        {features.map(feature => (
+                            <li
+                                key={feature}
+                                className="flex items-center gap-2"
+                            >
                                 <CheckIcon className="w-4 h-4 text-green-500" />
                                 <span className="text-sm text-muted-foreground">
                                     {feature}
