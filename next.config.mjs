@@ -23,7 +23,7 @@ const nextConfig = {
         optimizeCss: true,
         optimizePackageImports: ["lucide-react", "@radix-ui/react-icons"],
     },
-    async headers() {
+    headers() {
         return [
             {
                 source: "/api/:path*",
@@ -32,7 +32,7 @@ const nextConfig = {
                         key: "Access-Control-Allow-Origin",
                         value:
                             process.env.NODE_ENV === "production"
-                                ? "https://yourdomain.com"
+                                ? " `https://yourdomain.com` "
                                 : "*",
                     },
                     {

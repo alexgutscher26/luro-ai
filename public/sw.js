@@ -1,4 +1,3 @@
-const CACHE_NAME = "luro-v1";
 const STATIC_CACHE = "luro-static-v1";
 const DYNAMIC_CACHE = "luro-dynamic-v1";
 
@@ -113,16 +112,17 @@ self.addEventListener("fetch", event => {
 
     // Handle page requests with stale-while-revalidate strategy
     event.respondWith(
-        caches.match(request).then(response => {
-            const fetchPromise = fetch(request).then(networkResponse => {
-                const responseClone = networkResponse.clone();
-                caches.open(DYNAMIC_CACHE).then(cache => {
+        caches.match(request).then(cachedResponse => {
+            if (cachedResponse) {
+                return cachedResponse;
+            }
+            return fetch(request).then(response => {
+                const responseClone = response.clone();
+                caches.open(STATIC_CACHE).then(cache => {
                     cache.put(request, responseClone);
                 });
-                return networkResponse;
+                return response;
             });
-
-            return response || fetchPromise;
         })
     );
 });
