@@ -105,7 +105,6 @@ const searchFunction = async (query: string): Promise<SearchResult[]> => {
     );
 };
 
-
 export const SearchModal: React.FC<SearchModalProps> = ({
     isOpen,
     onClose,
