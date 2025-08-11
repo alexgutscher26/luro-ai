@@ -128,7 +128,7 @@ const CONTACT_OPTIONS = [
 ];
 
 /**
- * Renders a help page with navigation, search, and various sections for categories, FAQs, contact options, and additional resources.
+ * Renders a help page with navigation, search, and sections for categories, FAQs, contact options, and additional resources.
  */
 const HelpPage = () => {
     const [searchQuery, setSearchQuery] = useState("");
