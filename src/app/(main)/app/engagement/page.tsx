@@ -157,6 +157,15 @@ const chartConfig = {
     },
 } satisfies ChartConfig;
 
+/**
+ * Retrieves color classes based on the platform type.
+ *
+ * This function maps a given platform string to corresponding background and text color CSS class names.
+ * If the platform does not match any predefined cases, it defaults to gray colors.
+ *
+ * @param platform - A string representing the platform name (e.g., "twitter", "instagram").
+ * @returns A string with space-separated CSS class names for background and text color.
+ */
 const getPlatformColor = (platform: string) => {
     switch (platform) {
         case "twitter": return "bg-blue-100 text-blue-800";
@@ -167,12 +176,25 @@ const getPlatformColor = (platform: string) => {
     }
 };
 
+/**
+ * Determines the engagement color based on the given rate.
+ *
+ * The function evaluates the engagement rate and returns a corresponding color class name.
+ * If the rate is 5 or higher, it returns "text-green-600".
+ * If the rate is between 3 (inclusive) and 4 (exclusive), it returns "text-yellow-600".
+ * For rates below 3, it defaults to "text-red-600".
+ *
+ * @param rate - The engagement rate as a number.
+ */
 const getEngagementColor = (rate: number) => {
     if (rate >= 5) return "text-green-600";
     if (rate >= 3) return "text-yellow-600";
     return "text-red-600";
 };
 
+/**
+ * Formats a date string to a locale-specific format.
+ */
 const formatDate = (dateString: string) => {
     return new Date(dateString).toLocaleDateString('en-US', {
         month: 'short',
@@ -182,6 +204,16 @@ const formatDate = (dateString: string) => {
     });
 };
 
+/**
+ * Engagement Page Component.
+ *
+ * This component renders a page displaying engagement analytics, including filters for search terms,
+ * platform selection, and sorting options. It calculates total engagement, average rate, and displays
+ * filtered engagements in a list format. The component uses hooks for state management and leverages
+ * useMemo for optimizing the filtering and sorting process.
+ *
+ * @returns JSX.Element representing the Engagement Analytics page.
+ */
 const EngagementPage = () => {
     const [searchTerm, setSearchTerm] = useState("");
     const [platformFilter, setPlatformFilter] = useState("all");
