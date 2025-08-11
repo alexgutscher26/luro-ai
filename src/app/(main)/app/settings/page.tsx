@@ -254,7 +254,7 @@ const SettingsPage = () => {
                     {SETTINGS_STATS.map((stat, index) => {
                         const Icon = stat.icon;
                         return (
-                            <Card key={index}>
+                            <Card key={stat.title}>
                                 <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
                                     <CardTitle className="text-sm font-medium">
                                         {stat.title}

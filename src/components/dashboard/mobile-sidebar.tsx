@@ -47,11 +47,11 @@ const MobileSidebar = () => {
                                 <span className="text-sm">Search...</span>
                             </Button>
                             <ul className="w-full space-y-2 py-5">
-                                {SIDEBAR_LINKS.map((link, index) => {
+                                {SIDEBAR_LINKS.map((link) => {
                                     const isActive = pathname === link.href;
 
                                     return (
-                                        <li key={index} className="w-full">
+                                        <li key={link.href} className="w-full">
                                             <Link
                                                 href={link.href}
                                                 className={buttonVariants({
@@ -59,7 +59,6 @@ const MobileSidebar = () => {
                                                     className: isActive
                                                         ? "bg-muted text-primary w-full !justify-start"
                                                         : "text-foreground/70 w-full !justify-start",
-                                                    // "w-full !justify-start text-foreground/70"
                                                 })}
                                             >
                                                 <link.icon

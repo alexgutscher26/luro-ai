@@ -279,7 +279,7 @@ const HelpPage = () => {
                                         const IconComponent = option.icon;
                                         return (
                                             <Card
-                                                key={index}
+                                                key={option.title}
                                                 className="text-center hover:shadow-md transition-shadow"
                                             >
                                                 <CardHeader className="pb-3">

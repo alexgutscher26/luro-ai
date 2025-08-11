@@ -109,7 +109,7 @@ const DashboardNavbar = () => {
                                             {proPlan?.features.map(
                                                 (feature, index) => (
                                                     <div
-                                                        key={index}
+                                                        key={feature}
                                                         className="flex items-center gap-2"
                                                     >
                                                         <CheckIcon className="h-4 w-4 text-green-500 flex-shrink-0" />
