@@ -25,7 +25,8 @@ import { PLANS } from "@/constants/plans";
  *
  * This component renders a fixed header with branding and upgrade options. It includes a modal dialog for displaying
  * details about the Pro plan, including pricing and features. The component also contains links to help documentation
- * and a mobile sidebar.
+ * and a mobile sidebar. The upgrade modal provides information on the Pro plan's title, description, pricing,
+ * features, and buttons for upgrading or dismissing the modal.
  *
  * @returns JSX element representing the dashboard navbar.
  */

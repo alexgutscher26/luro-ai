@@ -11,7 +11,7 @@ import { useState } from "react";
 import { SearchModal } from "../global/search-modal";
 
 /**
- * Renders a mobile sidebar component with navigation links and search functionality.
+ * Renders a mobile sidebar with navigation links, search functionality, and logout button.
  */
 const MobileSidebar = () => {
     const { signOut } = useClerk();
@@ -47,7 +47,7 @@ const MobileSidebar = () => {
                                 <span className="text-sm">Search...</span>
                             </Button>
                             <ul className="w-full space-y-2 py-5">
-                                {SIDEBAR_LINKS.map((link) => {
+                                {SIDEBAR_LINKS.map(link => {
                                     const isActive = pathname === link.href;
 
                                     return (
