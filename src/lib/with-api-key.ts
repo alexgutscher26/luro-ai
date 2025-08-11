@@ -13,7 +13,7 @@ export function withApiKey(
             let apiKeyValue: string | null = null;
 
             // Check Authorization header (Bearer token)
-            if (authHeader && authHeader.startsWith("Bearer ")) {
+            if (authHeader?.startsWith("Bearer ")) {
                 apiKeyValue = authHeader.substring(7);
             }
             // Check X-API-Key header
