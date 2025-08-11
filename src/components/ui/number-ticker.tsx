@@ -5,6 +5,13 @@ import { useInView, useMotionValue, useSpring } from "framer-motion";
 
 import { cn } from "@/functions";
 
+/**
+ * A component that animates a number ticker effect.
+ *
+ * This function creates a span element that animates a number from 0 to the specified value or vice versa,
+ * depending on the direction parameter. The animation uses springs for smooth transitions and updates in real-time.
+ * The ticking effect is triggered when the component comes into view.
+ */
 export default function NumberTicker({
     value,
     direction = "up",
