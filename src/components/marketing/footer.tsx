@@ -6,6 +6,12 @@ import Wrapper from "../global/wrapper";
 import { Button } from "../ui/button";
 import { Particles } from "../ui/particles";
 
+/**
+ * Renders a footer component with a logo, description, and links.
+ *
+ * The footer includes a background of animated particles, a section for the company logo and a brief description,
+ * a call-to-action button, and navigation links organized into sections. It also features social media icons.
+ */
 const Footer = () => {
     return (
         <footer className="w-full py-10 relative">
