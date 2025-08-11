@@ -34,15 +34,15 @@ const Footer = () => {
                         </Button>
                     </div>
                     <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 w-full max-w-lg mt-10 md:mt-0">
-                        {FOOTER_LINKS?.map((section, index) => (
-                            <div key={index} className="flex flex-col gap-4">
+                        {FOOTER_LINKS?.map((section) => (
+                            <div key={section.title} className="flex flex-col gap-4">
                                 <h4 className="text-sm font-medium">
                                     {section.title}
                                 </h4>
                                 <ul className="space-y-4 w-full">
-                                    {section.links.map((link, index) => (
+                                    {section.links.map((link) => (
                                         <li
-                                            key={index}
+                                            key={link.name}
                                             className="text-sm text-muted-foreground hover:text-foreground transition-all w-full"
                                         >
                                             <Link

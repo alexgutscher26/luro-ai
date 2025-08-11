@@ -44,7 +44,7 @@ const Pricing = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-14">
                                 {PLANS.map((plan, index) => (
                                     <Plan
-                                        key={index}
+                                        key={plan.id}
                                         index={index}
                                         {...plan}
                                         plan="monthly"
@@ -56,7 +56,7 @@ const Pricing = () => {
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-full mt-14">
                                 {PLANS.map((plan, index) => (
                                     <Plan
-                                        key={index}
+                                        key={plan.id}
                                         index={index}
                                         {...plan}
                                         plan="yearly"
@@ -167,16 +167,13 @@ const Plan = ({
                             )}
                         </AnimatePresence>
                     </div>
-                    <ul className="flex flex-col gap-2">
-                        {features.map((feature, index) => (
-                            <li key={index} className="flex items-center gap-2">
-                                <CheckIcon
-                                    aria-hidden="true"
-                                    className="w-5 h-5 text-primary"
-                                />
-                                <p className="text-sm md:text-base text-muted-foreground">
+                    <ul className="space-y-4 w-full">
+                        {features.map((feature) => (
+                            <li key={feature} className="flex items-center gap-2">
+                                <CheckIcon className="w-4 h-4 text-green-500" />
+                                <span className="text-sm text-muted-foreground">
                                     {feature}
-                                </p>
+                                </span>
                             </li>
                         ))}
                     </ul>
