@@ -7,9 +7,12 @@ import { useClerk } from "@clerk/nextjs";
 import { LogOutIcon, MenuIcon, SearchIcon } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { SearchModal } from "../global/search-modal";
 
 const MobileSidebar = () => {
     const { signOut } = useClerk();
+    const [isSearchOpen, setIsSearchOpen] = useState(false);
 
     const pathname = usePathname();
 
@@ -18,26 +21,28 @@ const MobileSidebar = () => {
     };
 
     return (
-        <div className="flex lg:hidden">
-            <Sheet>
-                <SheetTrigger asChild>
-                    <Button
-                        size="icon"
-                        variant="ghost"
-                        className="flex lg:hidden"
-                    >
-                        <MenuIcon className="size-5" />
-                    </Button>
-                </SheetTrigger>
-                <SheetContent className="w-screen max-w-full">
-                    <div className="flex flex-col w-full mt-10 py-3 h-full">
+        <>
+            <div className="flex lg:hidden">
+                <Sheet>
+                    <SheetTrigger asChild>
                         <Button
-                            variant="outline"
-                            className="w-full justify-start gap-2 px-2"
+                            size="icon"
+                            variant="ghost"
+                            className="flex lg:hidden"
                         >
-                            <SearchIcon className="size-4" />
-                            <span className="text-sm">Search...</span>
+                            <MenuIcon className="size-5" />
                         </Button>
+                    </SheetTrigger>
+                    <SheetContent className="w-screen max-w-full">
+                        <div className="flex flex-col w-full mt-10 py-3 h-full">
+                            <Button
+                                variant="outline"
+                                className="w-full justify-start gap-2 px-2"
+                                onClick={() => setIsSearchOpen(true)}
+                            >
+                                <SearchIcon className="size-4" />
+                                <span className="text-sm">Search...</span>
+                            </Button>
                         <ul className="w-full space-y-2 py-5">
                             {SIDEBAR_LINKS.map((link, index) => {
                                 const isActive = pathname === link.href;
@@ -80,6 +85,12 @@ const MobileSidebar = () => {
                 </SheetContent>
             </Sheet>
         </div>
+            
+            <SearchModal 
+                isOpen={isSearchOpen} 
+                onClose={() => setIsSearchOpen(false)} 
+            />
+        </>
     );
 };
 
