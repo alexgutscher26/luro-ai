@@ -11,7 +11,7 @@ interface Item {
 }
 
 export default function ProgressSlider({ items }: { items: Item[] }) {
-    const duration: number = 5000;
+    const duration = 5000;
     const itemsRef = useRef<HTMLDivElement>(null);
     const frame = useRef<number>(0);
     const firstFrameTime = useRef(performance.now());
@@ -108,7 +108,7 @@ export default function ProgressSlider({ items }: { items: Item[] }) {
                                                 ? `${progress}%`
                                                 : "0%",
                                     }}
-                                ></span>
+                                />
                             </span>
                         </span>
                     </button>

@@ -30,7 +30,7 @@ const Navbar = () => {
 
     return (
         <div className="relative w-full h-full">
-            <div className="z-[99] fixed pointer-events-none inset-x-0 h-[88px] bg-[rgba(10,10,10,0.8)] backdrop-blur-sm [mask:linear-gradient(to_bottom,#000_20%,transparent_calc(100%-20%))]"></div>
+            <div className="z-[99] fixed pointer-events-none inset-x-0 h-[88px] bg-[rgba(10,10,10,0.8)] backdrop-blur-sm [mask:linear-gradient(to_bottom,#000_20%,transparent_calc(100%-20%))]" />
 
             <header
                 className={cn(
@@ -91,15 +91,25 @@ const Navbar = () => {
                                 variant="ghost"
                                 onClick={() => setIsOpen(prev => !prev)}
                                 className="lg:hidden p-2 w-8 h-8"
-                                aria-label={isOpen ? "Close mobile menu" : "Open mobile menu"}
+                                aria-label={
+                                    isOpen
+                                        ? "Close mobile menu"
+                                        : "Open mobile menu"
+                                }
                                 aria-expanded={isOpen}
                                 aria-controls="mobile-menu"
                             >
                                 {isOpen ? (
-                                    <XIcon className="w-4 h-4 duration-300" aria-hidden="true" />
+                                    <XIcon
+                                        className="w-4 h-4 duration-300"
+                                        aria-hidden="true"
+                                    />
                                 ) : (
                                     typeof Icons.menu === "function" && (
-                                        <Icons.menu className="w-3.5 h-3.5 duration-300" aria-hidden="true" />
+                                        <Icons.menu
+                                            className="w-3.5 h-3.5 duration-300"
+                                            aria-hidden="true"
+                                        />
                                     )
                                 )}
                             </Button>

@@ -275,7 +275,7 @@ const SignUpForm = () => {
                             >
                                 <div className="w-full">
                                     <Input
-                                        autoFocus={true}
+                                        autoFocus
                                         name="code"
                                         type="code"
                                         value={code}

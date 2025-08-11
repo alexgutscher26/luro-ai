@@ -29,8 +29,8 @@ const Pricing = () => {
                 </div>
             </Container>
             <div className="mt-8 w-full relative flex flex-col items-center justify-center">
-                <div className="absolute hidden lg:block top-1/2 right-2/3 translate-x-1/4 -translate-y-1/2 w-96 h-96 bg-primary/15 blur-[10rem] -z-10"></div>
-                <div className="absolute hidden lg:block top-1/2 left-2/3 -translate-x-1/4 -translate-y-1/2 w-96 h-96 bg-violet-500/15 blur-[10rem] -z-10"></div>
+                <div className="absolute hidden lg:block top-1/2 right-2/3 translate-x-1/4 -translate-y-1/2 w-96 h-96 bg-primary/15 blur-[10rem] -z-10" />
+                <div className="absolute hidden lg:block top-1/2 left-2/3 -translate-x-1/4 -translate-y-1/2 w-96 h-96 bg-violet-500/15 blur-[10rem] -z-10" />
                 <Container>
                     <Tabs
                         defaultValue="monthly"
@@ -196,3 +196,7 @@ const Plan = ({
 };
 
 export default Pricing;
+
+
+
+
