@@ -15,7 +15,6 @@ async function main() {
 main()
     .catch(e => {
         console.error("❌ Production seed failed:", e);
-     
     })
     .finally(async () => {
         await prisma.$disconnect();
