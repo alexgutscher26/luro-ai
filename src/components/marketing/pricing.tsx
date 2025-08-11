@@ -196,4 +196,3 @@ const Plan = ({
 };
 
 export default Pricing;
-
