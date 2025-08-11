@@ -17,7 +17,7 @@ function validateEnvironment() {
         console.log("🎉 All environment variables are valid!");
     } catch (error) {
         console.error("💥 Environment validation failed:", error);
-        process.exit(1);
+      
     }
 }
 

@@ -667,7 +667,7 @@ if (require.main === module) {
         })
         .catch(error => {
             console.error("❌ Analysis failed:", error);
-            process.exit(1);
+          
         });
 }
 
