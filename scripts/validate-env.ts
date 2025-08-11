@@ -1,5 +1,8 @@
 import { validateServerEnv, validateClientEnv } from "../src/lib/env";
 
+/**
+ * Validates server and client environment variables.
+ */
 function validateEnvironment() {
     console.log("🔍 Validating environment variables...");
 
@@ -17,7 +20,6 @@ function validateEnvironment() {
         console.log("🎉 All environment variables are valid!");
     } catch (error) {
         console.error("💥 Environment validation failed:", error);
-      
     }
 }
 
