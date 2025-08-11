@@ -228,7 +228,10 @@ export const SearchModal: React.FC<SearchModalProps> = ({
                     {isLoading && (
                         <div className="flex items-center justify-center py-12">
                             <div className="flex flex-col items-center gap-3">
+                                <div className="animate-spin rounded-full h-6 w-6 border-2 border-primary border-t-transparent"></div>
+
                                 <div className="animate-spin rounded-full h-6 w-6 border-2 border-primary border-t-transparent" />
+
                                 <div className="text-sm text-muted-foreground">
                                     Searching...
                                 </div>

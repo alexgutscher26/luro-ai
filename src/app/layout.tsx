@@ -3,8 +3,8 @@ import { cn, generateMetadata } from "@/functions";
 import { inter, satoshi } from "@/constants";
 import { Toaster } from "@/components/ui/sonner";
 import { Providers } from "@/components";
-import AccessibilityChecker from '@/components/global/accessibility-checker';
-import { PerformanceMonitor } from '@/components/global/performance-monitor';
+import AccessibilityChecker from "@/components/global/accessibility-checker";
+import { PerformanceMonitor } from "@/components/global/performance-monitor";
 
 export const metadata = generateMetadata();
 
@@ -24,7 +24,9 @@ export default function RootLayout({
             >
                 <Toaster richColors theme="dark" position="top-right" />
                 <Providers>{children}</Providers>
-                {process.env.NODE_ENV === 'development' && <AccessibilityChecker />}
+                {process.env.NODE_ENV === "development" && (
+                    <AccessibilityChecker />
+                )}
                 <PerformanceMonitor />
             </body>
         </html>

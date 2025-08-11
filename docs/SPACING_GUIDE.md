@@ -6,15 +6,15 @@ This project uses a consistent spacing system based on a 4px base unit (0.25rem)
 
 ## Base Scale
 
-| Size | Value | Pixels | Usage |
-|------|-------|--------|---------|
-| xs   | 0.25rem | 4px   | Tight spacing, borders |
-| sm   | 0.5rem  | 8px   | Small gaps, compact layouts |
-| md   | 1rem    | 16px  | Default spacing |
-| lg   | 1.5rem  | 24px  | Comfortable spacing |
-| xl   | 2rem    | 32px  | Large spacing |
-| 2xl  | 3rem    | 48px  | Section spacing |
-| 3xl  | 4rem    | 64px  | Large section spacing |
+| Size | Value   | Pixels | Usage                       |
+| ---- | ------- | ------ | --------------------------- |
+| xs   | 0.25rem | 4px    | Tight spacing, borders      |
+| sm   | 0.5rem  | 8px    | Small gaps, compact layouts |
+| md   | 1rem    | 16px   | Default spacing             |
+| lg   | 1.5rem  | 24px   | Comfortable spacing         |
+| xl   | 2rem    | 32px   | Large spacing               |
+| 2xl  | 3rem    | 48px   | Section spacing             |
+| 3xl  | 4rem    | 64px   | Large section spacing       |
 
 ## Usage Examples
 
@@ -37,17 +37,17 @@ import { SPACING, COMPONENT_SPACING } from '@/constants';
 ### Using Hooks
 
 ```tsx
-import { useSpacing, useComponentSpacing } from '@/hooks';
+import { useSpacing, useComponentSpacing } from "@/hooks";
 
 function MyComponent() {
-  const stackSpacing = useSpacing({ size: 'lg', responsive: true });
-  const buttonSpacing = useComponentSpacing('button', 'md');
-  
-  return (
-    <div className={stackSpacing}>
-      <button className={buttonSpacing}>Click me</button>
-    </div>
-  );
+    const stackSpacing = useSpacing({ size: "lg", responsive: true });
+    const buttonSpacing = useComponentSpacing("button", "md");
+
+    return (
+        <div className={stackSpacing}>
+            <button className={buttonSpacing}>Click me</button>
+        </div>
+    );
 }
 ```
 
@@ -70,24 +70,28 @@ function MyComponent() {
 ## Component Guidelines
 
 ### Cards
+
 - Small cards: `p-4`
-- Medium cards: `p-6` 
+- Medium cards: `p-6`
 - Large cards: `p-8`
 - Extra large cards: `p-12`
 
 ### Buttons
+
 - Small: `px-3 py-1.5`
 - Medium: `px-4 py-2`
 - Large: `px-6 py-3`
 - Extra large: `px-8 py-4`
 
 ### Sections
+
 - Small sections: `py-12 md:py-16`
 - Medium sections: `py-16 md:py-20 lg:py-24`
 - Large sections: `py-20 md:py-24 lg:py-32`
 - Extra large sections: `py-24 md:py-32 lg:py-40`
 
 ### Containers
+
 - Small containers: `px-4 py-8`
 - Medium containers: `px-6 py-12`
 - Large containers: `px-8 py-16`
