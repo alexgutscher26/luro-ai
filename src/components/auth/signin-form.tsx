@@ -287,7 +287,6 @@ const SignInForm = () => {
                             >
                                 <div className="w-full">
                                     <Input
-
                                         name="code"
                                         type="number"
                                         value={code}
@@ -359,7 +358,6 @@ const SignInForm = () => {
                             >
                                 <div className="w-full">
                                     <Input
-
                                         name="email"
                                         type="email"
                                         value={email}
