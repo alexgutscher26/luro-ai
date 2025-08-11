@@ -17,15 +17,16 @@ export const OptimizedImage = ({
   fallback = "/images/placeholder.png",
   enableBlur = true,
   lazyLoad = true,
+  priority = false,
   ...props
 }: OptimizedImageProps) => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setHasError] = useState(false);
-  const [isInView, setIsInView] = useState(!lazyLoad);
+  const [isInView, setIsInView] = useState(!lazyLoad || priority);
   const imgRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (!lazyLoad) return;
+    if (!lazyLoad || priority) return;
 
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -45,7 +46,7 @@ export const OptimizedImage = ({
     }
 
     return () => observer.disconnect();
-  }, [lazyLoad]);
+  }, [lazyLoad, priority]);
 
   const handleLoad = () => {
     setIsLoading(false);
@@ -54,6 +55,17 @@ export const OptimizedImage = ({
   const handleError = () => {
     setHasError(true);
     setIsLoading(false);
+  };
+
+  // Determine loading strategy based on priority and lazyLoad
+  const getLoadingProps = () => {
+    if (priority) {
+      return { priority: true };
+    }
+    if (lazyLoad) {
+      return { loading: "lazy" as const };
+    }
+    return {};
   };
 
   return (
@@ -69,7 +81,7 @@ export const OptimizedImage = ({
             isLoading && enableBlur ? "blur-sm" : "blur-0",
             isLoading ? "opacity-0" : "opacity-100"
           )}
-          loading="lazy"
+          {...getLoadingProps()}
           {...props}
         />
       )}
