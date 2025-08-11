@@ -11,7 +11,7 @@ import { useState } from "react";
 import { SearchModal } from "../global/search-modal";
 
 /**
- * Renders a mobile sidebar component with navigation links and search functionality.
+ * Renders a mobile sidebar with navigation links, search functionality, and logout button.
  */
 const MobileSidebar = () => {
     const { signOut } = useClerk();
