@@ -105,17 +105,7 @@ const searchFunction = async (query: string): Promise<SearchResult[]> => {
     );
 };
 
-/**
- * A React functional component representing a search modal dialog.
- *
- * This component manages the state and behavior of a search modal, including handling user input,
- * displaying search results, and managing keyboard navigation. It uses hooks like `useState` and `useRef`
- * to manage internal state and references. The component leverages a custom hook `useDebouncedSearch`
- * for debouncing search queries and fetching results.
- *
- * @param isOpen - A boolean indicating whether the modal is currently open.
- * @param onClose - A function to close the modal.
- */
+
 export const SearchModal: React.FC<SearchModalProps> = ({
     isOpen,
     onClose,

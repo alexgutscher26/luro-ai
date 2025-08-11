@@ -9,8 +9,8 @@ const rateLimitStore = new Map<string, RateLimitEntry>();
 
 export function simpleRateLimit(
     request: NextRequest,
-    limit: number = 100,
-    windowMs: number = 60000 // 1 minute
+    limit = 100,
+    windowMs = 60000 // 1 minute
 ) {
     const ip =
         request.headers.get("x-forwarded-for") || request.ip || "unknown";

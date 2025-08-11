@@ -196,7 +196,3 @@ const Plan = ({
 };
 
 export default Pricing;
-<CheckIcon
-    aria-hidden="true"
-    className="w-5 h-5 text-primary"
-/>
