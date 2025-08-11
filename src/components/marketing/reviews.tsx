@@ -70,7 +70,7 @@ const ReviewCard = ({
                     height={32}
                     alt={`${name} profile picture`}
                     src={img}
-                    lazyLoad={true}
+                    lazyLoad
                 />
                 <div className="flex flex-col">
                     <figcaption className="text-sm font-medium text-foreground">
