@@ -10,6 +10,9 @@ import { usePathname } from "next/navigation";
 import { useState } from "react";
 import { SearchModal } from "../global/search-modal";
 
+/**
+ * Renders a mobile sidebar component with navigation links and search functionality.
+ */
 const MobileSidebar = () => {
     const { signOut } = useClerk();
     const [isSearchOpen, setIsSearchOpen] = useState(false);
