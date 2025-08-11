@@ -51,8 +51,8 @@ class CodeComplexityAnalyzer {
   /**
    * Analyzes the complexity of the project by evaluating each source file.
    *
-   * This function retrieves a list of source files, analyzes each file to determine its complexity metrics,
-   * and then generates a report summarizing these metrics. If any file analysis fails, it logs a warning.
+   * This function starts by retrieving a list of source files, then iterates over each file to analyze its complexity metrics.
+   * If any file analysis fails, it logs a warning. After collecting all metrics, it generates a report and saves it.
    */
   async analyzeProject(): Promise<ComplexityReport> {
     console.log('🔍 Starting code complexity analysis...');
@@ -76,7 +76,7 @@ class CodeComplexityAnalyzer {
   }
 
   /**
-   * Retrieves a list of TypeScript and TSX source files excluding test and spec files.
+   * Retrieves TypeScript and TSX source files excluding test and spec files.
    */
   private async getSourceFiles(): Promise<string[]> {
     const patterns = [
@@ -92,7 +92,7 @@ class CodeComplexityAnalyzer {
   }
 
   /**
-   * Analyzes a file and returns its complexity metrics.
+   * Analyzes a file and returns its complexity metrics, including cyclomatic, cognitive, lines of code, maintainability index, Halstead metrics, dependencies, and test coverage.
    */
   private async analyzeFile(filePath: string): Promise<ComplexityMetrics> {
     const content = fs.readFileSync(filePath, 'utf-8');
@@ -111,7 +111,7 @@ class CodeComplexityAnalyzer {
   }
 
   /**
-   * Calculates the cyclomatic complexity of a given code content.
+   * Computes the cyclomatic complexity of a given code content.
    */
   private calculateCyclomaticComplexity(content: string): number {
     // Count decision points: if, else, while, for, case, catch, &&, ||
@@ -142,9 +142,8 @@ class CodeComplexityAnalyzer {
   /**
    * Calculates the cognitive complexity of a given code block.
    *
-   * This function analyzes each line of the provided content to determine the cognitive complexity based on nesting levels,
-   * control structures, logical operators, and recursive calls. It increments the complexity score accordingly for each
-   * identified factor.
+   * This function evaluates each line of the provided content to determine the cognitive complexity by analyzing nesting levels,
+   * control structures, logical operators, and recursive calls. It adjusts the complexity score based on these factors.
    */
   private calculateCognitiveComplexity(content: string): number {
     let complexity = 0;
@@ -177,11 +176,11 @@ class CodeComplexityAnalyzer {
   }
 
   /**
-   * Calculates the number of non-empty lines in an array of strings,
+   * Determines the count of non-empty lines in an array of strings,
    * excluding comments and single-line asterisks.
    *
-   * This function filters out empty lines, lines starting with `//`,
-   * `/*`, and `*` to determine the count of actual code lines.
+   * Filters out empty lines, lines starting with `//`, `/*`,
+   * and `*` to compute the actual number of code lines.
    *
    * @param lines - An array of strings representing individual lines of code.
    */
@@ -196,7 +195,7 @@ class CodeComplexityAnalyzer {
   }
 
   /**
-   * Calculates the maintainability index of a given code content.
+   * Computes the maintainability index based on code content.
    */
   private calculateMaintainabilityIndex(content: string): number {
     const loc = this.calculateLinesOfCode(content.split('\n'));
@@ -215,7 +214,7 @@ class CodeComplexityAnalyzer {
   }
 
   /**
-   * Calculates Halstead metrics for a given content string.
+   * Computes Halstead metrics from a given content string.
    */
   private calculateHalsteadMetrics(content: string): HalsteadMetrics {
     // Simplified Halstead metrics calculation
@@ -241,7 +240,7 @@ class CodeComplexityAnalyzer {
   }
 
   /**
-   * Calculates the total number of dependencies in the given content by counting import and require statements.
+   * Counts the number of import and require statements in the given content.
    */
   private calculateDependencies(content: string): number {
     const importMatches = content.match(/^import\s+.*?from\s+['"].*?['"]/gm) || [];
@@ -302,8 +301,9 @@ class CodeComplexityAnalyzer {
   /**
    * Generates a report summarizing the complexity metrics of files.
    *
-   * This function calculates various complexity-related statistics, identifies files with high cyclomatic and cognitive complexities,
-   * generates recommendations based on the metrics, and returns a comprehensive report object.
+   * This function calculates average cyclomatic and maintainability complexities,
+   * identifies files exceeding specified thresholds, generates recommendations,
+   * and returns a comprehensive report object including summaries and sorted file details.
    */
   private generateReport(metrics: ComplexityMetrics[]): ComplexityReport {
     const totalFiles = metrics.length;
@@ -380,6 +380,7 @@ class CodeComplexityAnalyzer {
    * This function computes the total cyclomatic complexity from the given metrics,
    * compares it to an ideal complexity, and estimates the technical debt in hours.
    * The debt is categorized as Low, Medium, or High based on the calculated hours.
+   * The ideal average complexity per metric is assumed to be 5.
    *
    * @param metrics - An array of ComplexityMetrics objects containing cyclomatic complexity scores.
    */
