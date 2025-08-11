@@ -259,6 +259,15 @@ const getEngagementRate = engagement => {
     ).toFixed(1);
 };
 
+/**
+ * A React component that displays a list of posts with various filters, search functionality,
+ * and detailed information about each post including engagement metrics, author, platform, etc.
+ *
+ * @component
+ * @name PostsList
+ *
+ * @returns {JSX.Element} - The rendered UI component for the posts list.
+ */
 const PostsPage = () => {
     const [posts, setPosts] = useState(POSTS_DATA);
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);

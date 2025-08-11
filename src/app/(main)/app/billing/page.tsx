@@ -152,6 +152,9 @@ const formatDate = (dateString: string) => {
     });
 };
 
+/**
+ * Renders the billing page component with various sections for managing payment methods, plans, and history.
+ */
 const BillingPage = () => {
     const [isAddPaymentOpen, setIsAddPaymentOpen] = useState(false);
     const [isChangePlanOpen, setIsChangePlanOpen] = useState(false);

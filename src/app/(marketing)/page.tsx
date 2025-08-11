@@ -14,6 +14,9 @@ import {
 } from "@/components";
 import { Spotlight } from "@/components/ui/spotlight";
 
+/**
+ * Renders the main homepage with various sections including hero, newsletter signup, companies, connect, features, perks, pricing, reviews, and CTA.
+ */
 const HomePage = () => {
     return (
         <Background>
