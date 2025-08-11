@@ -133,14 +133,19 @@ const PRIVACY_SETTINGS = [
 ];
 
 /**
- * Renders a settings page component.
+ * React component that renders a settings page with various user preferences and actions.
  *
- * The component manages various user settings including profile, appearance, notifications,
- * and privacy settings. It includes functionality to edit profile details, change passwords,
- * toggle notification and privacy preferences, and delete accounts. The UI is composed of multiple
- * cards for different settings sections, with dialogs for password changes and account deletions.
+ * This component provides an interface for users to modify their profile information, including:
+ * - Profile details (name, bio, location)
+ * - Password change
+ * - Notification settings
+ * - Privacy settings
+ * - Account deletion
  *
- * @returns A React component representing the settings page.
+ * The component uses React hooks like useState and useEffect to manage state and side effects.
+ * It also utilizes various UI components from a design system library for rendering the user interface.
+ *
+ * @returns {JSX.Element} The rendered settings page component.
  */
 const SettingsPage = () => {
     const [isEditingProfile, setIsEditingProfile] = useState(false);
