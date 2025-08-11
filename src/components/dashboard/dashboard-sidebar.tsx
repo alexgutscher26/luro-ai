@@ -12,6 +12,9 @@ import { SearchModal } from "../global/search-modal";
 import { cn } from "@/functions";
 import { useClerk } from "@clerk/nextjs";
 
+/**
+ * Dashboard sidebar component with search functionality and navigation links.
+ */
 const DashboardSidebar = () => {
     const { signOut } = useClerk();
     const [isSearchOpen, setIsSearchOpen] = useState(false);
