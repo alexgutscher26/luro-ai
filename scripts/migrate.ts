@@ -1,4 +1,3 @@
-#!/usr/bin/env tsx
 import { MigrationManager } from '../prisma/migrate-utils';
 import { program } from 'commander';
 
