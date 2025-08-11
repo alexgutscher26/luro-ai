@@ -108,7 +108,7 @@ export default function ProgressSlider({ items }: { items: Item[] }) {
                                                 ? `${progress}%`
                                                 : "0%",
                                     }}
-                                ></span>
+                                 />
                             </span>
                         </span>
                     </button>

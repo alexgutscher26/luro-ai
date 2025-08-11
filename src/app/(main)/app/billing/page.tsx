@@ -309,7 +309,7 @@ const BillingPage = () => {
                                                 <span>7,500 / 10,000</span>
                                             </div>
                                             <div className="w-full bg-gray-200 rounded-full h-2">
-                                                <div className="bg-blue-600 h-2 rounded-full" style={{width: '75%'}}></div>
+                                                <div className="bg-blue-600 h-2 rounded-full" style={{width: '75%'}} />
                                             </div>
                                         </div>
                                         <div>
@@ -318,7 +318,7 @@ const BillingPage = () => {
                                                 <span>6 / 10</span>
                                             </div>
                                             <div className="w-full bg-gray-200 rounded-full h-2">
-                                                <div className="bg-green-600 h-2 rounded-full" style={{width: '60%'}}></div>
+                                                <div className="bg-green-600 h-2 rounded-full" style={{width: '60%'}} />
                                             </div>
                                         </div>
                                         <div>
@@ -327,7 +327,7 @@ const BillingPage = () => {
                                                 <span>4 / 10</span>
                                             </div>
                                             <div className="w-full bg-gray-200 rounded-full h-2">
-                                                <div className="bg-purple-600 h-2 rounded-full" style={{width: '40%'}}></div>
+                                                <div className="bg-purple-600 h-2 rounded-full" style={{width: '40%'}} />
                                             </div>
                                         </div>
                                     </div>
