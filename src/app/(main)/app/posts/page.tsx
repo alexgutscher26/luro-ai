@@ -259,6 +259,15 @@ const getEngagementRate = engagement => {
     ).toFixed(1);
 };
 
+/**
+ * A React component that displays a list of posts with various filters, search functionality,
+ * and detailed information about each post including engagement metrics, author, platform, etc.
+ *
+ * @component
+ * @name PostsList
+ *
+ * @returns {JSX.Element} - The rendered UI component for the posts list.
+ */
 const PostsPage = () => {
     const [posts, setPosts] = useState(POSTS_DATA);
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
@@ -487,25 +496,25 @@ const PostsPage = () => {
                                         <SelectContent>
                                             <SelectItem value="twitter">
                                                 <div className="flex items-center gap-2">
-                                                    <div className="w-2 h-2 rounded-full bg-blue-500"></div>
+                                                    <div className="w-2 h-2 rounded-full bg-blue-500" />
                                                     Twitter
                                                 </div>
                                             </SelectItem>
                                             <SelectItem value="instagram">
                                                 <div className="flex items-center gap-2">
-                                                    <div className="w-2 h-2 rounded-full bg-pink-500"></div>
+                                                    <div className="w-2 h-2 rounded-full bg-pink-500" />
                                                     Instagram
                                                 </div>
                                             </SelectItem>
                                             <SelectItem value="linkedin">
                                                 <div className="flex items-center gap-2">
-                                                    <div className="w-2 h-2 rounded-full bg-blue-700"></div>
+                                                    <div className="w-2 h-2 rounded-full bg-blue-700" />
                                                     LinkedIn
                                                 </div>
                                             </SelectItem>
                                             <SelectItem value="facebook">
                                                 <div className="flex items-center gap-2">
-                                                    <div className="w-2 h-2 rounded-full bg-blue-600"></div>
+                                                    <div className="w-2 h-2 rounded-full bg-blue-600" />
                                                     Facebook
                                                 </div>
                                             </SelectItem>

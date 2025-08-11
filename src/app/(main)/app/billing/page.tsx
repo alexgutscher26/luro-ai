@@ -152,6 +152,9 @@ const formatDate = (dateString: string) => {
     });
 };
 
+/**
+ * Renders the billing page component with various sections for managing payment methods, plans, and history.
+ */
 const BillingPage = () => {
     const [isAddPaymentOpen, setIsAddPaymentOpen] = useState(false);
     const [isChangePlanOpen, setIsChangePlanOpen] = useState(false);
@@ -356,7 +359,11 @@ const BillingPage = () => {
                                                 <div
                                                     className="bg-blue-600 h-2 rounded-full"
                                                     style={{ width: "75%" }}
+
                                                 ></div>
+
+                                                />
+
                                             </div>
                                         </div>
                                         <div>
@@ -368,7 +375,11 @@ const BillingPage = () => {
                                                 <div
                                                     className="bg-green-600 h-2 rounded-full"
                                                     style={{ width: "60%" }}
+
                                                 ></div>
+
+                                                />
+
                                             </div>
                                         </div>
                                         <div>
@@ -380,7 +391,11 @@ const BillingPage = () => {
                                                 <div
                                                     className="bg-purple-600 h-2 rounded-full"
                                                     style={{ width: "40%" }}
+
                                                 ></div>
+
+                                                />
+
                                             </div>
                                         </div>
                                     </div>

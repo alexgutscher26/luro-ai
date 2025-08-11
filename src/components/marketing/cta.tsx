@@ -9,7 +9,7 @@ const CTA = () => {
         <div className="flex flex-col items-center justify-center py-12 md:py-16 lg:py-24 w-full relative">
             <Container>
                 <div className="flex flex-col items-center justify-center text-center w-full px-4 md:px-0 mx-auto h-[500px] border border-foreground/10 rounded-3xl overflow-hidden relative">
-                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-12 bg-violet-500 blur-[10rem]"></div>
+                    <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full h-12 bg-violet-500 blur-[10rem]" />
                     <div className="flex flex-col items-center justify-center w-full z-20">
                         <h2 className="text-4xl md:text-6xl font-heading heading font-semibold !leading-tight mt-6">
                             Elevate your <br className="hidden md:block" />{" "}

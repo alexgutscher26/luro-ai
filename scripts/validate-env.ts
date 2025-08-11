@@ -1,4 +1,4 @@
-#!/usr/bin/env tsx
+
 import { validateServerEnv, validateClientEnv } from "../src/lib/env";
 
 function validateEnvironment() {
