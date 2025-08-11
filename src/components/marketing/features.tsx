@@ -71,7 +71,7 @@ const Features = () => {
                                 <div className="bento-card w-full flex-row gap-6">
                                     <div className="w-full h-52 relative">
                                         <Images.ideation className="w-full h-full" />
-                                        <div className="w-40 h-40 rounded-full bg-primary/10 blur-3xl -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                                        <div className="w-40 h-40 rounded-full bg-primary/10 blur-3xl -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                                     </div>
                                     <div className="flex flex-col mt-auto">
                                         <h4 className="text-xl font-heading font-medium heading">
@@ -118,7 +118,7 @@ const Features = () => {
                                         </div>
                                         <div className="w-full h-16 relative">
                                             <Images.centeral className="w-full h-full" />
-                                            <div className="w-20 h-20 rounded-full bg-primary/10 blur-2xl z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                                            <div className="w-20 h-20 rounded-full bg-primary/10 blur-2xl z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                                         </div>
                                     </div>
                                 </MagicCard>
@@ -137,7 +137,7 @@ const Features = () => {
 
                                             <Images.circlePallete className="w-full h-full opacity-30" />
                                         </div>
-                                        <div className="w-28 h-28 rounded-full bg-primary/10 blur-3xl -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+                                        <div className="w-28 h-28 rounded-full bg-primary/10 blur-3xl -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2" />
                                     </div>
                                 </MagicCard>
                             </div>
@@ -158,7 +158,7 @@ const Features = () => {
                                     </div>
                                     <div className="w-full h-28 relative">
                                         <Images.integration className="w-full h-full" />
-                                        <div className="w-28 h-28 rounded-full bg-primary/10 blur-3xl -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full"></div>
+                                        <div className="w-28 h-28 rounded-full bg-primary/10 blur-3xl -z-10 absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-full" />
                                     </div>
                                 </div>
                             </MagicCard>
