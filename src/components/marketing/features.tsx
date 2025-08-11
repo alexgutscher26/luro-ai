@@ -28,7 +28,7 @@ const Features = () => {
                     <Container>
                         <div className="grid grid-cols-1 lg:grid-cols-[1fr_.65fr] w-full gap-5 lg:gap-5">
                             <MagicCard
-                                particles={true}
+                                particles
                                 className="flex flex-col items-start size-full bg-primary/[0.08]"
                             >
                                 <div className="bento-card flex items-center justify-center min-h-72">
@@ -41,7 +41,7 @@ const Features = () => {
                                 </div>
                             </MagicCard>
                             <MagicCard
-                                particles={true}
+                                particles
                                 className="flex flex-col items-start w-full bg-primary/[0.08]"
                             >
                                 <div className="bento-card w-full flex-row gap-6">
@@ -65,7 +65,7 @@ const Features = () => {
                     <Container>
                         <div className="grid grid-cols-1 lg:grid-cols-3 w-full gap-5 lg:gap-5">
                             <MagicCard
-                                particles={true}
+                                particles
                                 className="flex flex-col items-start w-full row-span-1 bg-primary/[0.08]"
                             >
                                 <div className="bento-card w-full flex-row gap-6">
@@ -87,7 +87,7 @@ const Features = () => {
                             </MagicCard>
                             <div className="grid grid-rows gap-5 lg:gap-5">
                                 <MagicCard
-                                    particles={true}
+                                    particles
                                     className="flex flex-col items-start w-full row-span- row-start-[0.5] h-32 bg-primary/[0.08]"
                                 >
                                     <div className="bento-card w-full relative items-center justify-center">
@@ -123,7 +123,7 @@ const Features = () => {
                                     </div>
                                 </MagicCard>
                                 <MagicCard
-                                    particles={true}
+                                    particles
                                     className="flex flex-col items-start w-full row-start-2 !h-max bg-primary/[0.08]"
                                 >
                                     <div className="bento-card w-full gap-6 relative">
@@ -142,7 +142,7 @@ const Features = () => {
                                 </MagicCard>
                             </div>
                             <MagicCard
-                                particles={true}
+                                particles
                                 className="flex flex-col items-start w-full row-span-1 bg-primary/[0.08]"
                             >
                                 <div className="bento-card w-full flex-row gap-6">
@@ -167,7 +167,7 @@ const Features = () => {
                     <Container>
                         <div className="grid grid-cols-1 lg:grid-cols-[.40fr_1fr] w-full gap-5 lg:gap-5">
                             <MagicCard
-                                particles={true}
+                                particles
                                 className="flex flex-col items-start w-full bg-primary/[0.08]"
                             >
                                 <div className="bento-card w-full flex-row gap-6">
@@ -186,7 +186,7 @@ const Features = () => {
                                 </div>
                             </MagicCard>
                             <MagicCard
-                                particles={true}
+                                particles
                                 className="flex flex-col items-start w-full bg-primary/[0.08]"
                             >
                                 <div className="bento-card w-full flex-row gap-6">
