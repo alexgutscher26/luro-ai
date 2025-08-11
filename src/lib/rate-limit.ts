@@ -72,11 +72,13 @@ export async function checkRateLimit(
 export function getRateLimitHeaders(result: {
     limit: number;
     remaining: number;
-    reset: Date;
+    reset: Date | number;
 }) {
+    const resetTime = result.reset instanceof Date ? result.reset.getTime() : result.reset;
+    
     return {
         "X-RateLimit-Limit": result.limit.toString(),
         "X-RateLimit-Remaining": result.remaining.toString(),
-        "X-RateLimit-Reset": result.reset.getTime().toString(),
+        "X-RateLimit-Reset": resetTime.toString(),
     };
 }

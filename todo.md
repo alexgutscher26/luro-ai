@@ -42,7 +42,7 @@
 - [x] **Add API key management** system
 
 ## 🎨 UI/UX Improvements
-
+**Add bundle analyzer** configuration
 ### Component Library
 - [x] **Create a comprehensive design system**
 - [x] **Add Storybook** for component documentation
@@ -55,21 +55,18 @@
 - [x] **Create focus management** utilities
 
 ### Performance
-- [ ] **Add bundle analyzer** configuration
-- [ ] **Implement image optimization** strategies
-- [ ] **Add lazy loading** for components
-- [ ] **Setup service worker** for caching
-- [ ] **Add performance monitoring** (Web Vitals)
+- [x] **Implement image optimization** strategies
+- [x] **Add lazy loading** for components
+- [x] **Setup service worker** for caching
+- [x] **Add performance monitoring** (Web Vitals)
 
 ## 📱 Features & Functionality
 
 ### User Experience
-- [ ] **Add progressive web app** (PWA) support
-- [ ] **Implement offline functionality**
 - [ ] **Add push notifications** system
 - [ ] **Create user onboarding** flow
 - [ ] **Add user preferences** management
-- [ ] **Implement dark/light theme** toggle (already has next-themes)
+- [x] **Implement dark/light theme** toggle (already has next-themes)
 
 ### Developer Tools
 - [ ] **Add API documentation** (Swagger/OpenAPI)

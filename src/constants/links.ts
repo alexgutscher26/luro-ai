@@ -27,27 +27,27 @@ type Link = {
 
 export const SIDEBAR_LINKS: Link[] = [
     {
-        href: "/dashboard",
+        href: "/app",
         label: "Dashboard",
         icon: ChartPieIcon,
     },
     {
-        href: "/dashboard/campaigns",
+        href: "/app/campaigns",
         label: "Campaigns",
         icon: MegaphoneIcon,
     },
     {
-        href: "/dashboard/analytics",
+        href: "/app/analytics",
         label: "Analytics",
         icon: LineChartIcon,
     },
     {
-        href: "/dashboard/posts",
+        href: "/app/posts",
         label: "Posts",
         icon: MessageSquareTextIcon,
     },
     {
-        href: "/dashboard/engagement",
+        href: "/app/engagement",
         label: "Engagement",
         icon: UsersIcon,
     },
@@ -57,12 +57,12 @@ export const SIDEBAR_LINKS: Link[] = [
         icon: KeyIcon,
     },
     {
-        href: "/dashboard/billing",
+        href: "/app/billing",
         label: "Billing",
         icon: CreditCardIcon,
     },
     {
-        href: "/dashboard/settings",
+        href: "/app/settings",
         label: "Settings",
         icon: SettingsIcon,
     },
