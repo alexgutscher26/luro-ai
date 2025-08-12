@@ -362,7 +362,9 @@ const PostsPage = () => {
             id: Math.max(...posts.map(p => p.id)) + 1,
             content: newPost.content,
             platform: newPost.platform,
-            status: newPost.scheduledFor ? "scheduled" as const : "draft" as const,
+            status: newPost.scheduledFor
+                ? ("scheduled" as const)
+                : ("draft" as const),
             publishedAt: null,
             scheduledFor: newPost.scheduledFor ? newPost.scheduledFor : null,
             engagement: {
@@ -819,14 +821,14 @@ const PostsPage = () => {
                                                     by {post.author}
                                                 </span>
                                                 {post.status === "published" &&
-                                                engagementRate > 5 && (
-                                                <Badge
-                                                variant="outline"
-                                                className="bg-green-50 text-green-700 border-green-200"
-                                                >
-                                                High engagement
-                                                </Badge>
-                                                )}
+                                                    engagementRate > 5 && (
+                                                        <Badge
+                                                            variant="outline"
+                                                            className="bg-green-50 text-green-700 border-green-200"
+                                                        >
+                                                            High engagement
+                                                        </Badge>
+                                                    )}
                                             </div>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
@@ -940,7 +942,9 @@ const PostsPage = () => {
                                                                 variant="outline"
                                                                 className="text-xs"
                                                             >
-                                                                {engagementRate.toFixed(1)}
+                                                                {engagementRate.toFixed(
+                                                                    1
+                                                                )}
                                                                 % engagement
                                                             </Badge>
                                                         )}
