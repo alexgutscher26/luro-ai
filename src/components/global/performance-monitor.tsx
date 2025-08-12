@@ -3,6 +3,15 @@
 import { useEffect } from "react";
 import { registerServiceWorker } from "@/lib/service-worker";
 
+/**
+ * Sets up performance monitoring using the PerformanceObserver API to detect long tasks and layout shifts.
+ *
+ * This function registers a service worker, dynamically imports web-vitals, and initializes two PerformanceObservers:
+ * one for long tasks and another for layout shifts. It logs warnings for long tasks exceeding 50ms and logs information
+ * about layout shifts that do not have recent input. The observers are disconnected when the component unmounts.
+ *
+ * If the PerformanceObserver API is not available, it returns undefined.
+ */
 export const PerformanceMonitor = () => {
     useEffect(() => {
         // Register service worker
@@ -49,7 +58,7 @@ export const PerformanceMonitor = () => {
                 layoutShiftObserver.disconnect();
             };
         }
-        
+
         // Return undefined when PerformanceObserver is not available
         return undefined;
     }, []);

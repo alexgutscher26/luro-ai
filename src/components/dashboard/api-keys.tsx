@@ -50,6 +50,18 @@ import {
     useDeleteApiKey,
 } from "@/hooks/use-api-keys";
 
+/**
+ * React component for displaying and managing API keys.
+ *
+ * This component provides a user interface to view, create, edit,
+ * copy, toggle status (active/inactive), and delete API keys.
+ * It includes:
+ * - A header with the total number of API keys, active keys, and recently used keys.
+ * - A table listing all API keys with their name, key, status, creation date, expiration date, and actions.
+ * - A modal dialog for creating or editing API keys.
+ *
+ * @component
+ */
 export function ApiKeysManagement() {
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
     // Remove these unused lines:
@@ -64,6 +76,11 @@ export function ApiKeysManagement() {
     const updateApiKey = useUpdateApiKey();
     const deleteApiKey = useDeleteApiKey();
 
+    /**
+     * Handles the creation of an API key by validating input, preparing data,
+     * and making a mutation request to create the key. It also updates the state
+     * upon success or logs an error if the creation fails.
+     */
     const handleCreateApiKey = async () => {
         if (!newKeyName.trim()) {
             toast.error("Please enter a name for the API key");
@@ -74,12 +91,12 @@ export function ApiKeysManagement() {
             const createData: { name: string; expiresAt?: string } = {
                 name: newKeyName,
             };
-            
+
             // Only add expiresAt if newKeyExpiry has a value
             if (newKeyExpiry) {
                 createData.expiresAt = newKeyExpiry;
             }
-            
+
             const result = await createApiKey.mutateAsync(createData);
 
             setCreatedKey(result.apiKey.key!);
@@ -95,14 +112,27 @@ export function ApiKeysManagement() {
         toast.success("API key copied to clipboard");
     };
 
+    /**
+     * Toggles the active status of an API key by its ID.
+     */
     const handleToggleActive = async (id: string, isActive: boolean) => {
         try {
-            await updateApiKey.mutateAsync({ id, data: { isActive: !isActive } });
+            await updateApiKey.mutateAsync({
+                id,
+                data: { isActive: !isActive },
+            });
         } catch (error) {
             console.error("Failed to update API key:", error);
         }
     };
 
+    /**
+     * Handles the deletion of an API key by confirming with the user and attempting to mutate the deletion.
+     *
+     * This function first prompts the user with a confirmation dialog to ensure they want to delete the API key.
+     * If confirmed, it attempts to asynchronously delete the API key using `deleteApiKey.mutateAsync`.
+     * If an error occurs during the deletion process, it logs the error to the console.
+     */
     const handleDeleteKey = async (id: string) => {
         if (
             confirm(
@@ -134,23 +164,25 @@ export function ApiKeysManagement() {
                     new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
         ).length || 0;
 
+    /**
+     * Sets the editing key with provided API key details.
+     */
     function setEditingKey(_apiKey: {
-        id: any[] |
-        React.Key |
-        null |
-        undefined; name: string |
-        number |
-        bigint |
-        boolean |
-        React.ReactElement<
-            any, string |
-            React.JSXElementConstructor<any>
-        > |
-        Iterable<React.ReactNode> |
-        React.ReactPortal |
-        Promise<React.AwaitedReactNode> |
-        null |
-        undefined; isActive: boolean; createdAt: Date | null; expiresAt: Date | null;
+        id: any[] | React.Key | null | undefined;
+        name:
+            | string
+            | number
+            | bigint
+            | boolean
+            | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+            | Iterable<React.ReactNode>
+            | React.ReactPortal
+            | Promise<React.AwaitedReactNode>
+            | null
+            | undefined;
+        isActive: boolean;
+        createdAt: Date | null;
+        expiresAt: Date | null;
     }) {
         throw new Error("Function not implemented.");
     }
@@ -493,14 +525,18 @@ export function ApiKeysManagement() {
                                                         <TableCell className="py-4">
                                                             <div className="flex items-center gap-2">
                                                                 <code className="px-2 py-1 bg-muted rounded text-xs font-mono">
-                                                                    {typeof apiKey.id === 'string' ? `${apiKey.id.slice(0, 8)}...${apiKey.id.slice(-4)}` : 'N/A'}
+                                                                    {typeof apiKey.id ===
+                                                                    "string"
+                                                                        ? `${apiKey.id.slice(0, 8)}...${apiKey.id.slice(-4)}`
+                                                                        : "N/A"}
                                                                 </code>
                                                                 <Button
                                                                     size="sm"
                                                                     variant="ghost"
                                                                     onClick={() =>
                                                                         handleCopyKey(
-apiKey.id?.toString() ?? ''
+                                                                            apiKey.id?.toString() ??
+                                                                                ""
                                                                         )
                                                                     }
                                                                     className="h-6 w-6 p-0"
@@ -588,7 +624,8 @@ apiKey.id?.toString() ?? ''
                                                                     <DropdownMenuItem
                                                                         onClick={() =>
                                                                             handleCopyKey(
-apiKey.id?.toString() ?? ''
+                                                                                apiKey.id?.toString() ??
+                                                                                    ""
                                                                             )
                                                                         }
                                                                     >
@@ -598,7 +635,7 @@ apiKey.id?.toString() ?? ''
                                                                     <DropdownMenuItem
                                                                         onClick={() =>
                                                                             handleDeleteKey(
-apiKey.id as string
+                                                                                apiKey.id as string
                                                                             )
                                                                         }
                                                                         className="text-destructive focus:text-destructive"

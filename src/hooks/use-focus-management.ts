@@ -16,33 +16,12 @@ interface UseFocusManagementOptions {
 }
 
 /**
- * Custom hook for advanced focus management
+ * Custom hook for advanced focus management.
  *
- * Provides focus trapping, focus restoration, and auto-focus capabilities
- * for modals, dialogs, and other overlay components.
+ * Provides focus trapping, focus restoration, and auto-focus capabilities for modals, dialogs, and other overlay components.
  *
- * @param options Configuration options for focus management
- * @returns Object with container ref and focus management functions
- *
- * @example
- * // Modal with focus trap
- * const Modal = ({ isOpen, onClose }) => {
- *   const { containerRef, focusFirst, focusLast } = useFocusManagement({
- *     trapFocus: true,
- *     restoreFocus: true,
- *     autoFocus: true
- *   });
- *
- *   if (!isOpen) return null;
- *
- *   return (
- *     <div ref={containerRef} role="dialog" aria-modal="true">
- *       <button onClick={onClose}>Close</button>
- *       <input placeholder="Search..." />
- *       <button>Submit</button>
- *     </div>
- *   );
- * };
+ * @param options Configuration options for focus management.
+ * @returns Object with container ref and focus management functions.
  */
 export const useFocusManagement = ({
     trapFocus = false,
@@ -122,7 +101,7 @@ export const useFocusManagement = ({
             const timeoutId = setTimeout(focusFirst, 0);
             return () => clearTimeout(timeoutId);
         }
-        
+
         // Return undefined for consistency when autoFocus is false
         return undefined;
     }, [autoFocus, focusFirst, restoreFocus]);

@@ -249,6 +249,9 @@ const formatDate = (dateString: string | null) => {
     });
 };
 
+/**
+ * Calculates the engagement rate based on likes, comments, shares, and views.
+ */
 const getEngagementRate = (engagement: {
     likes: number;
     comments: number;
@@ -264,13 +267,43 @@ const getEngagementRate = (engagement: {
 };
 
 /**
- * A React component that displays a list of posts with various filters, search functionality,
- * and detailed information about each post including engagement metrics, author, platform, etc.
+ * Represents a component for managing and displaying social media posts.
  *
  * @component
- * @name PostsList
+ * @name PostManager
  *
- * @returns {JSX.Element} - The rendered UI component for the posts list.
+ * @description
+ * This component provides an interface for creating, viewing, editing, duplicating,
+ * publishing, scheduling, and deleting social media posts. It includes features such as:
+ * - Filtering posts by platform and search term.
+ * - Displaying analytics including top performers and engagement rates.
+ * - Providing actions through a dropdown menu for each post.
+ *
+ * @props
+ * @param {Array} initialPosts - An array of objects representing the initial set of posts.
+ * Each object should have properties like `id`, `content`, `platform`, `status`, etc.
+ *
+ * @state
+ * @property {boolean} isCreatePostModalOpen - Controls the visibility of the create post modal.
+ * @property {string} activeTab - The currently active tab for filtering posts (e.g., 'all', 'published').
+ * @property {Array} filteredPosts - An array of posts that match the current filter criteria.
+ * @property {string} searchTerm - The term used to search through posts and authors.
+ * @property {string} platformFilter - The selected platform filter applied to posts.
+ *
+ * @methods
+ * @method handleCreatePost - Handles the creation of a new post.
+ * @method handleDeletePost - Handles the deletion of a post.
+ * @method handleDuplicatePost - Handles duplicating an existing post.
+ * @method handlePublishPost - Handles publishing a draft post immediately.
+ * @method getFilteredPosts - Filters posts based on search term and platform filter.
+ *
+ * @children
+ * The component renders several child components including:
+ * - Modals for creating and editing posts.
+ * - Tabs for filtering posts by status (all, published, scheduled, drafts).
+ * - A list of posts with actions for each post via a dropdown menu.
+ *
+ * @returns {JSX.Element} - A React element representing the PostManager component.
  */
 const PostsPage = () => {
     const [posts, setPosts] = useState(POSTS_DATA);
@@ -395,7 +428,7 @@ const PostsPage = () => {
         alert("Post published successfully!");
     };
 
-    const handleDuplicatePost = (post: typeof posts[0]) => {
+    const handleDuplicatePost = (post: (typeof posts)[0]) => {
         const duplicatedPost = {
             ...post,
             id: Math.max(...posts.map(p => p.id)) + 1,
@@ -799,14 +832,15 @@ const PostsPage = () => {
                                                     by {post.author}
                                                 </span>
                                                 {post.status === "published" &&
-                                                Number(engagementRate) > 5 && (
-                                                <Badge
-                                                variant="outline"
-                                                className="bg-green-50 text-green-700 border-green-200"
-                                                >
-                                                High engagement
-                                                </Badge>
-                                                )}
+                                                    Number(engagementRate) >
+                                                        5 && (
+                                                        <Badge
+                                                            variant="outline"
+                                                            className="bg-green-50 text-green-700 border-green-200"
+                                                        >
+                                                            High engagement
+                                                        </Badge>
+                                                    )}
                                             </div>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
