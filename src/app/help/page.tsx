@@ -275,7 +275,7 @@ const HelpPage = () => {
                                 </div>
 
                                 <div className="grid gap-4 md:grid-cols-3">
-                                    {CONTACT_OPTIONS.map((option) => {
+                                    {CONTACT_OPTIONS.map(option => {
                                         const IconComponent = option.icon;
                                         return (
                                             <Card
