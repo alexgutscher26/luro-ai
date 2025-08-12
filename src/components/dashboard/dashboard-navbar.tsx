@@ -107,7 +107,7 @@ const DashboardNavbar = () => {
                                     <CardContent className="space-y-3">
                                         <div className="space-y-2">
                                             {proPlan?.features.map(
-                                                (feature, index) => (
+                                                (feature) => (
                                                     <div
                                                         key={feature}
                                                         className="flex items-center gap-2"

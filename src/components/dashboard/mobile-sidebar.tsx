@@ -47,7 +47,7 @@ const MobileSidebar = () => {
                                 <span className="text-sm">Search...</span>
                             </Button>
                             <ul className="w-full space-y-2 py-5">
-                                {SIDEBAR_LINKS.map((link) => {
+                                {SIDEBAR_LINKS.map(link => {
                                     const isActive = pathname === link.href;
 
                                     return (

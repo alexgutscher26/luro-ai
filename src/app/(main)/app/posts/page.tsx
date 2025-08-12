@@ -16,7 +16,6 @@ import {
     EditIcon,
     TrashIcon,
     SendIcon,
-    FilterIcon,
     SearchIcon,
     TrendingUpIcon,
     ClockIcon,
@@ -54,7 +53,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 const POST_STATS = [
     {
@@ -198,7 +197,7 @@ const POSTS_DATA = [
     },
 ];
 
-const getPlatformColor = platform => {
+const getPlatformColor = (platform: string) => {
     switch (platform) {
         case "twitter":
             return "bg-blue-500";
@@ -213,7 +212,7 @@ const getPlatformColor = platform => {
     }
 };
 
-const getStatusColor = status => {
+const getStatusColor = (status: string) => {
     switch (status) {
         case "published":
             return "bg-green-500";
@@ -226,7 +225,7 @@ const getStatusColor = status => {
     }
 };
 
-const getMediaIcon = mediaType => {
+const getMediaIcon = (mediaType: string) => {
     switch (mediaType) {
         case "image":
             return ImageIcon;
@@ -239,7 +238,7 @@ const getMediaIcon = mediaType => {
     }
 };
 
-const formatDate = dateString => {
+const formatDate = (dateString: string | null) => {
     if (!dateString) return "Not scheduled";
     return new Date(dateString).toLocaleDateString("en-US", {
         month: "short",
@@ -250,7 +249,12 @@ const formatDate = dateString => {
     });
 };
 
-const getEngagementRate = engagement => {
+const getEngagementRate = (engagement: {
+    likes: number;
+    comments: number;
+    shares: number;
+    views: number;
+}) => {
     if (engagement.views === 0) return 0;
     return (
         ((engagement.likes + engagement.comments + engagement.shares) /
@@ -272,7 +276,7 @@ const PostsPage = () => {
     const [posts, setPosts] = useState(POSTS_DATA);
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
-    const [statusFilter, setStatusFilter] = useState("all");
+    const [statusFilter, _setStatusFilter] = useState("all");
     const [platformFilter, setPlatformFilter] = useState("all");
     const [activeTab, setActiveTab] = useState("all");
     const [newPost, setNewPost] = useState({
@@ -316,13 +320,12 @@ const PostsPage = () => {
             published.length > 0
                 ? Math.round(totalEngagement / published.length)
                 : 0;
-        const topPost = published.reduce(
-            (top, post) =>
-                post.engagement.views > (top?.engagement.views || 0)
-                    ? post
-                    : top,
-            null
-        );
+        const topPost =
+            published.length > 0
+                ? published.reduce((top, post) =>
+                      post.engagement.views > top.engagement.views ? post : top
+                  )
+                : null;
 
         return {
             published: published.length,
@@ -344,7 +347,7 @@ const PostsPage = () => {
             platform: newPost.platform,
             status: newPost.scheduledFor ? "scheduled" : "draft",
             publishedAt: null,
-            scheduledFor: newPost.scheduledFor || null,
+            scheduledFor: newPost.scheduledFor ? newPost.scheduledFor : null,
             engagement: {
                 likes: 0,
                 comments: 0,
@@ -368,12 +371,12 @@ const PostsPage = () => {
         alert("Post created successfully!");
     };
 
-    const handleDeletePost = postId => {
+    const handleDeletePost = (postId: number) => {
         setPosts(posts.filter(post => post.id !== postId));
         alert("Post deleted successfully!");
     };
 
-    const handlePublishPost = postId => {
+    const handlePublishPost = (postId: number) => {
         setPosts(
             posts.map(post =>
                 post.id === postId
@@ -392,13 +395,13 @@ const PostsPage = () => {
         alert("Post published successfully!");
     };
 
-    const handleDuplicatePost = post => {
+    const handleDuplicatePost = (post: typeof posts[0]) => {
         const duplicatedPost = {
             ...post,
             id: Math.max(...posts.map(p => p.id)) + 1,
-            status: "draft",
+            status: "draft" as const,
             publishedAt: null,
-            scheduledFor: null,
+            scheduledFor: null as string | null,
             engagement: { likes: 0, comments: 0, shares: 0, views: 0 },
             content: post.content + " (Copy)",
         };

@@ -1,7 +1,14 @@
 "use client";
 
 import React from "react";
-import { ArrowUpIcon, BarChart3Icon, Share2Icon, UsersIcon, ArrowDownIcon, MessageSquareIcon } from "lucide-react";
+import {
+    ArrowUpIcon,
+    BarChart3Icon,
+    Share2Icon,
+    UsersIcon,
+    ArrowDownIcon,
+    MessageSquareIcon,
+} from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Area, AreaChart, CartesianGrid, XAxis } from "recharts";
 import { ANALYTICS_DATA, RECENT_SALES } from "@/constants/dashboard";

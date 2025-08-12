@@ -374,11 +374,7 @@ const BillingPage = () => {
                                                 <div
                                                     className="bg-blue-600 h-2 rounded-full"
                                                     style={{ width: "75%" }}
-
                                                 ></div>
-
-                                                />
-
                                             </div>
                                         </div>
                                         <div>
@@ -390,11 +386,7 @@ const BillingPage = () => {
                                                 <div
                                                     className="bg-green-600 h-2 rounded-full"
                                                     style={{ width: "60%" }}
-
                                                 ></div>
-
-                                                />
-
                                             </div>
                                         </div>
                                         <div>
@@ -406,11 +398,7 @@ const BillingPage = () => {
                                                 <div
                                                     className="bg-purple-600 h-2 rounded-full"
                                                     style={{ width: "40%" }}
-
                                                 ></div>
-
-                                                />
-
                                             </div>
                                         </div>
                                     </div>

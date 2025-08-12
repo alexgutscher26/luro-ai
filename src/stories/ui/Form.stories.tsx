@@ -53,8 +53,8 @@ const profileFormSchema = z.object({
     role: z.string({
         required_error: "Please select a role.",
     }),
-    notifications: z.boolean().default(false).optional(),
-    marketing: z.boolean().default(false).optional(),
+    notifications: z.boolean().default(false),
+    marketing: z.boolean().default(false),
 });
 
 type ProfileFormValues = z.infer<typeof profileFormSchema>;

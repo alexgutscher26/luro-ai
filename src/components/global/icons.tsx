@@ -23,6 +23,7 @@ type IconType = {
     mastodon: (props: LucideProps) => JSX.Element;
     bluesky: (props: LucideProps) => JSX.Element;
     threads: (props: LucideProps) => JSX.Element;
+    outlook: (props: LucideProps) => JSX.Element;
 };
 
 const Icons: IconType = {

@@ -6,7 +6,6 @@ import {
     ArrowUpIcon,
     BarChart3Icon,
     TrendingUpIcon,
-    UsersIcon,
     EyeIcon,
     MousePointerClickIcon,
 } from "lucide-react";
