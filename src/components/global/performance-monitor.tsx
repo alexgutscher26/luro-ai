@@ -58,7 +58,7 @@ export const PerformanceMonitor = () => {
                 layoutShiftObserver.disconnect();
             };
         }
-        
+
         // Return undefined when PerformanceObserver is not available
         return undefined;
     }, []);

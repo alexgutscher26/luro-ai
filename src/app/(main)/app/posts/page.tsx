@@ -428,7 +428,7 @@ const PostsPage = () => {
         alert("Post published successfully!");
     };
 
-    const handleDuplicatePost = (post: typeof posts[0]) => {
+    const handleDuplicatePost = (post: (typeof posts)[0]) => {
         const duplicatedPost = {
             ...post,
             id: Math.max(...posts.map(p => p.id)) + 1,
@@ -832,14 +832,15 @@ const PostsPage = () => {
                                                     by {post.author}
                                                 </span>
                                                 {post.status === "published" &&
-                                                Number(engagementRate) > 5 && (
-                                                <Badge
-                                                variant="outline"
-                                                className="bg-green-50 text-green-700 border-green-200"
-                                                >
-                                                High engagement
-                                                </Badge>
-                                                )}
+                                                    Number(engagementRate) >
+                                                        5 && (
+                                                        <Badge
+                                                            variant="outline"
+                                                            className="bg-green-50 text-green-700 border-green-200"
+                                                        >
+                                                            High engagement
+                                                        </Badge>
+                                                    )}
                                             </div>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
