@@ -50,6 +50,18 @@ import {
     useDeleteApiKey,
 } from "@/hooks/use-api-keys";
 
+/**
+ * React component for displaying and managing API keys.
+ *
+ * This component provides a user interface to view, create, edit,
+ * copy, toggle status (active/inactive), and delete API keys.
+ * It includes:
+ * - A header with the total number of API keys, active keys, and recently used keys.
+ * - A table listing all API keys with their name, key, status, creation date, expiration date, and actions.
+ * - A modal dialog for creating or editing API keys.
+ *
+ * @component
+ */
 export function ApiKeysManagement() {
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
     // Remove these unused lines:
@@ -64,6 +76,11 @@ export function ApiKeysManagement() {
     const updateApiKey = useUpdateApiKey();
     const deleteApiKey = useDeleteApiKey();
 
+    /**
+     * Handles the creation of an API key by validating input, preparing data,
+     * and making a mutation request to create the key. It also updates the state
+     * upon success or logs an error if the creation fails.
+     */
     const handleCreateApiKey = async () => {
         if (!newKeyName.trim()) {
             toast.error("Please enter a name for the API key");
@@ -95,6 +112,9 @@ export function ApiKeysManagement() {
         toast.success("API key copied to clipboard");
     };
 
+    /**
+     * Toggles the active status of an API key by its ID.
+     */
     const handleToggleActive = async (id: string, isActive: boolean) => {
         try {
             await updateApiKey.mutateAsync({ id, data: { isActive: !isActive } });
@@ -103,6 +123,13 @@ export function ApiKeysManagement() {
         }
     };
 
+    /**
+     * Handles the deletion of an API key by confirming with the user and attempting to mutate the deletion.
+     *
+     * This function first prompts the user with a confirmation dialog to ensure they want to delete the API key.
+     * If confirmed, it attempts to asynchronously delete the API key using `deleteApiKey.mutateAsync`.
+     * If an error occurs during the deletion process, it logs the error to the console.
+     */
     const handleDeleteKey = async (id: string) => {
         if (
             confirm(
@@ -134,6 +161,9 @@ export function ApiKeysManagement() {
                     new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
         ).length || 0;
 
+    /**
+     * Sets the editing key with provided API key details.
+     */
     function setEditingKey(_apiKey: {
         id: any[] |
         React.Key |
