@@ -395,7 +395,7 @@ const PostsPage = () => {
         alert("Post published successfully!");
     };
 
-    const handleDuplicatePost = (post: typeof posts[0]) => {
+    const handleDuplicatePost = (post: (typeof posts)[0]) => {
         const duplicatedPost = {
             ...post,
             id: Math.max(...posts.map(p => p.id)) + 1,
