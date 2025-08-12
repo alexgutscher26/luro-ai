@@ -70,14 +70,14 @@ export const useFocusManagement = ({
 
         const elements = getFocusableElements();
         if (elements.length > 0) {
-            elements[0].focus();
+            elements[0]?.focus();
         }
     }, [getFocusableElements, initialFocusRef]);
 
     const focusLast = useCallback(() => {
         const elements = getFocusableElements();
         if (elements.length > 0) {
-            elements[elements.length - 1].focus();
+            elements[elements.length - 1]?.focus();
         }
     }, [getFocusableElements]);
 
@@ -97,13 +97,13 @@ export const useFocusManagement = ({
                 // Shift + Tab: moving backwards
                 if (activeElement === firstElement) {
                     event.preventDefault();
-                    lastElement.focus();
+                    lastElement?.focus();
                 }
             } else {
                 // Tab: moving forwards
                 if (activeElement === lastElement) {
                     event.preventDefault();
-                    firstElement.focus();
+                    firstElement?.focus();
                 }
             }
         },
@@ -122,6 +122,9 @@ export const useFocusManagement = ({
             const timeoutId = setTimeout(focusFirst, 0);
             return () => clearTimeout(timeoutId);
         }
+        
+        // Return undefined for consistency when autoFocus is false
+        return undefined;
     }, [autoFocus, focusFirst, restoreFocus]);
 
     // Set up focus trap
@@ -130,6 +133,8 @@ export const useFocusManagement = ({
             document.addEventListener("keydown", handleTabKey);
             return () => document.removeEventListener("keydown", handleTabKey);
         }
+        // Return undefined for consistency when trapFocus is false
+        return undefined;
     }, [trapFocus, handleTabKey]);
 
     // Restore focus when component unmounts

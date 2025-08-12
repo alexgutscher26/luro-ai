@@ -25,7 +25,7 @@ export function withRateLimit(limiter: RateLimitType = "api") {
                             message:
                                 "Too many requests. Please try again later.",
                             retryAfter: Math.ceil(
-                                (rateLimitResult.reset.getTime() - Date.now()) /
+                                (rateLimitResult.reset - Date.now()) /
                                     1000
                             ),
                         },
@@ -34,7 +34,7 @@ export function withRateLimit(limiter: RateLimitType = "api") {
                             headers: {
                                 ...headers,
                                 "Retry-After": Math.ceil(
-                                    (rateLimitResult.reset.getTime() -
+                                    (rateLimitResult.reset -
                                         Date.now()) /
                                         1000
                                 ).toString(),

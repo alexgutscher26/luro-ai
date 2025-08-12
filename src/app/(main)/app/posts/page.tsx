@@ -255,7 +255,7 @@ const getEngagementRate = (engagement: {
     shares: number;
     views: number;
 }) => {
-    if (engagement.views === 0) return 0;
+    if (engagement.views === 0) return "0.0";
     return (
         ((engagement.likes + engagement.comments + engagement.shares) /
             engagement.views) *
@@ -799,14 +799,14 @@ const PostsPage = () => {
                                                     by {post.author}
                                                 </span>
                                                 {post.status === "published" &&
-                                                    engagementRate > 5 && (
-                                                        <Badge
-                                                            variant="outline"
-                                                            className="bg-green-50 text-green-700 border-green-200"
-                                                        >
-                                                            High engagement
-                                                        </Badge>
-                                                    )}
+                                                Number(engagementRate) > 5 && (
+                                                <Badge
+                                                variant="outline"
+                                                className="bg-green-50 text-green-700 border-green-200"
+                                                >
+                                                High engagement
+                                                </Badge>
+                                                )}
                                             </div>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>

@@ -21,7 +21,7 @@ export const useLazyLoading = ({
 
         const observer = new IntersectionObserver(
             ([entry]) => {
-                if (entry.isIntersecting) {
+                if (entry?.isIntersecting) {
                     setIsInView(true);
                     setHasTriggered(true);
 

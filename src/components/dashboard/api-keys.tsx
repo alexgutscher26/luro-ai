@@ -52,8 +52,9 @@ import {
 
 export function ApiKeysManagement() {
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
-    const [setIsEditDialogOpen] = useState(false);
-    const [setEditingKey] = useState<any>(null);
+    // Remove these unused lines:
+    // const [isEditDialogOpen, setIsEditDialogOpen] = useState(false);
+    // const [editingKey, setEditingKey] = useState<any>(null);
     const [newKeyName, setNewKeyName] = useState("");
     const [newKeyExpiry, setNewKeyExpiry] = useState("");
     const [createdKey, setCreatedKey] = useState<string | null>(null);
@@ -70,10 +71,16 @@ export function ApiKeysManagement() {
         }
 
         try {
-            const result = await createApiKey.mutateAsync({
+            const createData: { name: string; expiresAt?: string } = {
                 name: newKeyName,
-                expiresAt: newKeyExpiry || undefined,
-            });
+            };
+            
+            // Only add expiresAt if newKeyExpiry has a value
+            if (newKeyExpiry) {
+                createData.expiresAt = newKeyExpiry;
+            }
+            
+            const result = await createApiKey.mutateAsync(createData);
 
             setCreatedKey(result.apiKey.key!);
             setNewKeyName("");
@@ -90,7 +97,7 @@ export function ApiKeysManagement() {
 
     const handleToggleActive = async (id: string, isActive: boolean) => {
         try {
-            await updateApiKey.mutateAsync({ id, isActive: !isActive });
+            await updateApiKey.mutateAsync({ id, data: { isActive: !isActive } });
         } catch (error) {
             console.error("Failed to update API key:", error);
         }
@@ -103,7 +110,7 @@ export function ApiKeysManagement() {
             )
         ) {
             try {
-                await deleteApiKey.mutateAsync({ id });
+                await deleteApiKey.mutateAsync(id);
             } catch (error) {
                 console.error("Failed to delete API key:", error);
             }
@@ -126,6 +133,27 @@ export function ApiKeysManagement() {
                 new Date(key.lastUsedAt) >
                     new Date(Date.now() - 7 * 24 * 60 * 60 * 1000)
         ).length || 0;
+
+    function setEditingKey(_apiKey: {
+        id: any[] |
+        React.Key |
+        null |
+        undefined; name: string |
+        number |
+        bigint |
+        boolean |
+        React.ReactElement<
+            any, string |
+            React.JSXElementConstructor<any>
+        > |
+        Iterable<React.ReactNode> |
+        React.ReactPortal |
+        Promise<React.AwaitedReactNode> |
+        null |
+        undefined; isActive: boolean; createdAt: Date | null; expiresAt: Date | null;
+    }) {
+        throw new Error("Function not implemented.");
+    }
 
     return (
         <div className="min-h-screen bg-gradient-to-br from-background via-background to-muted/20">
@@ -451,7 +479,7 @@ export function ApiKeysManagement() {
                                                     expiresAt: Date | null;
                                                 }) => (
                                                     <TableRow
-                                                        key={apiKey.id}
+                                                        key={String(apiKey.id)}
                                                         className="hover:bg-muted/30 transition-colors"
                                                     >
                                                         <TableCell className="font-medium py-4">
@@ -465,14 +493,14 @@ export function ApiKeysManagement() {
                                                         <TableCell className="py-4">
                                                             <div className="flex items-center gap-2">
                                                                 <code className="px-2 py-1 bg-muted rounded text-xs font-mono">
-                                                                    {`${apiKey.id.slice(0, 8)}...${apiKey.id.slice(-4)}`}
+                                                                    {typeof apiKey.id === 'string' ? `${apiKey.id.slice(0, 8)}...${apiKey.id.slice(-4)}` : 'N/A'}
                                                                 </code>
                                                                 <Button
                                                                     size="sm"
                                                                     variant="ghost"
                                                                     onClick={() =>
                                                                         handleCopyKey(
-                                                                            apiKey.id
+apiKey.id?.toString() ?? ''
                                                                         )
                                                                     }
                                                                     className="h-6 w-6 p-0"
@@ -489,11 +517,11 @@ export function ApiKeysManagement() {
                                                                     }
                                                                     onCheckedChange={() =>
                                                                         handleToggleActive(
-                                                                            apiKey.id,
+                                                                            apiKey.id as string,
                                                                             apiKey.isActive
                                                                         )
                                                                     }
-                                                                    size="sm"
+                                                                    className="h-5 w-5"
                                                                 />
                                                                 <Badge
                                                                     variant={
@@ -549,7 +577,7 @@ export function ApiKeysManagement() {
                                                                             setEditingKey(
                                                                                 apiKey
                                                                             );
-                                                                            setIsEditDialogOpen(
+                                                                            setIsCreateDialogOpen(
                                                                                 true
                                                                             );
                                                                         }}
@@ -560,7 +588,7 @@ export function ApiKeysManagement() {
                                                                     <DropdownMenuItem
                                                                         onClick={() =>
                                                                             handleCopyKey(
-                                                                                apiKey.id
+apiKey.id?.toString() ?? ''
                                                                             )
                                                                         }
                                                                     >
@@ -570,7 +598,7 @@ export function ApiKeysManagement() {
                                                                     <DropdownMenuItem
                                                                         onClick={() =>
                                                                             handleDeleteKey(
-                                                                                apiKey.id
+apiKey.id as string
                                                                             )
                                                                         }
                                                                         className="text-destructive focus:text-destructive"
