@@ -86,7 +86,7 @@ const POST_STATS = [
     },
 ];
 
-const POSTS_DATA = [
+const POSTS_DATA: Post[] = [
     {
         id: 1,
         content:
@@ -255,12 +255,12 @@ const getEngagementRate = (engagement: {
     shares: number;
     views: number;
 }) => {
-    if (engagement.views === 0) return "0.0";
+    if (engagement.views === 0) return 0;
     return (
         ((engagement.likes + engagement.comments + engagement.shares) /
             engagement.views) *
         100
-    ).toFixed(1);
+    );
 };
 
 /**
@@ -273,7 +273,7 @@ const getEngagementRate = (engagement: {
  * @returns {JSX.Element} - The rendered UI component for the posts list.
  */
 const PostsPage = () => {
-    const [posts, setPosts] = useState(POSTS_DATA);
+    const [posts, setPosts] = useState<Post[]>(POSTS_DATA);
     const [isCreateDialogOpen, setIsCreateDialogOpen] = useState(false);
     const [searchTerm, setSearchTerm] = useState("");
     const [statusFilter, _setStatusFilter] = useState("all");
@@ -341,11 +341,11 @@ const PostsPage = () => {
             return;
         }
 
-        const post = {
+        const post: Post = {
             id: Math.max(...posts.map(p => p.id)) + 1,
             content: newPost.content,
             platform: newPost.platform,
-            status: newPost.scheduledFor ? "scheduled" : "draft",
+            status: newPost.scheduledFor ? "scheduled" as const : "draft" as const,
             publishedAt: null,
             scheduledFor: newPost.scheduledFor ? newPost.scheduledFor : null,
             engagement: {
@@ -395,13 +395,13 @@ const PostsPage = () => {
         alert("Post published successfully!");
     };
 
-    const handleDuplicatePost = (post: typeof posts[0]) => {
-        const duplicatedPost = {
+    const handleDuplicatePost = (post: Post) => {
+        const duplicatedPost: Post = {
             ...post,
             id: Math.max(...posts.map(p => p.id)) + 1,
-            status: "draft" as const,
+            status: "draft",
             publishedAt: null,
-            scheduledFor: null as string | null,
+            scheduledFor: null,
             engagement: { likes: 0, comments: 0, shares: 0, views: 0 },
             content: post.content + " (Copy)",
         };
@@ -799,7 +799,7 @@ const PostsPage = () => {
                                                     by {post.author}
                                                 </span>
                                                 {post.status === "published" &&
-                                                Number(engagementRate) > 5 && (
+                                                engagementRate > 5 && (
                                                 <Badge
                                                 variant="outline"
                                                 className="bg-green-50 text-green-700 border-green-200"
@@ -920,7 +920,7 @@ const PostsPage = () => {
                                                                 variant="outline"
                                                                 className="text-xs"
                                                             >
-                                                                {engagementRate}
+                                                                {engagementRate.toFixed(1)}
                                                                 % engagement
                                                             </Badge>
                                                         )}
@@ -958,3 +958,21 @@ const PostsPage = () => {
 };
 
 export default PostsPage;
+
+interface Post {
+    id: number;
+    content: string;
+    platform: string;
+    status: "published" | "scheduled" | "draft";
+    publishedAt: string | null;
+    scheduledFor: string | null;
+    engagement: {
+        likes: number;
+        comments: number;
+        shares: number;
+        views: number;
+    };
+    mediaType: string;
+    mediaUrl: string | null;
+    author: string;
+}
