@@ -122,7 +122,7 @@ export const useFocusManagement = ({
             const timeoutId = setTimeout(focusFirst, 0);
             return () => clearTimeout(timeoutId);
         }
-        
+
         // Return undefined for consistency when autoFocus is false
         return undefined;
     }, [autoFocus, focusFirst, restoreFocus]);
