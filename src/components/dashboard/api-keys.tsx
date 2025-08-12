@@ -74,12 +74,12 @@ export function ApiKeysManagement() {
             const createData: { name: string; expiresAt?: string } = {
                 name: newKeyName,
             };
-            
+
             // Only add expiresAt if newKeyExpiry has a value
             if (newKeyExpiry) {
                 createData.expiresAt = newKeyExpiry;
             }
-            
+
             const result = await createApiKey.mutateAsync(createData);
 
             setCreatedKey(result.apiKey.key!);
@@ -97,7 +97,10 @@ export function ApiKeysManagement() {
 
     const handleToggleActive = async (id: string, isActive: boolean) => {
         try {
-            await updateApiKey.mutateAsync({ id, data: { isActive: !isActive } });
+            await updateApiKey.mutateAsync({
+                id,
+                data: { isActive: !isActive },
+            });
         } catch (error) {
             console.error("Failed to update API key:", error);
         }
@@ -135,22 +138,21 @@ export function ApiKeysManagement() {
         ).length || 0;
 
     function setEditingKey(_apiKey: {
-        id: any[] |
-        React.Key |
-        null |
-        undefined; name: string |
-        number |
-        bigint |
-        boolean |
-        React.ReactElement<
-            any, string |
-            React.JSXElementConstructor<any>
-        > |
-        Iterable<React.ReactNode> |
-        React.ReactPortal |
-        Promise<React.AwaitedReactNode> |
-        null |
-        undefined; isActive: boolean; createdAt: Date | null; expiresAt: Date | null;
+        id: any[] | React.Key | null | undefined;
+        name:
+            | string
+            | number
+            | bigint
+            | boolean
+            | React.ReactElement<any, string | React.JSXElementConstructor<any>>
+            | Iterable<React.ReactNode>
+            | React.ReactPortal
+            | Promise<React.AwaitedReactNode>
+            | null
+            | undefined;
+        isActive: boolean;
+        createdAt: Date | null;
+        expiresAt: Date | null;
     }) {
         throw new Error("Function not implemented.");
     }
@@ -493,14 +495,18 @@ export function ApiKeysManagement() {
                                                         <TableCell className="py-4">
                                                             <div className="flex items-center gap-2">
                                                                 <code className="px-2 py-1 bg-muted rounded text-xs font-mono">
-                                                                    {typeof apiKey.id === 'string' ? `${apiKey.id.slice(0, 8)}...${apiKey.id.slice(-4)}` : 'N/A'}
+                                                                    {typeof apiKey.id ===
+                                                                    "string"
+                                                                        ? `${apiKey.id.slice(0, 8)}...${apiKey.id.slice(-4)}`
+                                                                        : "N/A"}
                                                                 </code>
                                                                 <Button
                                                                     size="sm"
                                                                     variant="ghost"
                                                                     onClick={() =>
                                                                         handleCopyKey(
-apiKey.id?.toString() ?? ''
+                                                                            apiKey.id?.toString() ??
+                                                                                ""
                                                                         )
                                                                     }
                                                                     className="h-6 w-6 p-0"
@@ -588,7 +594,8 @@ apiKey.id?.toString() ?? ''
                                                                     <DropdownMenuItem
                                                                         onClick={() =>
                                                                             handleCopyKey(
-apiKey.id?.toString() ?? ''
+                                                                                apiKey.id?.toString() ??
+                                                                                    ""
                                                                             )
                                                                         }
                                                                     >
@@ -598,7 +605,7 @@ apiKey.id?.toString() ?? ''
                                                                     <DropdownMenuItem
                                                                         onClick={() =>
                                                                             handleDeleteKey(
-apiKey.id as string
+                                                                                apiKey.id as string
                                                                             )
                                                                         }
                                                                         className="text-destructive focus:text-destructive"
