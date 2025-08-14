@@ -53,6 +53,7 @@ To democratize social media marketing by providing businesses of all sizes with 
 ## ✨ Key Features
 
 ### 📊 **Analytics & Insights**
+
 - 📈 **Real-time Performance Tracking** - Monitor engagement across all social platforms
 - 📋 **Advanced Analytics Dashboard** - Comprehensive metrics with interactive charts
 - 📊 **Engagement Rate Calculations** - Track trends and optimize content strategy
@@ -61,6 +62,7 @@ To democratize social media marketing by providing businesses of all sizes with 
 - 📑 **Custom Report Generation** - Create tailored reports for stakeholders
 
 ### 🤖 **AI-Powered Tools**
+
 - ✍️ **Smart Content Creation** - AI-assisted post generation and optimization
 - ⏰ **Automated Scheduling** - Intelligent posting times based on audience activity
 - 🎯 **Content Optimization** - AI recommendations for better engagement
@@ -68,6 +70,7 @@ To democratize social media marketing by providing businesses of all sizes with 
 - 🏷️ **Smart Hashtag Suggestions** - AI-generated hashtags for maximum reach
 
 ### 🔐 **Security & Authentication**
+
 - 🛡️ **Secure User Authentication** - Powered by Clerk with multiple OAuth providers
 - 👥 **Role-based Access Control** - Manage team permissions effectively
 - 🔒 **Data Protection** - Enterprise-grade security for your social media data
@@ -75,6 +78,7 @@ To democratize social media marketing by providing businesses of all sizes with 
 - ⚡ **Rate Limiting** - API protection with Redis-based rate limiting
 
 ### 🎨 **User Experience**
+
 - 📱 **Responsive Design** - Seamless experience across all devices
 - 🌙 **Dark/Light Mode** - Customizable interface preferences
 - 🎛️ **Intuitive Dashboard** - Clean, modern interface built with Shadcn UI
@@ -86,6 +90,7 @@ To democratize social media marketing by providing businesses of all sizes with 
 ## 🛠️ Tech Stack
 
 ### **Frontend**
+
 - **[Next.js 14](https://nextjs.org/)** - React framework with App Router and Server Components
 - **[TypeScript](https://www.typescriptlang.org/)** - Type-safe development with strict mode
 - **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
@@ -94,17 +99,20 @@ To democratize social media marketing by providing businesses of all sizes with 
 - **[React Hook Form](https://react-hook-form.com/)** - Performant forms with minimal re-renders
 
 ### **Backend & Database**
+
 - **[Prisma](https://prisma.io/)** - Next-generation ORM with type safety
 - **[MongoDB](https://www.mongodb.com/)** - NoSQL database for flexible data modeling
 - **[Clerk](https://clerk.com/)** - Complete authentication and user management
 - **[Upstash Redis](https://upstash.com/)** - Serverless Redis for caching and rate limiting
 
 ### **Data & Analytics**
+
 - **[Recharts](https://recharts.org/)** - Composable charting library
 - **[TanStack Query](https://tanstack.com/query)** - Powerful data synchronization
 - **Custom Analytics Engine** - Tailored social media metrics
 
 ### **Development & Quality**
+
 - **[Jest](https://jestjs.io/)** - JavaScript testing framework
 - **[Cypress](https://www.cypress.io/)** - End-to-end testing
 - **[Vitest](https://vitest.dev/)** - Fast unit testing with Vite
@@ -130,40 +138,45 @@ Ensure you have the following installed:
 ### Installation
 
 1. **Clone the repository**
-   ```bash
-   git clone https://github.com/Shreyas-29/luro-ai.git
-   cd luro-ai
-   ```
+
+    ```bash
+    git clone https://github.com/Shreyas-29/luro-ai.git
+    cd luro-ai
+    ```
 
 2. **Install dependencies**
-   ```bash
-   pnpm install
-   # or
-   npm install
-   ```
+
+    ```bash
+    pnpm install
+    # or
+    npm install
+    ```
 
 3. **Set up environment variables**
-   ```bash
-   cp .env.example .env.local
-   ```
-   
-   Edit `.env.local` with your configuration (see [Configuration](#️-configuration) section)
+
+    ```bash
+    cp .env.example .env.local
+    ```
+
+    Edit `.env.local` with your configuration (see [Configuration](#️-configuration) section)
 
 4. **Set up the database**
-   ```bash
-   pnpm db:generate
-   pnpm db:push
-   pnpm db:seed
-   ```
+
+    ```bash
+    pnpm db:generate
+    pnpm db:push
+    pnpm db:seed
+    ```
 
 5. **Start the development server**
-   ```bash
-   pnpm dev
-   ```
+
+    ```bash
+    pnpm dev
+    ```
 
 6. **Open your browser**
-   
-   Navigate to [http://localhost:3000](http://localhost:3000)
+
+    Navigate to [http://localhost:3000](http://localhost:3000)
 
 ---
 
@@ -216,21 +229,25 @@ NODE_ENV="development"
 ### Required Services Setup
 
 #### 1. MongoDB Database
+
 - **Local**: Install MongoDB locally or use Docker
 - **Cloud**: Create a free cluster on [MongoDB Atlas](https://www.mongodb.com/atlas)
 
 #### 2. Clerk Authentication
+
 1. Create an account at [Clerk](https://clerk.com/)
 2. Create a new application
 3. Copy the publishable key and secret key
 4. Configure OAuth providers (Google, GitHub, etc.)
 
 #### 3. Loops.so (Optional)
+
 1. Sign up at [Loops.so](https://loops.so/)
 2. Create a form for email collection
 3. Get your API key and form ID
 
 #### 4. Upstash Redis (Optional)
+
 1. Create an account at [Upstash](https://upstash.com/)
 2. Create a Redis database
 3. Copy the REST URL and token
@@ -320,32 +337,35 @@ pnpm build-storybook  # Build Storybook
 ### Development Workflow
 
 1. **Create a feature branch**
-   ```bash
-   git checkout -b feature/your-feature-name
-   ```
+
+    ```bash
+    git checkout -b feature/your-feature-name
+    ```
 
 2. **Make your changes**
-   - Follow the existing code style
-   - Add tests for new functionality
-   - Update documentation as needed
+    - Follow the existing code style
+    - Add tests for new functionality
+    - Update documentation as needed
 
 3. **Run quality checks**
-   ```bash
-   pnpm quality:check
-   ```
+
+    ```bash
+    pnpm quality:check
+    ```
 
 4. **Commit your changes**
-   ```bash
-   git add .
-   git commit -m "feat: add your feature description"
-   ```
-   
-   We use [Conventional Commits](https://www.conventionalcommits.org/) format.
+
+    ```bash
+    git add .
+    git commit -m "feat: add your feature description"
+    ```
+
+    We use [Conventional Commits](https://www.conventionalcommits.org/) format.
 
 5. **Push and create PR**
-   ```bash
-   git push origin feature/your-feature-name
-   ```
+    ```bash
+    git push origin feature/your-feature-name
+    ```
 
 ### Code Style Guidelines
 
@@ -363,14 +383,14 @@ pnpm build-storybook  # Build Storybook
 ### Vercel (Recommended)
 
 1. **Connect your repository**
-   - Import your GitHub repository to Vercel
-   - Configure environment variables
-   - Deploy automatically on push to main
+    - Import your GitHub repository to Vercel
+    - Configure environment variables
+    - Deploy automatically on push to main
 
 2. **Environment Variables**
-   - Add all production environment variables
-   - Ensure database URL points to production database
-   - Update Clerk keys for production
+    - Add all production environment variables
+    - Ensure database URL points to production database
+    - Update Clerk keys for production
 
 ### Docker Deployment
 
@@ -444,7 +464,6 @@ We welcome contributions from the community! Please read our contributing guidel
 
 ---
 
-
 ### Key Concepts
 
 - **App Router**: Using Next.js 13+ app directory structure
@@ -462,6 +481,7 @@ We welcome contributions from the community! Please read our contributing guidel
 ### Common Issues
 
 #### Database Connection Issues
+
 ```bash
 # Check if MongoDB is running
 pnpm db:status
@@ -472,6 +492,7 @@ pnpm db:seed
 ```
 
 #### Build Errors
+
 ```bash
 # Clear Next.js cache
 rm -rf .next
@@ -482,6 +503,7 @@ pnpm install
 ```
 
 #### Type Errors
+
 ```bash
 # Regenerate Prisma client
 pnpm db:generate
@@ -491,6 +513,7 @@ pnpm type-check
 ```
 
 #### Environment Variable Issues
+
 ```bash
 # Validate environment variables
 pnpm env:validate
