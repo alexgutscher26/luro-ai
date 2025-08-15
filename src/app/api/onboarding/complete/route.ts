@@ -18,6 +18,18 @@ const completeOnboardingSchema = z.object({
   completedSteps: z.array(z.string()).optional(),
 });
 
+/**
+ * Handles a POST request to complete user onboarding.
+ *
+ * This function first authenticates the user and checks if they are authorized.
+ * It then parses the request body to extract preferences and completed steps.
+ * The user's information is updated in the database using upsert, which updates
+ * the record if it exists or creates a new one if it doesn't. Additionally, it
+ * updates the user's metadata in Clerk for backward compatibility.
+ *
+ * @param request - The NextRequest object containing the request details.
+ * @returns A JSON response indicating success or failure of onboarding completion.
+ */
 export async function POST(request: NextRequest) {
   try {
     const { userId } = auth();
