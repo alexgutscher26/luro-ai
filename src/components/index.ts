@@ -21,7 +21,7 @@ import Reviews from "./marketing/reviews";
 import CTA from "./marketing/cta";
 import Footer from "./marketing/footer";
 import { NewsletterSignup } from "./marketing/newsletter-signup";
-export * from './onboarding';
+export * from "./onboarding";
 
 export {
     Icons,
