@@ -9,7 +9,8 @@ const loops = new LoopsClient(process.env.LOOPS_API_KEY!);
 async function handler(_request: NextRequest, validatedData: any) {
     try {
         // Data is already validated by middleware
-        const { email, firstName, lastName, userGroup, source } = validatedData.body;
+        const { email, firstName, lastName, userGroup, source } =
+            validatedData.body;
 
         // Create or update contact in Loops
         const contactProperties = {
@@ -56,10 +57,7 @@ export const POST = withSecurity({
         methods: ["POST"],
         credentials: true,
     },
-})(withValidation(
-    { body: LoopsContactSchema },
-    handler
-));
+})(withValidation({ body: LoopsContactSchema }, handler));
 
 // Also handle OPTIONS for preflight
 export const OPTIONS = withSecurity({

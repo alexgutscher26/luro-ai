@@ -38,7 +38,7 @@ export {
     SignInSchemaType,
     SignUpSchema,
     SignUpSchemaType,
-    
+
     // Environment schemas
     serverSchema,
     clientSchema,
@@ -46,7 +46,7 @@ export {
     type ServerEnv,
     type ClientEnv,
     type Env,
-    
+
     // API Key schemas
     CreateApiKeySchema,
     UpdateApiKeySchema,
@@ -54,16 +54,16 @@ export {
     type CreateApiKeySchemaType,
     type UpdateApiKeySchemaType,
     type ApiKeyParamsSchemaType,
-    
+
     // Web Vitals schemas
     WebVitalsSchema,
     type WebVitalsSchemaType,
     type WebVitalEventType,
-    
+
     // Loops Contact schemas
     LoopsContactSchema,
     type LoopsContactSchemaType,
-    
+
     // Onboarding schemas
     OnboardingCompletionSchema,
     OnboardingStepSchema,
