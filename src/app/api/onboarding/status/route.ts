@@ -2,6 +2,17 @@ import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { db } from '@/lib/prisma';
 
+/**
+ * Fetches and returns the onboarding status of a user.
+ *
+ * This function retrieves the user's authentication ID using `auth()`.
+ * It then checks if the user is authorized; if not, it returns a 401 Unauthorized response.
+ * If authorized, it queries the database for the user's onboarding details.
+ * If the user does not exist, it returns a default set of onboarding status.
+ * Otherwise, it formats and returns the user's onboarding status, including timestamps in ISO format.
+ *
+ * @returns A JSON response containing the user's onboarding status or an error message.
+ */
 export async function GET() {
   try {
     const { userId } = auth();
