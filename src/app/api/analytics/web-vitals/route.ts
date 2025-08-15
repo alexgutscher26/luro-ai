@@ -50,9 +50,6 @@ async function sendToGA4(event: any) {
 }
 
 // Apply rate limiting and validation
-const validatedHandler = withValidation(
-    { body: WebVitalsSchema },
-    handler
-);
+const validatedHandler = withValidation({ body: WebVitalsSchema }, handler);
 
 export const POST = withRateLimit("analytics")(validatedHandler);

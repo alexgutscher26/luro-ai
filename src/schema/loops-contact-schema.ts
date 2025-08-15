@@ -25,7 +25,7 @@ export const LoopsContactSchema = z.object({
         .string()
         .max(100, { message: "Source must be at most 100 characters" })
         .trim()
-        .optional()
+        .optional(),
 });
 
 export type LoopsContactSchemaType = z.infer<typeof LoopsContactSchema>;
