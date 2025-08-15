@@ -22,14 +22,15 @@ const queryClient = new QueryClient({
     },
 });
 
+/**
+ * Wraps children with global error boundary, query client provider, clerk provider, and onboarding provider.
+ */
 const Providers = ({ children }: Props) => {
     return (
         <GlobalErrorBoundary>
             <QueryClientProvider client={queryClient}>
                 <ClerkProvider>
-                    <OnboardingProvider>
-                        {children}
-                    </OnboardingProvider>
+                    <OnboardingProvider>{children}</OnboardingProvider>
                 </ClerkProvider>
                 {process.env.NODE_ENV === "development" && (
                     <ReactQueryDevtools initialIsOpen={false} />
