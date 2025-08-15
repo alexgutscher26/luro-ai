@@ -10,6 +10,9 @@ import { getClientEnv } from "@/lib/env";
 
 export const metadata = generateMetadata();
 
+/**
+ * Renders the root layout with necessary providers and analytics components.
+ */
 export default function RootLayout({
     children,
 }: Readonly<{
