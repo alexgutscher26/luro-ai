@@ -17,6 +17,18 @@ interface UmamiAnalyticsProps {
   enabled?: boolean;
 }
 
+/**
+ * Manages Umami analytics script loading based on configuration and user preferences.
+ *
+ * This function checks if analytics is enabled and required environment variables are present.
+ * It respects the Do Not Track (DNT) preference and localStorage opt-out settings before loading the analytics script.
+ * If conditions are met, it returns a Script component with necessary data attributes; otherwise, it returns null.
+ *
+ * @param props - An object containing configuration properties for Umami analytics.
+ * @param props.honorDNT - A boolean indicating whether to honor the Do Not Track preference. Defaults to true.
+ * @param props.enabled - A boolean indicating whether analytics is enabled. Defaults to true.
+ * @returns A Script component for loading Umami analytics or null if conditions are not met.
+ */
 export function UmamiAnalytics({ 
   honorDNT = true, 
   enabled = true 
@@ -75,7 +87,24 @@ export function UmamiAnalytics({
 }
 
 // Custom hook for tracking events
+/**
+ * Provides a hook to use Umami tracking functionality.
+ *
+ * This function returns two methods: `trackEvent` and `trackPageView`.
+ * - `trackEvent`: Tracks custom events with optional event data.
+ * - `trackPageView`: Tracks page views with an optional URL and referrer.
+ *
+ * Both methods check if the window object is defined and if Umami is available before attempting to track events.
+ * Errors during tracking are caught and logged to the console.
+ */
 export function useUmamiTracking() {
+  /**
+   * Tracks an event using the Umami analytics library if available.
+   *
+   * This function checks if the `window` object and `umami` are defined. If they are,
+   * it attempts to track the specified event with optional data. If an error occurs during
+   * tracking, it logs the error to the console.
+   */
   const trackEvent = (eventName: string, eventData?: Record<string, any>) => {
     if (typeof window !== 'undefined' && (window as any).umami) {
       try {
@@ -86,6 +115,14 @@ export function useUmamiTracking() {
     }
   };
 
+  /**
+   * Tracks a page view using Umami analytics.
+   *
+   * This function checks if the `window` object and `umami` are defined. If so, it attempts to track
+   * the current page view with an optional URL and referrer. If either parameter is not provided,
+   * it defaults to using the current window location's pathname or document's referrer, respectively.
+   * Any errors during tracking are caught and logged to the console.
+   */
   const trackPageView = (url?: string, referrer?: string) => {
     if (typeof window !== 'undefined' && (window as any).umami) {
       try {
