@@ -62,12 +62,12 @@ This is a Next.js 14+ application with TypeScript, Tailwind CSS, and Prisma ORM.
 5. Type-only imports at the end
 
 ```typescript
-import React from 'react'
-import { NextPage } from 'next'
-import { Button } from '@/components/ui'
-import { useUser } from '@/hooks'
-import { cn } from '@/functions'
-import type { User } from '@/types'
+import React from "react";
+import { NextPage } from "next";
+import { Button } from "@/components/ui";
+import { useUser } from "@/hooks";
+import { cn } from "@/functions";
+import type { User } from "@/types";
 ```
 
 ## Styling Guidelines
@@ -236,5 +236,5 @@ import type { User } from '@/types'
 
 ---
 
-*Last updated: [Current Date]*
-*Version: 1.0.0*
+_Last updated: [Current Date]_
+_Version: 1.0.0_
