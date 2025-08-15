@@ -62,12 +62,12 @@ This is a Next.js 14+ application with TypeScript, Tailwind CSS, and Prisma ORM.
 5. Type-only imports at the end
 
 ```typescript
-import React from 'react'
-import { NextPage } from 'next'
-import { Button } from '@/components/ui'
-import { useUser } from '@/hooks'
-import { cn } from '@/functions'
-import type { User } from '@/types'
+import React from "react";
+import { NextPage } from "next";
+import { Button } from "@/components/ui";
+import { useUser } from "@/hooks";
+import { cn } from "@/functions";
+import type { User } from "@/types";
 ```
 
 ## Styling Guidelines
@@ -247,17 +247,17 @@ import type { User } from '@/types'
 
 - Client components must be explicitly marked with `'use client'` at the top of the file
 - Minimize `'use client'` directives:
-  - Keep most components as React Server Components (RSC) by default
-  - Only use client components when you need interactivity (forms, event handlers, browser APIs)
-  - Wrap client components in `Suspense` with appropriate fallback UI
-  - Create small client component wrappers around interactive elements rather than making entire pages client-side
+    - Keep most components as React Server Components (RSC) by default
+    - Only use client components when you need interactivity (forms, event handlers, browser APIs)
+    - Wrap client components in `Suspense` with appropriate fallback UI
+    - Create small client component wrappers around interactive elements rather than making entire pages client-side
 
 ### State Management
 
 - Avoid unnecessary `useState` and `useEffect` when possible:
-  - Use server components for data fetching and static content
-  - Use React Server Actions for form handling and mutations
-  - Use URL search params for shareable state (filters, pagination, etc.)
+    - Use server components for data fetching and static content
+    - Use React Server Actions for form handling and mutations
+    - Use URL search params for shareable state (filters, pagination, etc.)
 - Use `nuqs` for URL search param state management
 - Use Clerk hooks for authentication state
 - Use React Query/TanStack Query for server state management
@@ -275,7 +275,7 @@ import type { User } from '@/types'
 ## AI Memory Rule
 
 **Description:** This rule defines how the AI agent should manage and utilize memory to improve coding consistency.
-**Globs:** *
+**Globs:** \*
 **Always Apply:** false
 
 ### Purpose
@@ -308,11 +308,11 @@ Before proposing solutions, code changes, or answering questions, the AI should 
 2. Check `learned-memories.mdc` for existing Tailwind version information.
 3. Propose adding or updating an entry in `learned-memories.mdc`:
 
-   ```markdown
-   ## Technical Decisions
-   
-   - **CSS Framework:** Tailwind v4 is used. Ensure usage aligns with v4 documentation and practices, noting differences from v3.
-   ```
+    ```markdown
+    ## Technical Decisions
+
+    - **CSS Framework:** Tailwind v4 is used. Ensure usage aligns with v4 documentation and practices, noting differences from v3.
+    ```
 
 4. In subsequent interactions involving Tailwind, the AI will refer to this entry and consult v4 documentation if necessary.
 
@@ -343,5 +343,5 @@ This file stores project-specific knowledge, conventions, and user preferences l
 
 ---
 
-*Last updated: [Current Date]*
-*Version: 1.0.0*
+_Last updated: [Current Date]_
+_Version: 1.0.0_
