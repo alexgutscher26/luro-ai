@@ -26,6 +26,14 @@ model User {
   name         String?
   avatar       String?
   apiKeys      ApiKey[]
+  
+  // Onboarding fields
+  onboardingCompleted   Boolean   @default(false)
+  onboardingCompletedAt DateTime?
+  onboardingSkipped     Boolean   @default(false)
+  onboardingSkippedAt   DateTime?
+  userPreferences       Json?     @default("{}")
+  completedSteps        String[]  @default([])
 
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt

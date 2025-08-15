@@ -76,7 +76,7 @@
 ### User Experience
 
 - [ ] **Add push notifications** system
-- [ ] **Create user onboarding** flow
+- [x] **Create user onboarding** flow
 - [ ] **Add user preferences** management
 - [x] **Implement dark/light theme** toggle (already has next-themes)
 

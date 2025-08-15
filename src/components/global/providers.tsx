@@ -5,6 +5,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import GlobalErrorBoundary from "./global-error-boundary";
+import { OnboardingProvider } from "@/hooks/use-onboarding";
 
 interface Props {
     children: React.ReactNode;
@@ -25,7 +26,11 @@ const Providers = ({ children }: Props) => {
     return (
         <GlobalErrorBoundary>
             <QueryClientProvider client={queryClient}>
-                <ClerkProvider>{children}</ClerkProvider>
+                <ClerkProvider>
+                    <OnboardingProvider>
+                        {children}
+                    </OnboardingProvider>
+                </ClerkProvider>
                 {process.env.NODE_ENV === "development" && (
                     <ReactQueryDevtools initialIsOpen={false} />
                 )}
