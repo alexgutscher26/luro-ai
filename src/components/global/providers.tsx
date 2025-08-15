@@ -22,6 +22,9 @@ const queryClient = new QueryClient({
     },
 });
 
+/**
+ * Wraps children with global error boundary, query client provider, clerk provider, and onboarding provider.
+ */
 const Providers = ({ children }: Props) => {
     return (
         <GlobalErrorBoundary>
