@@ -46,3 +46,7 @@ export {
     ErrorBoundary,
     GlobalErrorBoundary,
 };
+
+// Analytics
+export { UmamiAnalytics, useUmamiTracking, UmamiUtils } from './global/umami-analytics';
+export { PrivacyNotice } from './global/privacy-notice';

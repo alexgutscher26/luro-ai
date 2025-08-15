@@ -48,6 +48,13 @@ const clientSchema = z.object({
     // Email Automation (Loops.so)
     NEXT_PUBLIC_LOOPS_FORM_ID: z.string().optional(),
 
+    // Analytics (Umami)
+    NEXT_PUBLIC_UMAMI_WEBSITE_ID: z.string().optional(),
+    NEXT_PUBLIC_UMAMI_URL: z.string().url().optional(),
+    NEXT_PUBLIC_UMAMI_DOMAINS: z.string().optional(), // Comma-separated list of allowed domains
+    NEXT_PUBLIC_UMAMI_HONOR_DNT: z.string().default("true"), // Honor Do Not Track
+    NEXT_PUBLIC_UMAMI_CACHE: z.string().default("false"), // Disable cache for privacy
+
     // SEO Verification (Optional)
     NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION: z.string().optional(),
     NEXT_PUBLIC_YANDEX_VERIFICATION: z.string().optional(),
