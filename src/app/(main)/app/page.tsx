@@ -21,7 +21,7 @@ import {
     ChartTooltipContent,
 } from "@/components/ui/chart";
 import { Container } from "@/components";
-import { OnboardingTrigger } from '@/components/onboarding';
+import { OnboardingTrigger } from "@/components/onboarding";
 
 const chartConfig = {
     reach: {
@@ -39,10 +39,10 @@ export default function DashboardPage() {
         <div className="flex-1 space-y-4 p-8 pt-6">
             {/* Onboarding trigger - will auto-start for new users */}
             <OnboardingTrigger autoStart={true} />
-            
+
             <div className="flex items-center justify-between space-y-2">
                 <h2 className="text-3xl font-bold tracking-tight">Dashboard</h2>
-                
+
                 {/* Optional: Manual onboarding trigger button */}
                 <OnboardingTrigger autoStart={false}>
                     <Button variant="outline" size="sm">

@@ -18,37 +18,39 @@ import { useOnboarding } from "@/hooks/use-onboarding";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import confetti from "canvas-confetti";
-import { useUser } from '@clerk/nextjs';
+import { useUser } from "@clerk/nextjs";
 
 const NEXT_STEPS = [
     {
         icon: RocketIcon,
         title: "Create Your First Post",
-        description: "Use our AI-powered content creator to make your first post",
+        description:
+            "Use our AI-powered content creator to make your first post",
         action: "Create Post",
-        href: "/app/"
+        href: "/app/",
     },
     {
         icon: BarChart3Icon,
         title: "Explore Analytics",
         description: "See how your content performs with detailed insights",
         action: "View Analytics",
-        href: "/app/analytics"
+        href: "/app/analytics",
     },
     {
         icon: CalendarIcon,
         title: "Schedule Content",
         description: "Plan your content calendar for the week ahead",
         action: "Open Calendar",
-        href: "/app/calendar"
+        href: "/app/calendar",
     },
     {
         icon: UsersIcon,
         title: "Invite Your Team",
-        description: "Collaborate with team members on your social media strategy",
+        description:
+            "Collaborate with team members on your social media strategy",
         action: "Invite Team",
-        href: "/app/team"
-    }
+        href: "/app/team",
+    },
 ];
 
 const CompletionScreen: React.FC = () => {
@@ -56,12 +58,16 @@ const CompletionScreen: React.FC = () => {
     const router = useRouter();
     const { user, isLoaded } = useUser();
     const [showConfetti, setShowConfetti] = useState(false);
-    
+
     // Add this useEffect to check user state
     useEffect(() => {
-        console.log('User state:', { user: !!user, isLoaded, userId: user?.id });
+        console.log("User state:", {
+            user: !!user,
+            isLoaded,
+            userId: user?.id,
+        });
     }, [user, isLoaded]);
-    
+
     useEffect(() => {
         // Trigger confetti animation
         const timer = setTimeout(() => {
@@ -69,24 +75,24 @@ const CompletionScreen: React.FC = () => {
             confetti({
                 particleCount: 100,
                 spread: 70,
-                origin: { y: 0.6 }
+                origin: { y: 0.6 },
             });
         }, 500);
-        
+
         return () => clearTimeout(timer);
     }, []);
-    
+
     const handleGetStarted = () => {
         completeOnboarding();
         toast.success("Welcome to Luro AI! 🎉");
         router.push("/app");
     };
-    
+
     const handleQuickAction = (href: string) => {
         completeOnboarding();
         router.push(href);
     };
-    
+
     return (
         <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-green-50 via-white to-blue-50 dark:from-gray-900 dark:via-gray-800 dark:to-gray-900 p-6">
             <motion.div
@@ -101,7 +107,11 @@ const CompletionScreen: React.FC = () => {
                         <motion.div
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
-                            transition={{ delay: 0.2, type: "spring", stiffness: 200 }}
+                            transition={{
+                                delay: 0.2,
+                                type: "spring",
+                                stiffness: 200,
+                            }}
                             className="mb-8"
                         >
                             <div className="relative">
@@ -119,13 +129,13 @@ const CompletionScreen: React.FC = () => {
                                     </motion.div>
                                 )}
                             </div>
-                            
+
                             <Badge variant="secondary" className="mb-4">
                                 <SparklesIcon className="w-3 h-3 mr-1" />
                                 Setup Complete!
                             </Badge>
                         </motion.div>
-                        
+
                         {/* Congratulations Message */}
                         <motion.div
                             initial={{ y: 20, opacity: 0 }}
@@ -137,22 +147,34 @@ const CompletionScreen: React.FC = () => {
                                 🎉 You're All Set!
                             </h1>
                             <p className="text-xl text-gray-600 dark:text-gray-300 leading-relaxed mb-6">
-                                Welcome to Luro AI! Your personalized social media management experience is ready.
+                                Welcome to Luro AI! Your personalized social
+                                media management experience is ready.
                             </p>
-                            
+
                             {/* Personalized Summary */}
                             {userPreferences.industry && (
                                 <div className="bg-blue-50 dark:bg-blue-900/20 rounded-lg p-4 mb-6">
                                     <p className="text-blue-800 dark:text-blue-200">
-                                        We've customized your dashboard for the <strong>{userPreferences.industry}</strong> industry
+                                        We've customized your dashboard for the{" "}
+                                        <strong>
+                                            {userPreferences.industry}
+                                        </strong>{" "}
+                                        industry
                                         {userPreferences.teamSize && (
-                                            <> with a team size of <strong>{userPreferences.teamSize}</strong></>
-                                        )}.
+                                            <>
+                                                {" "}
+                                                with a team size of{" "}
+                                                <strong>
+                                                    {userPreferences.teamSize}
+                                                </strong>
+                                            </>
+                                        )}
+                                        .
                                     </p>
                                 </div>
                             )}
                         </motion.div>
-                        
+
                         {/* Quick Actions */}
                         <motion.div
                             initial={{ y: 20, opacity: 0 }}
@@ -163,15 +185,19 @@ const CompletionScreen: React.FC = () => {
                             <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">
                                 What would you like to do first?
                             </h3>
-                            
+
                             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                                 {NEXT_STEPS.map((step, index) => (
                                     <motion.button
                                         key={step.title}
-                                        onClick={() => handleQuickAction(step.href)}
+                                        onClick={() =>
+                                            handleQuickAction(step.href)
+                                        }
                                         initial={{ y: 20, opacity: 0 }}
                                         animate={{ y: 0, opacity: 1 }}
-                                        transition={{ delay: 0.8 + index * 0.1 }}
+                                        transition={{
+                                            delay: 0.8 + index * 0.1,
+                                        }}
                                         whileHover={{ scale: 1.02 }}
                                         whileTap={{ scale: 0.98 }}
                                         className="p-6 rounded-xl border-2 border-gray-200 dark:border-gray-700 hover:border-blue-300 dark:hover:border-blue-600 transition-all duration-200 text-left group"
@@ -197,7 +223,7 @@ const CompletionScreen: React.FC = () => {
                                 ))}
                             </div>
                         </motion.div>
-                        
+
                         {/* Main CTA */}
                         <motion.div
                             initial={{ y: 20, opacity: 0 }}
@@ -212,9 +238,10 @@ const CompletionScreen: React.FC = () => {
                                 Go to Dashboard
                                 <ArrowRightIcon className="w-5 h-5 ml-2" />
                             </Button>
-                            
+
                             <p className="text-sm text-gray-500 dark:text-gray-400 mt-4">
-                                You can always access these features from your dashboard
+                                You can always access these features from your
+                                dashboard
                             </p>
                         </motion.div>
                     </CardContent>

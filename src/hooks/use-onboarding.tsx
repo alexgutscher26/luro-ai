@@ -1,6 +1,12 @@
 "use client";
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
+import React, {
+    createContext,
+    useContext,
+    useState,
+    useEffect,
+    ReactNode,
+} from "react";
 import { useUser } from "@clerk/nextjs";
 import { useLocalStorage } from "./use-local-storage";
 
@@ -8,7 +14,7 @@ import { useLocalStorage } from "./use-local-storage";
 declare global {
     interface Window {
         gtag?: (
-            command: 'event',
+            command: "event",
             eventName: string,
             parameters?: {
                 event_category?: string;
@@ -37,7 +43,7 @@ export interface UserPreferences {
         push: boolean;
         marketing: boolean;
     };
-    theme?: 'light' | 'dark' | 'system';
+    theme?: "light" | "dark" | "system";
 }
 
 interface OnboardingContextType {
@@ -49,7 +55,7 @@ interface OnboardingContextType {
     isCompleted: boolean;
     canSkip: boolean;
     shouldShowOnboarding: boolean;
-    
+
     // Actions
     startOnboarding: () => void;
     nextStep: () => void;
@@ -62,75 +68,87 @@ interface OnboardingContextType {
     resetOnboarding: () => void;
 }
 
-const OnboardingContext = createContext<OnboardingContextType | undefined>(undefined);
+const OnboardingContext = createContext<OnboardingContextType | undefined>(
+    undefined
+);
 
-const ONBOARDING_STEPS: Omit<OnboardingStep, 'isCompleted'>[] = [
+const ONBOARDING_STEPS: Omit<OnboardingStep, "isCompleted">[] = [
     {
-        id: 'welcome',
-        title: 'Welcome to Luro AI',
-        description: 'Get started with the most powerful social media management platform',
+        id: "welcome",
+        title: "Welcome to Luro AI",
+        description:
+            "Get started with the most powerful social media management platform",
         component: () => null, // Will be replaced with actual components
     },
     {
-        id: 'features',
-        title: 'Discover Key Features',
-        description: 'Learn about the tools that will transform your social media strategy',
+        id: "features",
+        title: "Discover Key Features",
+        description:
+            "Learn about the tools that will transform your social media strategy",
         component: () => null,
     },
     {
-        id: 'setup',
-        title: 'Personalize Your Experience',
-        description: 'Tell us about your business to customize your dashboard',
+        id: "setup",
+        title: "Personalize Your Experience",
+        description: "Tell us about your business to customize your dashboard",
         component: () => null,
     },
     {
-        id: 'completion',
-        title: 'You\'re All Set!',
-        description: 'Start creating amazing content with Luro AI',
+        id: "completion",
+        title: "You're All Set!",
+        description: "Start creating amazing content with Luro AI",
         component: () => null,
     },
 ];
 
-export const OnboardingProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
+export const OnboardingProvider: React.FC<{ children: ReactNode }> = ({
+    children,
+}) => {
     const { user, isLoaded } = useUser();
-    const { value: onboardingState, setValue: setOnboardingState } = useLocalStorage({
-        key: 'luro-onboarding-state',
-        defaultValue: {
-            isCompleted: false,
-            completedSteps: [] as string[],
-            userPreferences: {} as UserPreferences,
-            hasSkipped: false,
-        }
-    });
-    
+    const { value: onboardingState, setValue: setOnboardingState } =
+        useLocalStorage({
+            key: "luro-onboarding-state",
+            defaultValue: {
+                isCompleted: false,
+                completedSteps: [] as string[],
+                userPreferences: {} as UserPreferences,
+                hasSkipped: false,
+            },
+        });
+
     const [isOnboardingActive, setIsOnboardingActive] = useState(false);
     const [currentStepIndex, setCurrentStepIndex] = useState(0);
-    const [userPreferences, setUserPreferences] = useState<UserPreferences>(onboardingState.userPreferences);
-    
+    const [userPreferences, setUserPreferences] = useState<UserPreferences>(
+        onboardingState.userPreferences
+    );
+
     // Initialize steps with completion status
     const steps: OnboardingStep[] = ONBOARDING_STEPS.map(step => ({
         ...step,
         isCompleted: onboardingState.completedSteps.includes(step.id),
     }));
-    
+
     const isCompleted = onboardingState.isCompleted;
     const canSkip = currentStepIndex > 0; // Allow skipping after welcome screen
-    
+
     // Compute shouldShowOnboarding based on user state and onboarding completion
     const shouldShowOnboarding = Boolean(
-        isLoaded && user && !isCompleted && !onboardingState.hasSkipped && (
+        isLoaded &&
+            user &&
+            !isCompleted &&
+            !onboardingState.hasSkipped &&
             user.publicMetadata?.onboardingCompleted !== true
-        )
     );
-    
+
     // Check if user should see onboarding
     useEffect(() => {
         if (shouldShowOnboarding) {
             // Check if this is a new user (created within last 24 hours)
             const userCreatedAt = new Date(user?.createdAt || new Date());
             const now = new Date();
-            const hoursSinceCreation = (now.getTime() - userCreatedAt.getTime()) / (1000 * 60 * 60);
-            
+            const hoursSinceCreation =
+                (now.getTime() - userCreatedAt.getTime()) / (1000 * 60 * 60);
+
             if (hoursSinceCreation <= 24) {
                 setIsOnboardingActive(true);
             }
@@ -141,7 +159,7 @@ export const OnboardingProvider: React.FC<{ children: ReactNode }> = ({ children
         setIsOnboardingActive(true);
         setCurrentStepIndex(0);
     };
-    
+
     const nextStep = () => {
         if (currentStepIndex < steps.length - 1) {
             setCurrentStepIndex(prev => prev + 1);
@@ -149,40 +167,42 @@ export const OnboardingProvider: React.FC<{ children: ReactNode }> = ({ children
             completeOnboarding();
         }
     };
-    
+
     const previousStep = () => {
         if (currentStepIndex > 0) {
             setCurrentStepIndex(prev => prev - 1);
         }
     };
-    
+
     const goToStep = (stepIndex: number) => {
         if (stepIndex >= 0 && stepIndex < steps.length) {
             setCurrentStepIndex(stepIndex);
         }
     };
-    
+
     const completeStep = (stepId: string) => {
         setOnboardingState(prev => ({
             ...prev,
-            completedSteps: Array.from(new Set([...prev.completedSteps, stepId])),
+            completedSteps: Array.from(
+                new Set([...prev.completedSteps, stepId])
+            ),
         }));
     };
-    
+
     const skipOnboarding = async () => {
         try {
             // Call API to save skip status to database
-            const response = await fetch('/api/onboarding/skip', {
-                method: 'POST',
+            const response = await fetch("/api/onboarding/skip", {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
             });
-    
+
             if (!response.ok) {
-                throw new Error('Failed to save onboarding skip status');
+                throw new Error("Failed to save onboarding skip status");
             }
-    
+
             // Update local state
             setOnboardingState(prev => ({
                 ...prev,
@@ -190,7 +210,7 @@ export const OnboardingProvider: React.FC<{ children: ReactNode }> = ({ children
             }));
             setIsOnboardingActive(false);
         } catch (error) {
-            console.error('Error skipping onboarding:', error);
+            console.error("Error skipping onboarding:", error);
             // Still update local state as fallback
             setOnboardingState(prev => ({
                 ...prev,
@@ -199,25 +219,25 @@ export const OnboardingProvider: React.FC<{ children: ReactNode }> = ({ children
             setIsOnboardingActive(false);
         }
     };
-    
+
     const completeOnboarding = async () => {
         try {
             // Call API to save to database
-            const response = await fetch('/api/onboarding/complete', {
-                method: 'POST',
+            const response = await fetch("/api/onboarding/complete", {
+                method: "POST",
                 headers: {
-                    'Content-Type': 'application/json',
+                    "Content-Type": "application/json",
                 },
                 body: JSON.stringify({
                     preferences: userPreferences,
                     completedSteps: onboardingState.completedSteps,
                 }),
             });
-    
+
             if (!response.ok) {
-                throw new Error('Failed to save onboarding status');
+                throw new Error("Failed to save onboarding status");
             }
-    
+
             // Update local state
             setOnboardingState(prev => ({
                 ...prev,
@@ -225,16 +245,16 @@ export const OnboardingProvider: React.FC<{ children: ReactNode }> = ({ children
                 userPreferences,
             }));
             setIsOnboardingActive(false);
-            
+
             // Track completion event
-            if (typeof window !== 'undefined' && window.gtag) {
-                window.gtag('event', 'onboarding_completed', {
-                    event_category: 'engagement',
-                    event_label: 'user_onboarding',
+            if (typeof window !== "undefined" && window.gtag) {
+                window.gtag("event", "onboarding_completed", {
+                    event_category: "engagement",
+                    event_label: "user_onboarding",
                 });
             }
         } catch (error) {
-            console.error('Error completing onboarding:', error);
+            console.error("Error completing onboarding:", error);
             // Still update local state as fallback
             setOnboardingState(prev => ({
                 ...prev,
@@ -244,7 +264,7 @@ export const OnboardingProvider: React.FC<{ children: ReactNode }> = ({ children
             setIsOnboardingActive(false);
         }
     };
-    
+
     const updateUserPreferences = (preferences: Partial<UserPreferences>) => {
         const updatedPreferences = { ...userPreferences, ...preferences };
         setUserPreferences(updatedPreferences);
@@ -253,7 +273,7 @@ export const OnboardingProvider: React.FC<{ children: ReactNode }> = ({ children
             userPreferences: updatedPreferences,
         }));
     };
-    
+
     const resetOnboarding = () => {
         setOnboardingState({
             isCompleted: false,
@@ -265,7 +285,7 @@ export const OnboardingProvider: React.FC<{ children: ReactNode }> = ({ children
         setUserPreferences({});
         setIsOnboardingActive(true);
     };
-    
+
     const value: OnboardingContextType = {
         isOnboardingActive,
         currentStepIndex,
@@ -284,7 +304,7 @@ export const OnboardingProvider: React.FC<{ children: ReactNode }> = ({ children
         updateUserPreferences,
         resetOnboarding,
     };
-    
+
     return (
         <OnboardingContext.Provider value={value}>
             {children}
@@ -295,7 +315,9 @@ export const OnboardingProvider: React.FC<{ children: ReactNode }> = ({ children
 export const useOnboarding = (): OnboardingContextType => {
     const context = useContext(OnboardingContext);
     if (context === undefined) {
-        throw new Error('useOnboarding must be used within an OnboardingProvider');
+        throw new Error(
+            "useOnboarding must be used within an OnboardingProvider"
+        );
     }
     return context;
 };
