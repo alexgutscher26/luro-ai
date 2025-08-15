@@ -96,10 +96,7 @@ async function handler(request: NextRequest, validatedData: any) {
 
 // Apply security and validation middleware
 const securedHandler = withSecurity({ rateLimit: "api", csrf: true });
-const validatedHandler = withValidation(
-    { body: CreateApiKeySchema },
-    handler
-);
+const validatedHandler = withValidation({ body: CreateApiKeySchema }, handler);
 
 export const GET = securedHandler(async (req: NextRequest) => {
     return handler(req, {});

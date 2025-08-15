@@ -62,11 +62,17 @@ async function handler(
             where: { id },
             data: {
                 ...(updateData.name && { name: updateData.name }),
-                ...(typeof updateData.isActive === "boolean" && { isActive: updateData.isActive }),
-                ...(updateData.expiresAt !== undefined && {
-                    expiresAt: updateData.expiresAt ? new Date(updateData.expiresAt) : null,
+                ...(typeof updateData.isActive === "boolean" && {
+                    isActive: updateData.isActive,
                 }),
-                ...(updateData.permissions && { permissions: updateData.permissions }),
+                ...(updateData.expiresAt !== undefined && {
+                    expiresAt: updateData.expiresAt
+                        ? new Date(updateData.expiresAt)
+                        : null,
+                }),
+                ...(updateData.permissions && {
+                    permissions: updateData.permissions,
+                }),
             },
         });
 
@@ -109,19 +115,18 @@ export async function PUT(
         { body: UpdateApiKeySchema, params: ApiKeyParamsSchema },
         handler
     );
-    
+
     return securedHandler(validatedHandler)(request);
 }
 
 /**
  * Deletes a resource securely by validating and handling the request.
  */
-export async function DELETE(
-    request: NextRequest) {
+export async function DELETE(request: NextRequest) {
     const validatedHandler = withValidation(
         { params: ApiKeyParamsSchema },
         handler
     );
-    
+
     return securedHandler(validatedHandler)(request);
 }
