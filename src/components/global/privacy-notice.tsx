@@ -17,6 +17,14 @@ interface PrivacyNoticeProps {
   privacyPolicyUrl?: string;
 }
 
+/**
+ * Manages the display of a privacy notice component based on user consent and configuration settings.
+ *
+ * The function initializes a state to control the visibility of the notice and uses an effect to determine
+ * whether the notice should be shown. It checks if analytics consent is stored in localStorage or if the
+ * user has opted out through UmamiUtils. If neither condition is met, the notice is displayed. Users can
+ * accept or decline the notice, which updates their consent status and hides the notice.
+ */
 export function PrivacyNotice({ 
   enabled = true, 
   privacyPolicyUrl = '/privacy' 
@@ -35,12 +43,18 @@ export function PrivacyNotice({
     }
   }, [enabled]);
 
+  /**
+   * Sets analytics consent to true, opts in with Umami, and hides the notice.
+   */
   const handleAccept = () => {
     localStorage.setItem('analytics-consent', 'true');
     UmamiUtils.optIn();
     setShowNotice(false);
   };
 
+  /**
+   * Handles the user's decline of analytics consent by setting localStorage and opting out of analytics.
+   */
   const handleDecline = () => {
     localStorage.setItem('analytics-consent', 'false');
     UmamiUtils.optOut();
