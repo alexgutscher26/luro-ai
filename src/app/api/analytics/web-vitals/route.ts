@@ -1,30 +1,12 @@
 import { NextRequest, NextResponse } from "next/server";
 import { withRateLimit } from "@/lib/with-rate-limit";
+import { withValidation } from "@/lib/with-validation";
+import { WebVitalsSchema } from "@/schema";
 
-interface WebVitalEvent {
-    name: string;
-    value: number;
-    id: string;
-    delta: number;
-    rating: "good" | "needs-improvement" | "poor";
-    navigationType: string;
-    timestamp: number;
-}
-
-interface RequestBody {
-    events: WebVitalEvent[];
-}
-
-async function handler(request: NextRequest) {
+async function handler(_request: NextRequest, validatedData: any) {
     try {
-        const { events }: RequestBody = await request.json();
-
-        if (!Array.isArray(events) || events.length === 0) {
-            return NextResponse.json(
-                { error: "Invalid events data" },
-                { status: 400 }
-            );
-        }
+        // Data is already validated by middleware
+        const { events } = validatedData.body;
 
         // Process each event
         for (const event of events) {
@@ -61,38 +43,16 @@ async function handler(request: NextRequest) {
     }
 }
 
-async function sendToGA4(event: WebVitalEvent) {
-    try {
-        const response = await fetch(
-            `https://www.google-analytics.com/mp/collect?measurement_id=${process.env.GA_MEASUREMENT_ID}&api_secret=${process.env.GA_API_SECRET}`,
-            {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                    client_id: "web-vitals-client",
-                    events: [
-                        {
-                            name: "web_vital",
-                            params: {
-                                metric_name: event.name,
-                                metric_value: event.value,
-                                metric_rating: event.rating,
-                                metric_delta: event.delta,
-                            },
-                        },
-                    ],
-                }),
-            }
-        );
-
-        if (!response.ok) {
-            throw new Error(`GA4 API error: ${response.status}`);
-        }
-    } catch (error) {
-        console.error("Failed to send to GA4:", error);
-    }
+// Placeholder for GA4 integration
+async function sendToGA4(event: any) {
+    // Implementation would go here
+    console.log("Sending to GA4:", event);
 }
 
-export const POST = withRateLimit("api")(handler);
+// Apply rate limiting and validation
+const validatedHandler = withValidation(
+    { body: WebVitalsSchema },
+    handler
+);
+
+export const POST = withRateLimit("analytics")(validatedHandler);

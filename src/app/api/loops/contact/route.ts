@@ -1,13 +1,15 @@
 import { NextRequest, NextResponse } from "next/server";
 import { LoopsClient } from "loops";
 import { withSecurity } from "@/lib/with-security";
+import { withValidation } from "@/lib/with-validation";
+import { LoopsContactSchema } from "@/schema";
 
 const loops = new LoopsClient(process.env.LOOPS_API_KEY!);
 
-async function handler(request: NextRequest) {
+async function handler(_request: NextRequest, validatedData: any) {
     try {
-        const { email, firstName, lastName, userGroup, source } =
-            await request.json();
+        // Data is already validated by middleware
+        const { email, firstName, lastName, userGroup, source } = validatedData.body;
 
         // Create or update contact in Loops
         const contactProperties = {
@@ -45,8 +47,7 @@ async function handler(request: NextRequest) {
     }
 }
 
-// Apply both CSRF protection and rate limiting
-// Apply security with custom CORS for this specific endpoint
+// Apply security and validation middleware with proper configuration
 export const POST = withSecurity({
     rateLimit: "contact",
     csrf: true,
@@ -55,7 +56,10 @@ export const POST = withSecurity({
         methods: ["POST"],
         credentials: true,
     },
-})(handler);
+})(withValidation(
+    { body: LoopsContactSchema },
+    handler
+));
 
 // Also handle OPTIONS for preflight
 export const OPTIONS = withSecurity({

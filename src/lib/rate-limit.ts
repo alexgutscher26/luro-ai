@@ -37,6 +37,13 @@ export const rateLimiters = {
         limiter: Ratelimit.slidingWindow(3, "1 m"),
         analytics: true,
     }),
+    
+    // Web vitals analytics: 100 requests per minute
+    analytics: new Ratelimit({
+        redis,
+        limiter: Ratelimit.slidingWindow(100, "1 m"),
+        analytics: true,
+    }),
 };
 
 // Get client identifier for rate limiting
