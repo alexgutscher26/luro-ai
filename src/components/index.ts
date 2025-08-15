@@ -21,7 +21,7 @@ import Reviews from "./marketing/reviews";
 import CTA from "./marketing/cta";
 import Footer from "./marketing/footer";
 import { NewsletterSignup } from "./marketing/newsletter-signup";
-export * from './onboarding';
+export * from "./onboarding";
 
 export {
     Icons,
@@ -48,5 +48,9 @@ export {
 };
 
 // Analytics
-export { UmamiAnalytics, useUmamiTracking, UmamiUtils } from './global/umami-analytics';
-export { PrivacyNotice } from './global/privacy-notice';
+export {
+    UmamiAnalytics,
+    useUmamiTracking,
+    UmamiUtils,
+} from "./global/umami-analytics";
+export { PrivacyNotice } from "./global/privacy-notice";
