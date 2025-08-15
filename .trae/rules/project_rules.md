@@ -234,6 +234,113 @@ import type { User } from '@/types'
 - Use TypeScript-first libraries when possible
 - Consider alternatives before adding new dependencies
 
+## Next.js App Router Guidelines
+
+### File Structure
+
+- Use the App Router structure with `page.tsx` files in route directories
+- Use kebab-case for directory names (e.g., `components/auth-form`) and PascalCase for component files
+- Use default exports for pages and layouts, named exports for reusable components
+- Organize components by feature/domain in the `src/components/` directory
+
+### Client vs Server Components
+
+- Client components must be explicitly marked with `'use client'` at the top of the file
+- Minimize `'use client'` directives:
+  - Keep most components as React Server Components (RSC) by default
+  - Only use client components when you need interactivity (forms, event handlers, browser APIs)
+  - Wrap client components in `Suspense` with appropriate fallback UI
+  - Create small client component wrappers around interactive elements rather than making entire pages client-side
+
+### State Management
+
+- Avoid unnecessary `useState` and `useEffect` when possible:
+  - Use server components for data fetching and static content
+  - Use React Server Actions for form handling and mutations
+  - Use URL search params for shareable state (filters, pagination, etc.)
+- Use `nuqs` for URL search param state management
+- Use Clerk hooks for authentication state
+- Use React Query/TanStack Query for server state management
+
+### API Routes
+
+- Follow the established pattern of using security middleware (`withSecurity`, `withApiKey`, `withRateLimit`)
+- Use proper HTTP methods (GET, POST, PUT, DELETE) with corresponding exports
+- Implement CSRF protection for state-changing operations
+- Use Zod schemas for request validation
+- Apply rate limiting to prevent abuse
+
+---
+
+## AI Memory Rule
+
+**Description:** This rule defines how the AI agent should manage and utilize memory to improve coding consistency.
+**Globs:** *
+**Always Apply:** false
+
+### Purpose
+
+The AI's memory helps maintain consistency and adapt to specific project needs or user preferences discovered during interactions. It prevents the AI from repeatedly asking for the same information or making suggestions contrary to established patterns.
+
+### Storage
+
+All learned project-specific knowledge and preferences should be stored and referenced in the `learned-memories.mdc` file located in `.trae/rules`.
+
+### Updating Memory
+
+When new information relevant to the project's conventions, user preferences, or specific technical details is learned (either explicitly told by the user or inferred through conversation), the AI should:
+
+1. **Identify Key Information:** Determine the core piece of knowledge to be stored.
+2. **Check Existing Memory:** Review `learned-memories.mdc` to see if this information contradicts or updates existing entries.
+3. **Propose Update:** Suggest an edit to `learned-memories.mdc` to add or modify the relevant information. Keep entries concise and clear.
+
+### Using Memory
+
+Before proposing solutions, code changes, or answering questions, the AI should consult `learned-memories.mdc` to ensure its response aligns with the recorded knowledge and preferences.
+
+### Example Scenario
+
+**User:** "We've decided to use Tailwind v4 for this project, not v3."
+
+**AI Action:**
+
+1. Recognize this as a project-specific technical decision.
+2. Check `learned-memories.mdc` for existing Tailwind version information.
+3. Propose adding or updating an entry in `learned-memories.mdc`:
+
+   ```markdown
+   ## Technical Decisions
+   
+   - **CSS Framework:** Tailwind v4 is used. Ensure usage aligns with v4 documentation and practices, noting differences from v3.
+   ```
+
+4. In subsequent interactions involving Tailwind, the AI will refer to this entry and consult v4 documentation if necessary.
+
+### Memory File (`.trae/rules/learned-memories.mdc`)
+
+The basic structure:
+
+```markdown
+# Project Memory
+
+This file stores project-specific knowledge, conventions, and user preferences learned by the AI assistant.
+
+## User Preferences
+
+- [Preference 1]
+- [Preference 2]
+
+## Technical Decisions
+
+- [Decision 1]
+- [Decision 2]
+
+## Project Conventions
+
+- [Convention 1]
+- [Convention 2]
+```
+
 ---
 
 *Last updated: [Current Date]*
