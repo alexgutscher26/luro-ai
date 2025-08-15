@@ -2,6 +2,14 @@ import { NextResponse } from 'next/server';
 import { auth } from '@clerk/nextjs/server';
 import { db } from '@/lib/prisma';
 
+/**
+ * Handles POST requests to update user onboarding status.
+ *
+ * This function retrieves the authenticated user's ID, checks if it exists,
+ * and updates the user's onboarding status in the database. If the user is unauthorized,
+ * it returns a 401 error response. In case of any database operation failure or internal
+ * server error, it logs the error and returns a 500 error response.
+ */
 export async function POST() {
   try {
     const { userId } = auth();
