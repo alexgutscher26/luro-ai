@@ -7,6 +7,16 @@ import { UpdateApiKeySchema, ApiKeyParamsSchema } from "@/schema";
 
 /**
  * Handles API key operations based on the request method.
+ *
+ * This function first authenticates the user and retrieves their database record.
+ * It then checks if the specified API key exists for the user.
+ * Depending on the HTTP method (PUT or DELETE), it either updates or deletes the API key,
+ * respectively. If the method is not supported, it returns a "Method not allowed" error.
+ *
+ * @param request - The NextRequest object containing the HTTP method and body.
+ * @param validatedData - An object containing validated request data, including params and body.
+ * @param _context - An object with route parameters, currently unused.
+ * @returns A JSON response indicating success or an error message with a corresponding status code.
  */
 async function handler(
     request: NextRequest,
@@ -52,11 +62,17 @@ async function handler(
             where: { id },
             data: {
                 ...(updateData.name && { name: updateData.name }),
-                ...(typeof updateData.isActive === "boolean" && { isActive: updateData.isActive }),
-                ...(updateData.expiresAt !== undefined && {
-                    expiresAt: updateData.expiresAt ? new Date(updateData.expiresAt) : null,
+                ...(typeof updateData.isActive === "boolean" && {
+                    isActive: updateData.isActive,
                 }),
-                ...(updateData.permissions && { permissions: updateData.permissions }),
+                ...(updateData.expiresAt !== undefined && {
+                    expiresAt: updateData.expiresAt
+                        ? new Date(updateData.expiresAt)
+                        : null,
+                }),
+                ...(updateData.permissions && {
+                    permissions: updateData.permissions,
+                }),
             },
         });
 
@@ -89,7 +105,7 @@ async function handler(
 const securedHandler = withSecurity({ rateLimit: "api", csrf: true });
 
 /**
- * Handles a PUT request with security checks and validation.
+ * Handles a PUT request with validation and security checks.
  */
 export async function PUT(
     request: NextRequest,
@@ -99,19 +115,18 @@ export async function PUT(
         { body: UpdateApiKeySchema, params: ApiKeyParamsSchema },
         handler
     );
-    
+
     return securedHandler(validatedHandler)(request);
 }
 
 /**
- * Deletes a resource by handling the request securely.
+ * Deletes a resource securely by validating and handling the request.
  */
-export async function DELETE(
-    request: NextRequest) {
+export async function DELETE(request: NextRequest) {
     const validatedHandler = withValidation(
         { params: ApiKeyParamsSchema },
         handler
     );
-    
+
     return securedHandler(validatedHandler)(request);
 }

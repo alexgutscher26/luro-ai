@@ -3,6 +3,14 @@ import { withRateLimit } from "@/lib/with-rate-limit";
 import { withValidation } from "@/lib/with-validation";
 import { WebVitalsSchema } from "@/schema";
 
+/**
+ * Handles incoming web vital events, processes them, and logs or sends them to analytics services.
+ *
+ * This function is responsible for iterating over an array of validated web vital events,
+ * logging them in development mode, and optionally sending them to Google Analytics 4 if configured.
+ * In a production environment, additional steps such as storing the data in a database or
+ * sending it to monitoring services would be implemented.
+ */
 async function handler(_request: NextRequest, validatedData: any) {
     try {
         // Data is already validated by middleware
@@ -44,15 +52,15 @@ async function handler(_request: NextRequest, validatedData: any) {
 }
 
 // Placeholder for GA4 integration
+/**
+ * Sends an event to Google Analytics 4 (GA4).
+ */
 async function sendToGA4(event: any) {
     // Implementation would go here
     console.log("Sending to GA4:", event);
 }
 
 // Apply rate limiting and validation
-const validatedHandler = withValidation(
-    { body: WebVitalsSchema },
-    handler
-);
+const validatedHandler = withValidation({ body: WebVitalsSchema }, handler);
 
 export const POST = withRateLimit("analytics")(validatedHandler);

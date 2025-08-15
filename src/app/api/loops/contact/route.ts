@@ -6,10 +6,22 @@ import { LoopsContactSchema } from "@/schema";
 
 const loops = new LoopsClient(process.env.LOOPS_API_KEY!);
 
+/**
+ * Handles creation or updating of a contact in Loops based on validated data.
+ *
+ * This function extracts necessary user details from the validated request body,
+ * constructs contact properties, and attempts to create or update the contact
+ * in Loops. It handles specific error cases such as conflicts (HTTP 409) by returning
+ * appropriate JSON responses. Any other errors are treated as server errors.
+ *
+ * @param {NextRequest} _request - The Next.js request object, not used directly.
+ * @param {any} validatedData - The validated data containing user information.
+ */
 async function handler(_request: NextRequest, validatedData: any) {
     try {
         // Data is already validated by middleware
-        const { email, firstName, lastName, userGroup, source } = validatedData.body;
+        const { email, firstName, lastName, userGroup, source } =
+            validatedData.body;
 
         // Create or update contact in Loops
         const contactProperties = {
@@ -56,10 +68,7 @@ export const POST = withSecurity({
         methods: ["POST"],
         credentials: true,
     },
-})(withValidation(
-    { body: LoopsContactSchema },
-    handler
-));
+})(withValidation({ body: LoopsContactSchema }, handler));
 
 // Also handle OPTIONS for preflight
 export const OPTIONS = withSecurity({
