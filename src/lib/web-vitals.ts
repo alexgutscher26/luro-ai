@@ -1,4 +1,5 @@
 import { onCLS, onINP, onFCP, onLCP, onTTFB, Metric } from "web-vitals";
+import { track } from '@vercel/analytics';
 
 interface AnalyticsEvent {
     name: string;
@@ -23,9 +24,6 @@ class WebVitalsReporter {
     }
 
     private setupOnlineListener() {
-        // Check if we're in the browser before accessing window
-        if (typeof window === "undefined") return;
-
         window.addEventListener("online", () => {
             this.isOnline = true;
             this.flushQueue();
@@ -37,13 +35,10 @@ class WebVitalsReporter {
     }
 
     private initializeMetrics() {
-        // Core Web Vitals
         onCLS(this.handleMetric.bind(this));
-        onINP(this.handleMetric.bind(this)); // Changed from getFID to onINP
-        onLCP(this.handleMetric.bind(this));
-
-        // Additional metrics
+        onINP(this.handleMetric.bind(this));
         onFCP(this.handleMetric.bind(this));
+        onLCP(this.handleMetric.bind(this));
         onTTFB(this.handleMetric.bind(this));
     }
 
@@ -59,6 +54,15 @@ class WebVitalsReporter {
         };
 
         this.queue.push(event);
+
+        // Send to Vercel Analytics
+        if (process.env.NODE_ENV === 'production') {
+            track('web_vital', {
+                metric: metric.name,
+                value: metric.value,
+                rating: metric.rating
+            });
+        }
 
         if (this.isOnline) {
             this.flushQueue();
@@ -90,46 +94,17 @@ class WebVitalsReporter {
                 body: JSON.stringify({ events }),
             });
         } catch (error) {
-            console.error("Failed to send Web Vitals data:", error);
-            // Re-queue events for retry
+            console.error("Failed to send web vitals:", error);
+            // Re-queue events on failure
             this.queue.unshift(...events);
-        }
-    }
-
-    // Public method to manually report custom metrics
-    public reportCustomMetric(
-        name: string,
-        value: number,
-        additionalData?: Record<string, any>
-    ) {
-        const event: AnalyticsEvent = {
-            name: `custom.${name}`,
-            value,
-            id: `custom-${Date.now()}-${Math.random()}`,
-            delta: value,
-            rating: "good", // Default rating for custom metrics
-            navigationType: "navigate",
-            timestamp: Date.now(),
-            ...additionalData,
-        };
-
-        this.queue.push(event);
-
-        if (this.isOnline) {
-            this.flushQueue();
         }
     }
 }
 
-// Only instantiate in the browser
-export const webVitalsReporter =
-    typeof window !== "undefined" ? new WebVitalsReporter() : null;
+// Export singleton instance
+export const webVitalsReporter = new WebVitalsReporter();
 
-// Hook for React components
-export const useWebVitals = () => {
-    return {
-        reportCustomMetric:
-            webVitalsReporter?.reportCustomMetric.bind(webVitalsReporter) ||
-            (() => {}),
-    };
+// Export function for manual reporting
+export const reportWebVitals = (metric: Metric) => {
+    webVitalsReporter['handleMetric'](metric);
 };

@@ -7,6 +7,8 @@ import AccessibilityChecker from "@/components/global/accessibility-checker";
 import { PerformanceMonitor } from "@/components/global/performance-monitor";
 import { UmamiAnalytics, PrivacyNotice } from "@/components";
 import { getClientEnv } from "@/lib/env";
+import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = generateMetadata();
 
@@ -47,6 +49,10 @@ export default function RootLayout({
                         />
                     </>
                 )}
+                
+                {/* Vercel Analytics */}
+                <Analytics />
+                <SpeedInsights />
             </body>
         </html>
     );
