@@ -7,8 +7,8 @@ import AccessibilityChecker from "@/components/global/accessibility-checker";
 import { PerformanceMonitor } from "@/components/global/performance-monitor";
 import { UmamiAnalytics, PrivacyNotice } from "@/components";
 import { getClientEnv } from "@/lib/env";
-import { Analytics } from '@vercel/analytics/react';
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 export const metadata = generateMetadata();
 
@@ -18,7 +18,9 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
     const env = getClientEnv();
-    const isAnalyticsEnabled = !!(env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && env.NEXT_PUBLIC_UMAMI_URL);
+    const isAnalyticsEnabled = !!(
+        env.NEXT_PUBLIC_UMAMI_WEBSITE_ID && env.NEXT_PUBLIC_UMAMI_URL
+    );
 
     return (
         <html lang="en" suppressHydrationWarning>
@@ -35,21 +37,21 @@ export default function RootLayout({
                     <AccessibilityChecker />
                 )}
                 <PerformanceMonitor />
-                
+
                 {/* Analytics Integration */}
                 {isAnalyticsEnabled && (
                     <>
-                        <UmamiAnalytics 
+                        <UmamiAnalytics
                             honorDNT={true}
-                            enabled={process.env.NODE_ENV === 'production'}
+                            enabled={process.env.NODE_ENV === "production"}
                         />
-                        <PrivacyNotice 
-                            enabled={process.env.NODE_ENV === 'production'}
+                        <PrivacyNotice
+                            enabled={process.env.NODE_ENV === "production"}
                             privacyPolicyUrl="/privacy"
                         />
                     </>
                 )}
-                
+
                 {/* Vercel Analytics */}
                 <Analytics />
                 <SpeedInsights />
