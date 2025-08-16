@@ -23,6 +23,9 @@ class WebVitalsReporter {
         }
     }
 
+    /**
+     * Sets up event listeners for online and offline events to manage network status and queue flushing.
+     */
     private setupOnlineListener() {
         window.addEventListener("online", () => {
             this.isOnline = true;
@@ -34,6 +37,9 @@ class WebVitalsReporter {
         });
     }
 
+    /**
+     * Initializes performance metrics event listeners.
+     */
     private initializeMetrics() {
         onCLS(this.handleMetric.bind(this));
         onINP(this.handleMetric.bind(this));
@@ -42,6 +48,9 @@ class WebVitalsReporter {
         onTTFB(this.handleMetric.bind(this));
     }
 
+    /**
+     * Handles a metric by adding it to the queue and sending it to analytics or logging it.
+     */
     private handleMetric(metric: Metric) {
         const event: AnalyticsEvent = {
             name: metric.name,
@@ -78,6 +87,15 @@ class WebVitalsReporter {
         }
     }
 
+    /**
+     * Flushes the queue of web vital events to an analytics endpoint.
+     *
+     * This function checks if there are any events in the queue. If the queue is empty,
+     * it returns immediately. Otherwise, it creates a copy of the current queue, clears
+     * the original queue, and attempts to send the copied events to the specified
+     * analytics endpoint via a POST request. If the sending process fails, it logs the
+     * error and re-queues the events at the beginning of the original queue.
+     */
     private async flushQueue() {
         if (this.queue.length === 0) return;
 
@@ -105,6 +123,9 @@ class WebVitalsReporter {
 export const webVitalsReporter = new WebVitalsReporter();
 
 // Export function for manual reporting
+/**
+ * Reports a web vital metric using the webVitalsReporter's handleMetric method.
+ */
 export const reportWebVitals = (metric: Metric) => {
     webVitalsReporter['handleMetric'](metric);
 };
