@@ -1,5 +1,5 @@
 import { onCLS, onINP, onFCP, onLCP, onTTFB, Metric } from "web-vitals";
-import { track } from '@vercel/analytics';
+import { track } from "@vercel/analytics";
 
 interface AnalyticsEvent {
     name: string;
@@ -65,11 +65,11 @@ class WebVitalsReporter {
         this.queue.push(event);
 
         // Send to Vercel Analytics
-        if (process.env.NODE_ENV === 'production') {
-            track('web_vital', {
+        if (process.env.NODE_ENV === "production") {
+            track("web_vital", {
                 metric: metric.name,
                 value: metric.value,
-                rating: metric.rating
+                rating: metric.rating,
             });
         }
 
@@ -127,5 +127,5 @@ export const webVitalsReporter = new WebVitalsReporter();
  * Reports a web vital metric using the webVitalsReporter's handleMetric method.
  */
 export const reportWebVitals = (metric: Metric) => {
-    webVitalsReporter['handleMetric'](metric);
+    webVitalsReporter["handleMetric"](metric);
 };
