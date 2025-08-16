@@ -249,6 +249,9 @@ const formatDate = (dateString: string | null) => {
     });
 };
 
+/**
+ * Calculates the engagement rate based on likes, comments, shares, and views.
+ */
 const getEngagementRate = (engagement: {
     likes: number;
     comments: number;
@@ -264,13 +267,18 @@ const getEngagementRate = (engagement: {
 };
 
 /**
- * A React component that displays a list of posts with various filters, search functionality,
- * and detailed information about each post including engagement metrics, author, platform, etc.
+ * This React component manages and displays a list of posts with various functionalities such as creating, editing, deleting, publishing, and filtering posts.
+ *
+ * The main features include:
+ * - Creating new posts through a modal dialog.
+ * - Filtering posts by platform and search term.
+ * - Displaying posts in different tabs (all, published, scheduled, drafts).
+ * - Showing detailed information about each post, including engagement metrics.
+ * - Providing actions for each post such as edit, duplicate, publish, view on platform, and delete.
+ *
+ * The component uses various state management techniques to handle the list of posts, active tab, search term, and filter options. It also integrates with UI components from a design system library to render the interface.
  *
  * @component
- * @name PostsList
- *
- * @returns {JSX.Element} - The rendered UI component for the posts list.
  */
 const PostsPage = () => {
     const [posts, setPosts] = useState<Post[]>(POSTS_DATA);
@@ -335,6 +343,15 @@ const PostsPage = () => {
         };
     }, [posts]);
 
+    /**
+     * Handles the creation of a new post.
+     *
+     * This function first checks if all required fields (content and platform) are filled in. If any field is missing,
+     * it alerts the user and exits. It then creates a new post object with an incremented ID, based on the current posts list,
+     * sets the appropriate status ('scheduled' or 'draft'), initializes engagement metrics to zero, and assigns other properties
+     * from the `newPost` state. After creating the post, it updates the `posts` state by adding the new post at the beginning of
+     * the list, resets the `newPost` state, closes the create dialog, and alerts the user that the post was created successfully.
+     */
     const handleCreatePost = () => {
         if (!newPost.content || !newPost.platform) {
             alert("Please fill in all required fields");
@@ -345,7 +362,9 @@ const PostsPage = () => {
             id: Math.max(...posts.map(p => p.id)) + 1,
             content: newPost.content,
             platform: newPost.platform,
-            status: newPost.scheduledFor ? "scheduled" as const : "draft" as const,
+            status: newPost.scheduledFor
+                ? ("scheduled" as const)
+                : ("draft" as const),
             publishedAt: null,
             scheduledFor: newPost.scheduledFor ? newPost.scheduledFor : null,
             engagement: {
@@ -395,6 +414,9 @@ const PostsPage = () => {
         alert("Post published successfully!");
     };
 
+    /**
+     * Duplicates a post by creating a new post with an incremented ID and modified content.
+     */
     const handleDuplicatePost = (post: Post) => {
         const duplicatedPost: Post = {
             ...post,
@@ -799,14 +821,14 @@ const PostsPage = () => {
                                                     by {post.author}
                                                 </span>
                                                 {post.status === "published" &&
-                                                engagementRate > 5 && (
-                                                <Badge
-                                                variant="outline"
-                                                className="bg-green-50 text-green-700 border-green-200"
-                                                >
-                                                High engagement
-                                                </Badge>
-                                                )}
+                                                    engagementRate > 5 && (
+                                                        <Badge
+                                                            variant="outline"
+                                                            className="bg-green-50 text-green-700 border-green-200"
+                                                        >
+                                                            High engagement
+                                                        </Badge>
+                                                    )}
                                             </div>
                                             <DropdownMenu>
                                                 <DropdownMenuTrigger asChild>
@@ -920,7 +942,9 @@ const PostsPage = () => {
                                                                 variant="outline"
                                                                 className="text-xs"
                                                             >
-                                                                {engagementRate.toFixed(1)}
+                                                                {engagementRate.toFixed(
+                                                                    1
+                                                                )}
                                                                 % engagement
                                                             </Badge>
                                                         )}
