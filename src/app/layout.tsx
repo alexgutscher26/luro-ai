@@ -12,6 +12,9 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 
 export const metadata = generateMetadata();
 
+/**
+ * Renders the root layout for the application, including providers and analytics components.
+ */
 export default function RootLayout({
     children,
 }: Readonly<{
